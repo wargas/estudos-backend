@@ -1,5 +1,4 @@
 import Route from '@ioc:Adonis/Core/Route'
-import Env from '@ioc:Adonis/Core/Env'
 import Database from '@ioc:Adonis/Lucid/Database';
 
 Route.post('api/auth/login', 'AuthController.login')
@@ -47,7 +46,3 @@ Route.group(() => {
 }).prefix('api')
 .middleware('auth')
 
-
-Route.get('/', async () => {
-  return { hello: Env.get("DB_HOST")  }
-})

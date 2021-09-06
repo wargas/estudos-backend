@@ -11,11 +11,13 @@ export default class DisciplinasController {
       countAulas = '',
       countQuestoes = '',
       whereArquivada = '0', 
+      search = '',
       preloadAulas = 'false' } = request.all()
 
     const disciplinas =  await Disciplina
       .query()
       .where("user_id", auth.user?.id || '')
+      .if(search !== '', q => q.where('name', 'regexp', search))
       .if(countAulas !== '', q => {
         q.withCount('aulas')
 
@@ -31,21 +33,11 @@ export default class DisciplinasController {
     return disciplinas
   }
 
-  async show({ params, auth, request }: HttpContextContract) {
-
-    const { orderByAulas = null } = request.all()
+  async show({ params, auth }: HttpContextContract) {
 
     return await Disciplina.query()
       .where('id', params.id)
       .where("user_id", auth.user?.id || '')
-      .preload('aulas', query => {
-        query.if(orderByAulas, query3 => {
-          const [coluna = 'id', ordem = 'asc'] = orderByAulas.split(':')
-          query3.orderBy(coluna, ordem)
-        }).preload('questoes', query2 => {
-          query2.preload('respondidas')
-        })
-      })
       .first()
   }
 

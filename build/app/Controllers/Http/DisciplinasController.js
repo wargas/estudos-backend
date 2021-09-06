@@ -6,10 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Disciplina_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Disciplina"));
 class DisciplinasController {
     async index({ auth, request }) {
-        const { countAulas = '', countQuestoes = '', whereArquivada = '0', preloadAulas = 'false' } = request.all();
+        const { countAulas = '', countQuestoes = '', whereArquivada = '0', search = '', preloadAulas = 'false' } = request.all();
         const disciplinas = await Disciplina_1.default
             .query()
             .where("user_id", auth.user?.id || '')
+            .if(search !== '', q => q.where('name', 'regexp', search))
             .if(countAulas !== '', q => {
             q.withCount('aulas');
         })
@@ -22,19 +23,10 @@ class DisciplinasController {
         });
         return disciplinas;
     }
-    async show({ params, auth, request }) {
-        const { orderByAulas = null } = request.all();
+    async show({ params, auth }) {
         return await Disciplina_1.default.query()
             .where('id', params.id)
             .where("user_id", auth.user?.id || '')
-            .preload('aulas', query => {
-            query.if(orderByAulas, query3 => {
-                const [coluna = 'id', ordem = 'asc'] = orderByAulas.split(':');
-                query3.orderBy(coluna, ordem);
-            }).preload('questoes', query2 => {
-                query2.preload('respondidas');
-            });
-        })
             .first();
     }
     async store({ request, auth }) {
