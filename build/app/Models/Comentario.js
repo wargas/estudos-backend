@@ -19,11 +19,11 @@ __decorate([
 __decorate([
     Orm_1.column(),
     __metadata("design:type", Number)
-], Comentario.prototype, "aula_id", void 0);
+], Comentario.prototype, "questao_id", void 0);
 __decorate([
     Orm_1.column(),
     __metadata("design:type", Number)
-], Comentario.prototype, "questao", void 0);
+], Comentario.prototype, "user_id", void 0);
 __decorate([
     Orm_1.column(),
     __metadata("design:type", String)

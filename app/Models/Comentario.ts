@@ -5,10 +5,10 @@ export default class Comentario extends BaseModel {
   public id: number
 
   @column()
-  public aula_id: number;
+  public questao_id: number;
 
   @column()
-  public questao: number;
+  public user_id: number;
 
   @column()
   public texto: string;

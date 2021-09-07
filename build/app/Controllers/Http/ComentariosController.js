@@ -5,11 +5,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Comentario_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Comentario"));
 class ComentariosController {
-    async store({ params, request }) {
+    async store({ params, request, auth }) {
         const { texto } = request.all();
         const comentario = await Comentario_1.default.query()
-            .where('aula_id', params.aula_id)
-            .where('questao', params.questao)
+            .where('user_id', auth.user?.id || '')
+            .where('questao_id', params.questao_id)
+            .orderBy('id', 'desc')
             .first();
         if (comentario) {
             comentario.texto = texto;
@@ -17,22 +18,23 @@ class ComentariosController {
             return comentario;
         }
         return Comentario_1.default.create({
-            aula_id: params.aula_id,
-            questao: params.questao,
+            questao_id: params.questao_id,
+            user_id: auth.user?.id,
             texto
         });
     }
-    async show({ params }) {
+    async show({ params, auth }) {
         const comentario = await Comentario_1.default.query()
-            .where('aula_id', params.aula_id)
-            .where('questao', params.questao)
+            .where('questao_id', params.questao_id)
+            .where('user_id', auth.user?.id || '')
+            .orderBy('id', 'desc')
             .first();
         if (comentario) {
             return comentario;
         }
         return Comentario_1.default.create({
-            aula_id: params.aula_id,
-            questao: params.questao,
+            questao_id: params.questao_id,
+            user_id: auth.user?.id || 0,
             texto: ''
         });
     }

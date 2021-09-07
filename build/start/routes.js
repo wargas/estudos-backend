@@ -19,8 +19,8 @@ Route_1.default.group(() => {
     Route_1.default.delete('respondidas/:id', 'QuestionsController.deleteRespondida');
     Route_1.default.get('respondidas/:aula', 'QuestionsController.respondidas');
     Route_1.default.resource('registros', 'RegistrosController');
-    Route_1.default.get('comentarios/:aula_id/:questao', 'ComentariosController.show');
-    Route_1.default.post('comentarios/:aula_id/:questao', 'ComentariosController.store');
+    Route_1.default.get('comentarios/:questao_id', 'ComentariosController.show');
+    Route_1.default.post('comentarios/:questao_id', 'ComentariosController.store');
     Route_1.default.group(() => {
         Route_1.default.get('questoes-por-dia', 'RelatoriosController.questaoPorDia');
         Route_1.default.get('ranking-questoes-dia', 'RelatoriosController.rankingQuestoesDia');

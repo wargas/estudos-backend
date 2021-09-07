@@ -22,8 +22,8 @@ Route.group(() => {
 
   Route.resource('registros', 'RegistrosController');
 
-  Route.get('comentarios/:aula_id/:questao', 'ComentariosController.show');
-  Route.post('comentarios/:aula_id/:questao', 'ComentariosController.store');
+  Route.get('comentarios/:questao_id', 'ComentariosController.show');
+  Route.post('comentarios/:questao_id', 'ComentariosController.store');
 
   Route.group(() => {
     Route.get('questoes-por-dia', 'RelatoriosController.questaoPorDia');
