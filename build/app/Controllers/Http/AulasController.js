@@ -13,6 +13,7 @@ class AulasController {
             .where("user_id", auth.user?.id || '')
             .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
             .withCount('questoes')
+            .orderBy('ordem', 'asc')
             .preload('questoes', q => q.preload('respondidas'));
         return aulas.map(aula => {
             const { questoes, ..._aula } = aula.serialize();
