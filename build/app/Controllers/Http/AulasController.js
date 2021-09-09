@@ -7,11 +7,14 @@ const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"))
 const luxon_1 = require("luxon");
 class AulasController {
     async index({ auth, request }) {
-        const { disciplina_id = '' } = request.all();
+        const { disciplina_id = '', order_by = 'ordem:asc' } = request.all();
+        const [c = 'ordem', o = 'asc'] = order_by.split(':');
         const aulas = await Aula_1.default
             .query()
             .where("user_id", auth.user?.id || '')
             .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
+            .if(c === 'ordem', q => q.orderBy(c, o))
+            .if(c === 'name', q => q.orderBy(c, o))
             .withCount('questoes')
             .orderBy('ordem', 'asc')
             .preload('questoes', q => q.preload('respondidas'));
@@ -37,7 +40,47 @@ class AulasController {
                 const lastDay = luxon_1.DateTime.fromMillis(Math.max(..._arrayInts)).toSQLDate();
                 return { ...day, last: lastDay === day.data };
             });
-            return { ..._aula, days };
+            return { ..._aula, days, questoes_count: aula.$extras.questoes_count };
+        })
+            .sort((a, b) => {
+            const lastA = a.days.find(dia => dia.last);
+            const lastB = b.days.find(dia => dia.last);
+            if (c === 'questoes') {
+                return o === 'asc' ?
+                    a.questoes_count - b.questoes_count :
+                    b.questoes_count - a.questoes_count;
+            }
+            if (c === 'last') {
+                if (!lastB) {
+                    return o === 'asc' ? 1 : -1;
+                }
+                if (!lastA) {
+                    return o === 'asc' ? -1 : 1;
+                }
+                if (o === 'asc') {
+                    return luxon_1.DateTime.fromSQL(lastA.data + '').toMillis() -
+                        luxon_1.DateTime.fromSQL(lastB.data + '').toMillis();
+                }
+                else {
+                    return luxon_1.DateTime.fromSQL(lastB.data + '').toMillis() -
+                        luxon_1.DateTime.fromSQL(lastA.data + '').toMillis();
+                }
+            }
+            if (c === 'nota') {
+                if (!lastB) {
+                    return o === 'asc' ? 1 : -1;
+                }
+                if (!lastA) {
+                    return o === 'asc' ? -1 : 1;
+                }
+                if (o === 'asc') {
+                    return (lastA.acertos / lastA.total) - (lastB.acertos / lastB.total);
+                }
+                else {
+                    return (lastB.acertos / lastB.total) - (lastA.acertos / lastA.total);
+                }
+            }
+            return 0;
         });
     }
     async show({ params, auth }) {
