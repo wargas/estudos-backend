@@ -26,9 +26,11 @@ export default class Questao extends BaseModel {
 
   @column({
     serialize: (jsonString, _, questao) => {
+      
       try {
         const gabarito = questao.$original.gabarito || 'X'
-        const jsonArray = JSON.parse(jsonString);
+        // const jsonArray = JSON.parse(jsonString);
+        const jsonArray = (typeof jsonString) === "string" ?  JSON.parse(jsonString) : jsonString
         const letras = jsonArray.length > 2 ? ['A', 'B', 'C', 'D', 'E'] : ['C', 'E'];
 
         return jsonArray.map((item, position) => {

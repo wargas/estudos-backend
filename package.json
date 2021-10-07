@@ -21,16 +21,12 @@
     "@adonisjs/lucid": "^16.0.2",
     "@adonisjs/redis": "^7.0.8",
     "@adonisjs/repl": "^3.0.0",
-    "@types/node-cron": "^2.0.4",
     "axios": "^0.21.1",
     "luxon": "^2.0.1",
-    "mysql": "^2.18.1",
-    "node-cron": "^3.0.0",
+    "pg": "^8.7.1",
     "phc-argon2": "^1.1.2",
     "proxy-addr": "^2.0.7",
-    "qrcode-terminal": "^0.12.0",
     "reflect-metadata": "^0.1.13",
-    "source-map-support": "^0.5.19",
-    "whatsapp-web.js": "^1.13.2"
+    "source-map-support": "^0.5.19"
   }
 }

@@ -1,5 +1,7 @@
+import HealthCheck from '@ioc:Adonis/Core/HealthCheck';
 import Route from '@ioc:Adonis/Core/Route'
 import Database from '@ioc:Adonis/Lucid/Database';
+import Questao from 'App/Models/Questao';
 
 Route.post('api/auth/login', 'AuthController.login')
 
@@ -46,3 +48,12 @@ Route.group(() => {
 }).prefix('api')
 .middleware('auth')
 
+Route.get('/', async () => {
+  const report = await HealthCheck.getReport()
+  
+  return {report}
+})
+
+Route.get('/teste', async () => {
+  return await Questao.all();
+})

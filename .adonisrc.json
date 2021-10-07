@@ -15,16 +15,13 @@
   },
   "preloads": [
     "./start/routes",
-    "./start/kernel",
-    "./start/socket"
+    "./start/kernel"
   ],
   "providers": [
     "./providers/AppProvider",
     "@adonisjs/core",
     "@adonisjs/lucid",
     "@adonisjs/redis",
-    "./providers/SocketProvider",
-    "./providers/WhatsAppProvider",
     "@adonisjs/auth"
   ],
   "aceProviders": [

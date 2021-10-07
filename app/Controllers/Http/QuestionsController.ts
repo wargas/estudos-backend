@@ -90,8 +90,6 @@ export default class QuestionsController {
       .where('id', questao_id)
       .firstOrFail()
 
-    
-
     const respondida = await Respondida.create({
       questao_id,
       resposta,
@@ -99,7 +97,7 @@ export default class QuestionsController {
       acertou: questao.gabarito === resposta,
       gabarito: questao.gabarito,
       horario: DateTime.local(),
-      user_id: auth.user?.id || 0
+      user_id: auth.user?.id || 0 
     })
 
     return respondida;
