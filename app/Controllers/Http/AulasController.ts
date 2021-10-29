@@ -1,7 +1,7 @@
-import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Aula from "App/Models/Aula";
 import { DateTime } from 'luxon';
+
 
 export default class AulasController {
 
@@ -121,6 +121,23 @@ export default class AulasController {
     const _data = { ...request.only(fields), user_id: auth.user?.id }
 
     return await Aula.create(_data)
+  }
+
+  async storeLote({request, auth}: HttpContextContract) {
+    const {disciplina_id, text} = request.only(['disciplina_id', 'text'])
+
+    const data = text.split("\n").map((item, index) => {
+      return {
+        disciplina_id: disciplina_id,
+        name: item,
+        user_id: auth.user?.id,
+        ordem: index,
+        concurso_id: 1
+      }
+    })
+
+    return await Aula.createMany(data)
+
   }
 
   async update({ request, params }: HttpContextContract) {

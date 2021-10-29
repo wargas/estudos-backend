@@ -1,5 +1,5 @@
 import HealthCheck from '@ioc:Adonis/Core/HealthCheck';
-import Route from '@ioc:Adonis/Core/Route'
+import Route from '@ioc:Adonis/Core/Route';
 import Database from '@ioc:Adonis/Lucid/Database';
 import Questao from 'App/Models/Questao';
 
@@ -7,6 +7,7 @@ Route.post('api/auth/login', 'AuthController.login')
 
 Route.group(() => {
   Route.resource('aulas', 'AulasController');
+  Route.post('aulas/insert-lote', 'AulasController.storeLote')
 
   Route.resource('disciplinas', 'DisciplinasController');
 
