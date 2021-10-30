@@ -1,7 +1,13 @@
+import Events from '@ioc:Adonis/Core/Event';
 import HealthCheck from '@ioc:Adonis/Core/HealthCheck';
 import Route from '@ioc:Adonis/Core/Route';
 import Database from '@ioc:Adonis/Lucid/Database';
 import Questao from 'App/Models/Questao';
+
+
+Events.on('db:query', query => {
+  console.log(query.sql)
+})
 
 Route.post('api/auth/login', 'AuthController.login')
 
@@ -29,6 +35,7 @@ Route.group(() => {
   Route.post('comentarios/:questao_id', 'ComentariosController.store');
 
   Route.group(() => {
+    Route.get('dashboard', 'RelatoriosController.dashboard')
     Route.get('questoes-por-dia', 'RelatoriosController.questaoPorDia');
     Route.get('ranking-questoes-dia', 'RelatoriosController.rankingQuestoesDia')
     Route.get('tempo-por-dia', 'RelatoriosController.tempoPorDia');
@@ -58,3 +65,4 @@ Route.get('/', async () => {
 Route.get('/teste', async () => {
   return await Questao.all();
 })
+

@@ -3,10 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const Event_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Event"));
 const HealthCheck_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/HealthCheck"));
 const Route_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Route"));
 const Database_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/Database"));
 const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
+Event_1.default.on('db:query', query => {
+    console.log(query.sql);
+});
 Route_1.default.post('api/auth/login', 'AuthController.login');
 Route_1.default.group(() => {
     Route_1.default.resource('aulas', 'AulasController');
@@ -25,6 +29,7 @@ Route_1.default.group(() => {
     Route_1.default.get('comentarios/:questao_id', 'ComentariosController.show');
     Route_1.default.post('comentarios/:questao_id', 'ComentariosController.store');
     Route_1.default.group(() => {
+        Route_1.default.get('dashboard', 'RelatoriosController.dashboard');
         Route_1.default.get('questoes-por-dia', 'RelatoriosController.questaoPorDia');
         Route_1.default.get('ranking-questoes-dia', 'RelatoriosController.rankingQuestoesDia');
         Route_1.default.get('tempo-por-dia', 'RelatoriosController.tempoPorDia');

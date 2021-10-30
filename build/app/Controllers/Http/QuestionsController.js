@@ -3,13 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+const Redis_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Addons/Redis"));
 const Env_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Env"));
-const luxon_1 = require("luxon");
-const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
-const Respondida_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Respondida"));
-const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
 const Database_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/Database"));
+const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
+const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
+const Respondida_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Respondida"));
 const ExtractQuestions_1 = global[Symbol.for('ioc.use')]("App/repositories/ExtractQuestions");
+const luxon_1 = require("luxon");
 class QuestionsController {
     async index({ request }) {
         const query = Questao_1.default.query()
@@ -61,6 +62,9 @@ class QuestionsController {
         return { text };
     }
     async responder({ request, auth }) {
+        const today = luxon_1.DateTime.local().set({ hour: 0, minute: 0, second: 0 });
+        const redisTodayKey = `dashboard:${auth.user?.id}:>=${today.toSQLDate()}`;
+        await Redis_1.default.del(redisTodayKey);
         const { questao_id, resposta } = request.all();
         const questao = await Questao_1.default.query()
             .where('id', questao_id)

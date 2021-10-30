@@ -20,7 +20,7 @@ const databaseConfig = {
                 naturalSort: true,
             },
             healthCheck: false,
-            debug: false,
+            debug: true,
         },
     }
 };
