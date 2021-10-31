@@ -8,17 +8,17 @@ const Database_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/D
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
 const luxon_1 = require("luxon");
 class RelatoriosController {
-    async dashboard({ auth }) {
+    async dashboard({ user }) {
         const today = luxon_1.DateTime.local().set({ hour: 0, minute: 0, second: 0 });
         const yesterday = today.minus({ second: 1 });
-        const redisLastedKey = `dashboard:${auth.user?.id}:<=${yesterday.toSQLDate()}`;
-        const redisTodayKey = `dashboard:${auth.user?.id}:>=${today.toSQLDate()}`;
+        const redisLastedKey = `dashboard:${user?.id}:<=${yesterday.toSQLDate()}`;
+        const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`;
         if (!(await Redis_1.default.get(redisLastedKey))) {
-            const days = await this.getDashboardDays(auth.user?.id, `horario <= '${yesterday.toSQL({ includeOffset: false })}'`);
+            const days = await this.getDashboardDays(user?.id, `horario <= '${yesterday.toSQL({ includeOffset: false })}'`);
             await Redis_1.default.set(redisLastedKey, JSON.stringify(days));
         }
         if (!(await Redis_1.default.get(redisTodayKey))) {
-            const days = await this.getDashboardDays(auth.user?.id, `horario >= '${today.toSQL({ includeOffset: false })}'`);
+            const days = await this.getDashboardDays(user?.id, `horario >= '${today.toSQL({ includeOffset: false })}'`);
             await Redis_1.default.set(redisTodayKey, JSON.stringify(days));
         }
         const daysLatest = await Redis_1.default.get(redisLastedKey);
@@ -50,9 +50,9 @@ class RelatoriosController {
         });
         return days;
     }
-    async questaoPorDia({ request, auth }) {
+    async questaoPorDia({ request, user }) {
         const { limite = null } = request.all();
-        const user_id = auth.user?.id;
+        const user_id = user?.id;
         const [data] = await Database_1.default
             .rawQuery(`SELECT DATE(horario) as data, COUNT(id) as total, SUM(acertou) acertos, user_id FROM respondidas  WHERE user_id = ${user_id} GROUP BY DATE(horario)`);
         return data.sort((a, b) => {
@@ -107,9 +107,9 @@ class RelatoriosController {
             return { id, name, ordem, paginas, markdown, user_id, concurso_id, disciplina_id, questoes, historico };
         });
     }
-    async tempoPorDia({ request, auth }) {
+    async tempoPorDia({ request, user }) {
         const { limite = 10 } = request.get();
-        const user_id = auth.user?.id;
+        const user_id = user?.id;
         const [data] = await Database_1.default
             .rawQuery(`SELECT DATE(horario) as data, SUM(tempo) as tempo FROM registros WHERE user_id = ${user_id} GROUP BY DATE(horario)`);
         return Array(parseInt(limite)).fill('').map((_, index) => {
@@ -123,9 +123,9 @@ class RelatoriosController {
             };
         });
     }
-    async rankingTempoDia({ request, auth }) {
+    async rankingTempoDia({ request, user }) {
         const { limite = 10 } = request.get();
-        const user_id = auth.user?.id;
+        const user_id = user?.id;
         const [data] = await Database_1.default
             .rawQuery(`SELECT DATE(horario) as data, SUM(tempo) as tempo, user_id FROM registros WHERE user_id = ${user_id} GROUP BY DATE(horario) `);
         return data.sort((a, b) => {
@@ -152,9 +152,9 @@ class RelatoriosController {
             return false;
         });
     }
-    async rankingQuestoesDia({ request, auth }) {
+    async rankingQuestoesDia({ request, user }) {
         const { limite = 10 } = request.all();
-        const user_id = auth.user?.id;
+        const user_id = user?.id;
         const [data] = await Database_1.default
             .rawQuery(`SELECT DATE(horario) as data, COUNT(id) as total, SUM(acertou) acertos, user_id FROM respondidas WHERE user_id = ${user_id} GROUP BY DATE(horario)`);
         return data.sort((a, b) => {

@@ -12,9 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const luxon_1 = require("luxon");
 const Hash_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Hash"));
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
+const luxon_1 = require("luxon");
 class User extends Orm_1.BaseModel {
     static async hashPassword(user) {
         if (user.$dirty.password) {
@@ -29,15 +29,15 @@ __decorate([
 __decorate([
     Orm_1.column(),
     __metadata("design:type", String)
+], User.prototype, "name", void 0);
+__decorate([
+    Orm_1.column(),
+    __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
     Orm_1.column({ serializeAs: null }),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
-__decorate([
-    Orm_1.column(),
-    __metadata("design:type", String)
-], User.prototype, "name", void 0);
 __decorate([
     Orm_1.column(),
     __metadata("design:type", String)

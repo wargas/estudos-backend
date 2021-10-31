@@ -27,11 +27,10 @@
     "./providers/AppProvider",
     "@adonisjs/core",
     "@adonisjs/lucid",
-    "@adonisjs/redis",
-    "@adonisjs/auth"
+    "@adonisjs/redis"
   ],
   "aceProviders": [
     "@adonisjs/repl"
   ],
-  "lastCompiledAt": "2021-10-30T17:45:43.999Z"
+  "lastCompiledAt": "2021-10-31T12:22:29.607Z"
 }

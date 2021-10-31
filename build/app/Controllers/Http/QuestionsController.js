@@ -61,9 +61,9 @@ class QuestionsController {
         const text = ExtractQuestions_1.ExtractQuestions.text(aula?.markdown, questao);
         return { text };
     }
-    async responder({ request, auth }) {
+    async responder({ request, user }) {
         const today = luxon_1.DateTime.local().set({ hour: 0, minute: 0, second: 0 });
-        const redisTodayKey = `dashboard:${auth.user?.id}:>=${today.toSQLDate()}`;
+        const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`;
         await Redis_1.default.del(redisTodayKey);
         const { questao_id, resposta } = request.all();
         const questao = await Questao_1.default.query()
@@ -76,7 +76,7 @@ class QuestionsController {
             acertou: questao.gabarito === resposta,
             gabarito: questao.gabarito,
             horario: luxon_1.DateTime.local(),
-            user_id: auth.user?.id || 0
+            user_id: user?.id || 0
         });
         return respondida;
     }
@@ -85,10 +85,10 @@ class QuestionsController {
         await Respondida_1.default.query().where('id', id).delete();
         return 'ok';
     }
-    async respondidas({ params, auth }) {
+    async respondidas({ params, user }) {
         const { aula } = params;
         const respondida = await Respondida_1.default.query()
-            .where("user_id", auth.user?.id || '')
+            .where("user_id", user?.id || '')
             .where('aula_id', aula);
         return respondida;
     }

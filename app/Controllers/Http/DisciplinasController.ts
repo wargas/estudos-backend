@@ -1,11 +1,11 @@
-import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
-
+import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Disciplina from "App/Models/Disciplina";
+
 
 export default class DisciplinasController {
 
 
-  async index({ auth, request }: HttpContextContract) {
+  async index({ user, request }: HttpContextContract) {
 
     const {
       countAulas = '',
@@ -16,7 +16,7 @@ export default class DisciplinasController {
 
     const disciplinas =  await Disciplina
       .query()
-      .where("user_id", auth.user?.id || '')
+      .where("user_id", user?.id || '')
       .if(search !== '', q => q.where('name', 'regexp', search))
       .if(countAulas !== '', q => {
         q.withCount('aulas')
@@ -33,18 +33,18 @@ export default class DisciplinasController {
     return disciplinas
   }
 
-  async show({ params, auth }: HttpContextContract) {
+  async show({ params, user }: HttpContextContract) {
 
     return await Disciplina.query()
       .where('id', params.id)
-      .where("user_id", auth.user?.id || '')
+      .where("user_id", user?.id || '')
       .first()
   }
 
-  async store({ request, auth }: HttpContextContract) {
+  async store({ request, user }: HttpContextContract) {
     const data = request.only(['name', 'arquivada'])
 
-    const user_id = auth.user?.id || 0
+    const user_id = user?.id || 0
 
     return await Disciplina.create({ ...data, user_id });
   }

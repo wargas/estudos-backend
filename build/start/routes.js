@@ -37,9 +37,9 @@ Route_1.default.group(() => {
         Route_1.default.get('questoes-media/:id', 'RelatoriosController.questoesMedia');
         Route_1.default.get('respondidas-por-disciplina/:id', 'RelatoriosController.respondidasPorDisciplina');
     }).prefix('relatorios');
-    Route_1.default.get('views/:view', async ({ params, auth }) => {
+    Route_1.default.get('views/:view', async ({ params, user }) => {
         const { view = "" } = params;
-        const user_id = auth.user?.id;
+        const user_id = user?.id;
         return await Database_1.default.from(view).where({ user_id });
     });
     Route_1.default.get("erros/:dia", 'QuestionsController.erros');

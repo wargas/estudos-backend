@@ -84,9 +84,9 @@ export default class QuestionsController {
     return { text };
   }
 
-  async responder({ request, auth }: HttpContextContract) {
+  async responder({ request, user }: HttpContextContract) {
     const today = DateTime.local().set({ hour: 0, minute: 0, second: 0 })
-    const redisTodayKey = `dashboard:${auth.user?.id}:>=${today.toSQLDate()}`
+    const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`
     await Redis.del(redisTodayKey)
     
     const { questao_id, resposta } = request.all();
@@ -102,7 +102,7 @@ export default class QuestionsController {
       acertou: questao.gabarito === resposta,
       gabarito: questao.gabarito,
       horario: DateTime.local(),
-      user_id: auth.user?.id || 0 
+      user_id: user?.id || 0 
     })
 
     return respondida;
@@ -116,11 +116,11 @@ export default class QuestionsController {
     return 'ok';
   }
 
-  async respondidas({ params, auth }: HttpContextContract) {
+  async respondidas({ params, user }: HttpContextContract) {
     const { aula } = params;
 
     const respondida = await Respondida.query()
-      .where("user_id", auth.user?.id || '')
+      .where("user_id", user?.id || '')
       .where('aula_id', aula);
 
 

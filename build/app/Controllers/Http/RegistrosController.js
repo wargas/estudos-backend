@@ -7,17 +7,17 @@ const Redis_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Addons/Red
 const Registro_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Registro"));
 const luxon_1 = require("luxon");
 class RegistrosController {
-    async store({ request, auth }) {
-        const user_id = auth.user?.id;
+    async store({ request, user }) {
+        const user_id = user?.id;
         return await Registro_1.default.create({
             ...request.all(),
             user_id,
             concurso_id: 1
         });
     }
-    async update({ request, auth }) {
+    async update({ request, user }) {
         const today = luxon_1.DateTime.local().set({ hour: 0, minute: 0, second: 0 });
-        const redisTodayKey = `dashboard:${auth.user?.id}:>=${today.toSQLDate()}`;
+        const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`;
         await Redis_1.default.del(redisTodayKey);
         const { tempo, id } = request.all();
         const registro = await Registro_1.default.find(id);

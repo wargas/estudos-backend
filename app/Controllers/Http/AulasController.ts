@@ -5,7 +5,7 @@ import { DateTime } from 'luxon';
 
 export default class AulasController {
 
-  async index({ auth, request }: HttpContextContract) {
+  async index({ user, request }: HttpContextContract) {
 
     const { disciplina_id = '', order_by = 'ordem:asc' } = request.all()
 
@@ -13,7 +13,7 @@ export default class AulasController {
 
     const aulas = await Aula
       .query()
-      .where("user_id", auth.user?.id || '')
+      .where("user_id", user?.id || '')
       .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
       .if(c === 'ordem', q => q.orderBy(c, o))
       .if(c === 'name', q => q.orderBy(c, o))
@@ -103,10 +103,10 @@ export default class AulasController {
 
   }
 
-  async show({ params, auth }: HttpContextContract) {
+  async show({ params, user }: HttpContextContract) {
     return await Aula.query()
       .where('id', params.id)
-      .where("user_id", auth.user?.id || '')
+      .where("user_id", user?.id || '')
       .preload('disciplina')
       .preload('respondidas')
       .preload('questoes')
@@ -116,21 +116,21 @@ export default class AulasController {
       .first()
   }
 
-  async store({ request, auth }: HttpContextContract) {
+  async store({ request, user }: HttpContextContract) {
     const fields = ['name', 'ordem', 'disciplina_id']
-    const _data = { ...request.only(fields), user_id: auth.user?.id }
+    const _data = { ...request.only(fields), user_id: user?.id }
 
     return await Aula.create(_data)
   }
 
-  async storeLote({request, auth}: HttpContextContract) {
+  async storeLote({request, user}: HttpContextContract) {
     const {disciplina_id, text} = request.only(['disciplina_id', 'text'])
 
     const data = text.split("\n").map((item, index) => {
       return {
         disciplina_id: disciplina_id,
         name: item,
-        user_id: auth.user?.id,
+        user_id: user?.id,
         ordem: index,
         concurso_id: 1
       }

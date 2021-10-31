@@ -6,12 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
 const luxon_1 = require("luxon");
 class AulasController {
-    async index({ auth, request }) {
+    async index({ user, request }) {
         const { disciplina_id = '', order_by = 'ordem:asc' } = request.all();
         const [c = 'ordem', o = 'asc'] = order_by.split(':');
         const aulas = await Aula_1.default
             .query()
-            .where("user_id", auth.user?.id || '')
+            .where("user_id", user?.id || '')
             .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
             .if(c === 'ordem', q => q.orderBy(c, o))
             .if(c === 'name', q => q.orderBy(c, o))
@@ -83,10 +83,10 @@ class AulasController {
             return 0;
         });
     }
-    async show({ params, auth }) {
+    async show({ params, user }) {
         return await Aula_1.default.query()
             .where('id', params.id)
-            .where("user_id", auth.user?.id || '')
+            .where("user_id", user?.id || '')
             .preload('disciplina')
             .preload('respondidas')
             .preload('questoes')
@@ -95,18 +95,18 @@ class AulasController {
         })
             .first();
     }
-    async store({ request, auth }) {
+    async store({ request, user }) {
         const fields = ['name', 'ordem', 'disciplina_id'];
-        const _data = { ...request.only(fields), user_id: auth.user?.id };
+        const _data = { ...request.only(fields), user_id: user?.id };
         return await Aula_1.default.create(_data);
     }
-    async storeLote({ request, auth }) {
+    async storeLote({ request, user }) {
         const { disciplina_id, text } = request.only(['disciplina_id', 'text']);
         const data = text.split("\n").map((item, index) => {
             return {
                 disciplina_id: disciplina_id,
                 name: item,
-                user_id: auth.user?.id,
+                user_id: user?.id,
                 ordem: index,
                 concurso_id: 1
             };

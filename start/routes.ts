@@ -44,9 +44,9 @@ Route.group(() => {
     Route.get('respondidas-por-disciplina/:id', 'RelatoriosController.respondidasPorDisciplina');
   }).prefix('relatorios');
 
-  Route.get('views/:view', async ({ params, auth }) => {
+  Route.get('views/:view', async ({ params, user }) => {
     const { view = "" } = params;
-    const user_id = auth.user?.id;
+    const user_id = user?.id;
 
     return await Database.from(view).where({ user_id });
 

@@ -5,11 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Disciplina_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Disciplina"));
 class DisciplinasController {
-    async index({ auth, request }) {
+    async index({ user, request }) {
         const { countAulas = '', countQuestoes = '', whereArquivada = '0', search = '', preloadAulas = 'false' } = request.all();
         const disciplinas = await Disciplina_1.default
             .query()
-            .where("user_id", auth.user?.id || '')
+            .where("user_id", user?.id || '')
             .if(search !== '', q => q.where('name', 'regexp', search))
             .if(countAulas !== '', q => {
             q.withCount('aulas');
@@ -23,15 +23,15 @@ class DisciplinasController {
         });
         return disciplinas;
     }
-    async show({ params, auth }) {
+    async show({ params, user }) {
         return await Disciplina_1.default.query()
             .where('id', params.id)
-            .where("user_id", auth.user?.id || '')
+            .where("user_id", user?.id || '')
             .first();
     }
-    async store({ request, auth }) {
+    async store({ request, user }) {
         const data = request.only(['name', 'arquivada']);
-        const user_id = auth.user?.id || 0;
+        const user_id = user?.id || 0;
         return await Disciplina_1.default.create({ ...data, user_id });
     }
     async update({ request, params }) {

@@ -8,15 +8,15 @@ import { DateTime } from 'luxon';
 export default class RelatoriosController {
 
 
-  async dashboard({ auth }: HttpContextContract) {
+  async dashboard({ user }: HttpContextContract) {
     const today = DateTime.local().set({ hour: 0, minute: 0, second: 0 })
     const yesterday = today.minus({ second: 1 })
-    const redisLastedKey = `dashboard:${auth.user?.id}:<=${yesterday.toSQLDate()}`
-    const redisTodayKey = `dashboard:${auth.user?.id}:>=${today.toSQLDate()}`
+    const redisLastedKey = `dashboard:${user?.id}:<=${yesterday.toSQLDate()}`
+    const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`
 
     if (!(await Redis.get(redisLastedKey))) {
       const days = await this.getDashboardDays(
-        auth.user?.id,
+        user?.id,
         `horario <= '${yesterday.toSQL({ includeOffset: false })}'`
       )
 
@@ -25,7 +25,7 @@ export default class RelatoriosController {
 
     if (!(await Redis.get(redisTodayKey))) {
       const days = await this.getDashboardDays(
-        auth.user?.id, 
+        user?.id, 
         `horario >= '${today.toSQL({ includeOffset: false })}'`)
 
       await Redis.set(redisTodayKey, JSON.stringify(days))
@@ -73,10 +73,10 @@ export default class RelatoriosController {
   }
 
 
-  async questaoPorDia({ request, auth }: HttpContextContract) {
+  async questaoPorDia({ request, user }: HttpContextContract) {
     const { limite = null } = request.all();
 
-    const user_id = auth.user?.id;
+    const user_id = user?.id;
 
     const [data] = await Database
       .rawQuery(`SELECT DATE(horario) as data, COUNT(id) as total, SUM(acertou) acertos, user_id FROM respondidas  WHERE user_id = ${user_id} GROUP BY DATE(horario)`)
@@ -146,9 +146,9 @@ export default class RelatoriosController {
     });
   }
 
-  async tempoPorDia({ request, auth }: HttpContextContract) {
+  async tempoPorDia({ request, user }: HttpContextContract) {
     const { limite = 10 } = request.get();
-    const user_id = auth.user?.id;
+    const user_id = user?.id;
 
     const [data] = await Database
       .rawQuery(`SELECT DATE(horario) as data, SUM(tempo) as tempo FROM registros WHERE user_id = ${user_id} GROUP BY DATE(horario)`);
@@ -170,10 +170,10 @@ export default class RelatoriosController {
 
   }
 
-  async rankingTempoDia({ request, auth }) {
+  async rankingTempoDia({ request, user }) {
     const { limite = 10 } = request.get();
 
-    const user_id = auth.user?.id;
+    const user_id = user?.id;
 
     const [data] = await Database
       .rawQuery(`SELECT DATE(horario) as data, SUM(tempo) as tempo, user_id FROM registros WHERE user_id = ${user_id} GROUP BY DATE(horario) `);
@@ -210,10 +210,10 @@ export default class RelatoriosController {
   }
 
 
-  async rankingQuestoesDia({ request, auth }: HttpContextContract) {
+  async rankingQuestoesDia({ request, user }: HttpContextContract) {
 
     const { limite = 10 } = request.all();
-    const user_id = auth.user?.id;
+    const user_id = user?.id;
 
     const [data] = await Database
       .rawQuery(`SELECT DATE(horario) as data, COUNT(id) as total, SUM(acertou) acertos, user_id FROM respondidas WHERE user_id = ${user_id} GROUP BY DATE(horario)`)
