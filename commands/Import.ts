@@ -1,4 +1,6 @@
-import { BaseCommand } from '@adonisjs/core/build/standalone'
+import { BaseCommand } from '@adonisjs/core/build/standalone';
+import Database from '@ioc:Adonis/Lucid/Database';
+import Questao from 'App/Models/Questao';
 
 export default class Import extends BaseCommand {
 
@@ -28,8 +30,36 @@ export default class Import extends BaseCommand {
 
   public async run() {
 
+    // const Database = await (await import('@ioc:Adonis/Lucid/Database')).default;
+    const Redis = await (await import('@ioc:Adonis/Addons/Redis')).default
+    const images = require(this.application.tmpPath('images.json'))
 
-    // const { default: Database } = await import('@ioc:Adonis/Lucid/Database');
+    for await(let img of images) {
+      
+      const redisImage = await Redis.get(img.url)
+
+      if(redisImage) {
+
+        const questoes = await Database.from('questoes').where('alternativas', 'like', `%${img.url}%`)
+
+        for await(let questao of questoes) {
+          await Questao.query()
+            .where('id', questao.id)
+            .update({
+              alternativas: questao.alternativas.replaceAll(img.url, redisImage)
+            })
+
+            console.log(`update questao: ${questao.id}`)
+        }
+        
+      }
+      
+    }
+
+
+    // const [questoes] = await Database.rawQuery(`SELECT * from questoes WHERE enunciado LIKE '%![](%' OR alternativas  LIKE '%![](%'`)
+
+    // console.log(questoes.length)
 
     // await Database.rawQuery('TRUNCATE alternativas')
     // await Database.rawQuery('TRUNCATE questoes')
