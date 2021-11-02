@@ -17,8 +17,8 @@ class Questaos extends Schema_1.default {
             table.string('gabarito');
             table.integer('aula_id');
             table.integer('position');
-            table.string('banca');
-            table.json('alternativas');
+            table.string('banca').defaultTo('');
+            table.text('alternativas');
             table.timestamp('created_at', { useTz: true });
             table.timestamp('updated_at', { useTz: true });
         });

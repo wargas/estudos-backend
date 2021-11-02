@@ -12,8 +12,8 @@ export default class Questaos extends BaseSchema {
       table.string('gabarito') // ` varchar(2) NOT NULL,
       table.integer('aula_id') // ` int(11) DEFAULT NULL,
       table.integer('position') // ` int(11) DEFAULT NULL,
-      table.string('banca') // ` varchar(255) DEFAULT '',
-      table.json('alternativas') // ` json DEFAULT NULL,
+      table.string('banca').defaultTo('') // ` varchar(255) DEFAULT '',
+      table.text('alternativas') // ` json DEFAULT NULL,
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL

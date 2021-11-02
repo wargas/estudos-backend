@@ -9,7 +9,7 @@ class UserSeeder extends Seeder_1.default {
     async run() {
         await User_1.default.create({
             email: 'teixeira.wargas@gmail.com',
-            password: 'wrgs',
+            password: '123456s',
             name: 'Wargas Teixeira'
         });
     }
