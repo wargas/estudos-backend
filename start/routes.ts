@@ -19,7 +19,6 @@ Route.group(() => {
 
   Route.resource('questoes', 'QuestionsController')
   Route.post('questoes/editar-lote', 'QuestionsController.editarEmLote')
-  Route.post('questoes/upload', 'QuestionsController.upload')
   Route.post('questoes/responder', 'QuestionsController.responder')
 
   Route.post('questoes/:id/:questao', 'QuestionsController.editar')

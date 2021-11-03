@@ -1,5 +1,4 @@
 import Redis from '@ioc:Adonis/Addons/Redis';
-import Env from '@ioc:Adonis/Core/Env';
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Database from '@ioc:Adonis/Lucid/Database';
 import Aula from 'App/Models/Aula';
@@ -128,18 +127,7 @@ export default class QuestionsController {
 
   }
 
-  async upload({ request }: HttpContextContract) {
-    const image = request.file('image');
-
-
-    await image?.move(`${Env.get('UPLOAD_ROOT')}`, {
-      name: `image-${DateTime.local().toMillis()}.${image.extname}`
-    })
-
-    return { ...image?.toJSON(), filePath: undefined, clientName: undefined }
-
-  }
-
+  
   async erros({params}: HttpContextContract) {
     const { dia } = params;
 
@@ -172,4 +160,11 @@ export default class QuestionsController {
     return aula;
 
   }
+
+  async destroy({ params}: HttpContextContract) {
+    const questao = await Questao.findOrFail(params.id)
+
+    return await questao.delete()
+  }
+  
 }

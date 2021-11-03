@@ -18,7 +18,6 @@ Route_1.default.group(() => {
     Route_1.default.resource('disciplinas', 'DisciplinasController');
     Route_1.default.resource('questoes', 'QuestionsController');
     Route_1.default.post('questoes/editar-lote', 'QuestionsController.editarEmLote');
-    Route_1.default.post('questoes/upload', 'QuestionsController.upload');
     Route_1.default.post('questoes/responder', 'QuestionsController.responder');
     Route_1.default.post('questoes/:id/:questao', 'QuestionsController.editar');
     Route_1.default.get('questoes/:id/:questao', 'QuestionsController.text');

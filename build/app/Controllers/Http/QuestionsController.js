@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Redis_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Addons/Redis"));
-const Env_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Env"));
 const Database_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/Database"));
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
 const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
@@ -92,13 +91,6 @@ class QuestionsController {
             .where('aula_id', aula);
         return respondida;
     }
-    async upload({ request }) {
-        const image = request.file('image');
-        await image?.move(`${Env_1.default.get('UPLOAD_ROOT')}`, {
-            name: `image-${luxon_1.DateTime.local().toMillis()}.${image.extname}`
-        });
-        return { ...image?.toJSON(), filePath: undefined, clientName: undefined };
-    }
     async erros({ params }) {
         const { dia } = params;
         let aula = await Aula_1.default.query().where('markdown', `${dia}.md`).first();
@@ -123,6 +115,10 @@ class QuestionsController {
         }).join("****");
         await QuestionHelper_1.QuestionHelper.makeFile(`${dia}.md`, texto);
         return aula;
+    }
+    async destroy({ params }) {
+        const questao = await Questao_1.default.findOrFail(params.id);
+        return await questao.delete();
     }
 }
 exports.default = QuestionsController;
