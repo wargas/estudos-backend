@@ -9,7 +9,7 @@ const Database_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/D
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
 const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
 const Respondida_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Respondida"));
-const ExtractQuestions_1 = global[Symbol.for('ioc.use')]("App/repositories/ExtractQuestions");
+const QuestionHelper_1 = global[Symbol.for('ioc.use')]("App/repositories/QuestionHelper");
 const luxon_1 = require("luxon");
 class QuestionsController {
     async index({ request }) {
@@ -53,12 +53,12 @@ class QuestionsController {
         const { id, questao } = params;
         const { texto = "" } = request.only(["texto"]);
         const aula = await Aula_1.default.find(id);
-        ExtractQuestions_1.ExtractQuestions.edit(aula?.markdown, questao, texto);
+        QuestionHelper_1.QuestionHelper.edit(aula?.markdown, questao, texto);
     }
     async text({ params }) {
         const { id, questao } = params;
         const aula = await Aula_1.default.find(id);
-        const text = ExtractQuestions_1.ExtractQuestions.text(aula?.markdown, questao);
+        const text = QuestionHelper_1.QuestionHelper.text(aula?.markdown, questao);
         return { text };
     }
     async responder({ request, user }) {
@@ -119,9 +119,9 @@ class QuestionsController {
         where DATE(horario) = DATE('${dia}') AND acertou = 0
     `);
         const texto = questoes.map(questao => {
-            return ExtractQuestions_1.ExtractQuestions.text(questao.markdown, parseInt(questao.questao));
+            return QuestionHelper_1.QuestionHelper.text(questao.markdown, parseInt(questao.questao));
         }).join("****");
-        await ExtractQuestions_1.ExtractQuestions.makeFile(`${dia}.md`, texto);
+        await QuestionHelper_1.QuestionHelper.makeFile(`${dia}.md`, texto);
         return aula;
     }
 }

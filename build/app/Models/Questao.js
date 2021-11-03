@@ -13,9 +13,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
+const QuestionHelper_1 = global[Symbol.for('ioc.use')]("App/repositories/QuestionHelper");
+const bancas_1 = global[Symbol.for('ioc.use')]("Config/bancas");
 const Aula_1 = __importDefault(require("./Aula"));
 const Respondida_1 = __importDefault(require("./Respondida"));
 class Questao extends Orm_1.BaseModel {
+    constructor() {
+        super(...arguments);
+        this.helper = new QuestionHelper_1.QuestionHelper();
+    }
+    get extractBanca() {
+        return this.helper.getBanca(this.enunciado, bancas_1.bancas);
+    }
+    get extractHeader() {
+        return this.helper.extractEnunciadoContent(this.enunciado);
+    }
+    get extractEnunciado() {
+        return this.helper.extractEnunciadoHeader(this.enunciado);
+    }
 }
 Questao.table = "questoes";
 __decorate([
@@ -29,10 +44,6 @@ __decorate([
 __decorate([
     Orm_1.column(),
     __metadata("design:type", String)
-], Questao.prototype, "banca", void 0);
-__decorate([
-    Orm_1.column(),
-    __metadata("design:type", String)
 ], Questao.prototype, "gabarito", void 0);
 __decorate([
     Orm_1.column({ isPrimary: true }),
@@ -42,6 +53,21 @@ __decorate([
     Orm_1.column(),
     __metadata("design:type", String)
 ], Questao.prototype, "modalidade", void 0);
+__decorate([
+    Orm_1.computed({ serializeAs: 'banca' }),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [])
+], Questao.prototype, "extractBanca", null);
+__decorate([
+    Orm_1.computed({ serializeAs: 'texto' }),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [])
+], Questao.prototype, "extractHeader", null);
+__decorate([
+    Orm_1.computed({ serializeAs: 'header' }),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [])
+], Questao.prototype, "extractEnunciado", null);
 __decorate([
     Orm_1.column({
         serialize: (jsonString, _, questao) => {

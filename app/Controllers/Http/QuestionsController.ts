@@ -5,7 +5,7 @@ import Database from '@ioc:Adonis/Lucid/Database';
 import Aula from 'App/Models/Aula';
 import Questao from 'App/Models/Questao';
 import Respondida from 'App/Models/Respondida';
-import { ExtractQuestions } from 'App/repositories/ExtractQuestions';
+import { QuestionHelper } from 'App/repositories/QuestionHelper';
 import { DateTime } from 'luxon';
 
 
@@ -71,7 +71,7 @@ export default class QuestionsController {
 
     const aula = await Aula.find(id);
 
-    ExtractQuestions.edit(aula?.markdown, questao, texto);
+    QuestionHelper.edit(aula?.markdown, questao, texto);
   }
 
   async text({ params }: HttpContextContract) {
@@ -79,7 +79,7 @@ export default class QuestionsController {
 
     const aula = await Aula.find(id);
 
-    const text = ExtractQuestions.text(aula?.markdown, questao);
+    const text = QuestionHelper.text(aula?.markdown, questao);
 
     return { text };
   }
@@ -164,10 +164,10 @@ export default class QuestionsController {
     `)
 
     const texto = questoes.map(questao => {
-      return ExtractQuestions.text(questao.markdown, parseInt(questao.questao));
+      return QuestionHelper.text(questao.markdown, parseInt(questao.questao));
     }).join("****");
 
-    await ExtractQuestions.makeFile(`${dia}.md`, texto);
+    await QuestionHelper.makeFile(`${dia}.md`, texto);
 
     return aula;
 

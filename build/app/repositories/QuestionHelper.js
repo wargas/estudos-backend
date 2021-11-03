@@ -3,11 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ExtractQuestions = void 0;
+exports.QuestionHelper = void 0;
 const Env_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Env"));
-const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
-class ExtractQuestions {
+const path_1 = __importDefault(require("path"));
+class QuestionHelper {
     static questions(_file) {
         const root = Env_1.default.get('MD_ROOT', '') + '';
         const file = path_1.default.resolve(root, _file);
@@ -86,6 +86,36 @@ class ExtractQuestions {
         await fs_1.default.writeFileSync(file, texto);
         return true;
     }
+    getEnunciadoDividerPosition(enunciado) {
+        const words = enunciado.split("");
+        let compareOpenClose = 0;
+        let dividerPos = 0;
+        words.every((word, index) => {
+            if (index > 0 && compareOpenClose === 0) {
+                dividerPos = index;
+                return false;
+            }
+            if (word === '(') {
+                compareOpenClose++;
+            }
+            if (word === ')') {
+                compareOpenClose--;
+            }
+            return true;
+        });
+        return dividerPos;
+    }
+    extractEnunciadoContent(enunciado) {
+        return enunciado.substring(this.getEnunciadoDividerPosition(enunciado)).trim();
+    }
+    extractEnunciadoHeader(enunciado) {
+        return enunciado.substr(0, this.getEnunciadoDividerPosition(enunciado));
+    }
+    getBanca(enunciado, bancas) {
+        const header = this.extractEnunciadoHeader(enunciado).toLowerCase();
+        const match = bancas.find(({ name }) => header.includes(name.toLowerCase()));
+        return match;
+    }
 }
-exports.ExtractQuestions = ExtractQuestions;
-//# sourceMappingURL=ExtractQuestions.js.map
+exports.QuestionHelper = QuestionHelper;
+//# sourceMappingURL=QuestionHelper.js.map
