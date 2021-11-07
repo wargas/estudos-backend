@@ -1,6 +1,5 @@
 import Redis from '@ioc:Adonis/Addons/Redis';
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
-import Database from '@ioc:Adonis/Lucid/Database';
 import Aula from 'App/Models/Aula';
 import Questao from 'App/Models/Questao';
 import Respondida from 'App/Models/Respondida';
@@ -12,8 +11,8 @@ import { DateTime } from 'luxon';
 
 export default class QuestionsController {
 
-  async index({request}: HttpContextContract) {
-    
+  async index({ request }: HttpContextContract) {
+
     const query = Questao.query()
       .if(request.input('id'), q => {
         q.where('id', request.input('id'))
@@ -32,7 +31,7 @@ export default class QuestionsController {
       .first()
   }
 
-  async editarEmLote({request}: HttpContextContract) {
+  async editarEmLote({ request }: HttpContextContract) {
 
     const markdown = request.input('markdown')
     const aula_id = request.input('aula_id')
@@ -54,7 +53,7 @@ export default class QuestionsController {
       const gabarito = _gabarito.trim()
       const modalidade = alternativas.length > 2 ? 'MULTIPLA_ESCOLHA' : 'CERTO_ERRADO'
 
-      return {enunciado, id: questaoId, alternativas, gabarito, modalidade, aula_id}
+      return { enunciado, id: questaoId, alternativas, gabarito, modalidade, aula_id }
     })
 
     return await Promise.all([
@@ -87,7 +86,7 @@ export default class QuestionsController {
     const today = DateTime.local().set({ hour: 0, minute: 0, second: 0 })
     const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`
     await Redis.del(redisTodayKey)
-    
+
     const { questao_id, resposta } = request.all();
 
     const questao = await Questao.query()
@@ -101,13 +100,13 @@ export default class QuestionsController {
       acertou: questao.gabarito === resposta,
       gabarito: questao.gabarito,
       horario: DateTime.local(),
-      user_id: user?.id || 0 
+      user_id: user?.id || 0
     })
 
     return respondida;
   }
 
-  async deleteRespondida({ params}: HttpContextContract ) {
+  async deleteRespondida({ params }: HttpContextContract) {
     const { id } = params;
 
     await Respondida.query().where('id', id).delete();
@@ -127,44 +126,12 @@ export default class QuestionsController {
 
   }
 
-  
-  async erros({params}: HttpContextContract) {
-    const { dia } = params;
 
-    let aula = await Aula.query().where('markdown', `${dia}.md`).first();
 
-    if(!aula) {
-      aula = await Aula.create({
-        name: `Erros do dia ${dia}`,
-        disciplina_id: 54,
-        markdown: `${dia}.md`,
-        user_id: 1,
-        ordem: 0,
-        concurso_id: 1
-      })
-    }
-
-    const [questoes] = await Database.rawQuery(`
-      SELECT questao, aula_id, aulas.markdown
-        FROM respondidas
-        INNER JOIN aulas ON respondidas.aula_id = aulas.id
-        where DATE(horario) = DATE('${dia}') AND acertou = 0
-    `)
-
-    const texto = questoes.map(questao => {
-      return QuestionHelper.text(questao.markdown, parseInt(questao.questao));
-    }).join("****");
-
-    await QuestionHelper.makeFile(`${dia}.md`, texto);
-
-    return aula;
-
-  }
-
-  async destroy({ params}: HttpContextContract) {
+  async destroy({ params }: HttpContextContract) {
     const questao = await Questao.findOrFail(params.id)
 
     return await questao.delete()
   }
-  
+
 }

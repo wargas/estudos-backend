@@ -1,8 +1,6 @@
 import Events from '@ioc:Adonis/Core/Event';
-import HealthCheck from '@ioc:Adonis/Core/HealthCheck';
 import Route from '@ioc:Adonis/Core/Route';
-import Database from '@ioc:Adonis/Lucid/Database';
-import Questao from 'App/Models/Questao';
+import User from 'App/Models/User';
 
 
 Events.on('db:query', query => {
@@ -35,33 +33,17 @@ Route.group(() => {
 
   Route.group(() => {
     Route.get('dashboard', 'RelatoriosController.dashboard')
-    Route.get('questoes-por-dia', 'RelatoriosController.questaoPorDia');
-    Route.get('ranking-questoes-dia', 'RelatoriosController.rankingQuestoesDia')
-    Route.get('tempo-por-dia', 'RelatoriosController.tempoPorDia');
-    Route.get('ranking-tempo-dia', 'RelatoriosController.rankingTempoDia')
-    Route.get('questoes-media/:id', 'RelatoriosController.questoesMedia');
-    Route.get('respondidas-por-disciplina/:id', 'RelatoriosController.respondidasPorDisciplina');
   }).prefix('relatorios');
 
-  Route.get('views/:view', async ({ params, user }) => {
-    const { view = "" } = params;
-    const user_id = user?.id;
 
-    return await Database.from(view).where({ user_id });
-
-  })
-  Route.get("erros/:dia", 'QuestionsController.erros')
   Route.get('me', 'AuthController.currentUser')
 }).prefix('api')
-.middleware('auth')
+  .middleware('auth')
 
-Route.get('/', async () => {
-  const report = await HealthCheck.getReport()
-  
-  return {report}
-})
 
 Route.get('/teste', async () => {
-  return await Questao.all();
+  const users = await User.query()
+
+  return users
 })
 
