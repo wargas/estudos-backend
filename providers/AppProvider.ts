@@ -1,4 +1,4 @@
-import { ApplicationContract } from '@ioc:Adonis/Core/Application'
+import { ApplicationContract } from '@ioc:Adonis/Core/Application';
 
 export default class AppProvider {
   constructor (protected app: ApplicationContract) {
@@ -12,6 +12,7 @@ export default class AppProvider {
   public async boot () {
     //this.app.logger.info('boot')
     // IoC container is ready
+    
   }
 
   public async ready () {

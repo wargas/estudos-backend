@@ -1,25 +1,13 @@
 {
   "commands": {
-    "import": {
+    "tests": {
       "settings": {
         "loadApp": true,
         "stayAlive": true
       },
-      "commandPath": "./commands/Import",
-      "commandName": "import",
-      "description": "",
-      "args": [],
-      "aliases": [],
-      "flags": []
-    },
-    "job": {
-      "settings": {
-        "loadApp": true,
-        "stayAlive": true
-      },
-      "commandPath": "./commands/Job",
-      "commandName": "job",
-      "description": "Faz algo pessado",
+      "commandPath": "./commands/Tests",
+      "commandName": "tests",
+      "description": "Para testes",
       "args": [],
       "aliases": [],
       "flags": []

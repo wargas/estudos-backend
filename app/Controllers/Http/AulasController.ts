@@ -20,28 +20,38 @@ export default class AulasController {
       .withCount('questoes')
       .orderBy('ordem', 'asc')
       .preload('questoes', q => q.preload('respondidas'))
+      .preload('registros')
 
     return aulas.map(aula => {
       const { questoes, ..._aula } = aula.serialize()
       const respondidas = questoes.reduce((acc, item) => {
         return [...acc, ...item.respondidas]
       }, [])
+
+
       const days = Array.from(
         new Set(
-          respondidas.map(item => DateTime
+          [...respondidas.map(item => DateTime
             .fromISO(item.horario)
             .toSQLDate()
-          )
+          ), ...aula.registros.map(reg => reg.horario.toSQLDate())]
         )
       ).map(day => {
         const _respondidas = respondidas.filter(item => day === DateTime.fromISO(item.horario).toSQLDate())
         const acertos = _respondidas.filter(item => item.acertou)
         const erros = _respondidas.filter(item => !item.acertou)
+
+        const tempo = aula.registros.filter(resp => resp.horario.toSQLDate() === day)
+          .reduce((acc, res) => {
+            return acc + res.tempo
+          }, 0)
+
         return {
           data: day,
           acertos: acertos.length,
           total: _respondidas.length,
-          erros: erros.length
+          erros: erros.length,
+          tempo
         }
       }).map((day, _, items) => {
 

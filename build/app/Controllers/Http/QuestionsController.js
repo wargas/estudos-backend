@@ -4,7 +4,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Redis_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Addons/Redis"));
-const Database_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/Database"));
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
 const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
 const Respondida_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Respondida"));
@@ -72,7 +71,7 @@ class QuestionsController {
             questao_id,
             resposta,
             aula_id: questao.aula_id,
-            acertou: questao.gabarito === resposta,
+            acertou: questao.gabarito === 'X' || questao.gabarito === resposta,
             gabarito: questao.gabarito,
             horario: luxon_1.DateTime.local(),
             user_id: user?.id || 0
@@ -90,31 +89,6 @@ class QuestionsController {
             .where("user_id", user?.id || '')
             .where('aula_id', aula);
         return respondida;
-    }
-    async erros({ params }) {
-        const { dia } = params;
-        let aula = await Aula_1.default.query().where('markdown', `${dia}.md`).first();
-        if (!aula) {
-            aula = await Aula_1.default.create({
-                name: `Erros do dia ${dia}`,
-                disciplina_id: 54,
-                markdown: `${dia}.md`,
-                user_id: 1,
-                ordem: 0,
-                concurso_id: 1
-            });
-        }
-        const [questoes] = await Database_1.default.rawQuery(`
-      SELECT questao, aula_id, aulas.markdown
-        FROM respondidas
-        INNER JOIN aulas ON respondidas.aula_id = aulas.id
-        where DATE(horario) = DATE('${dia}') AND acertou = 0
-    `);
-        const texto = questoes.map(questao => {
-            return QuestionHelper_1.QuestionHelper.text(questao.markdown, parseInt(questao.questao));
-        }).join("****");
-        await QuestionHelper_1.QuestionHelper.makeFile(`${dia}.md`, texto);
-        return aula;
     }
     async destroy({ params }) {
         const questao = await Questao_1.default.findOrFail(params.id);

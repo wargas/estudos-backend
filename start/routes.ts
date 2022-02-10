@@ -44,6 +44,7 @@ Route.group(() => {
 Route.get('/teste', async () => {
   const users = await User.query()
 
-  return users
+  
+  return users[3]
 })
 
