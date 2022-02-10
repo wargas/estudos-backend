@@ -33,6 +33,6 @@ Route_1.default.group(() => {
     .middleware('auth');
 Route_1.default.get('/teste', async () => {
     const users = await User_1.default.query();
-    return users;
+    return users[3];
 });
 //# sourceMappingURL=routes.js.map

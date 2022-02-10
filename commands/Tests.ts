@@ -28,26 +28,9 @@ export default class Tests extends BaseCommand {
 
   public async run () {
     // const Database = (await import('@ioc:Adonis/Lucid/Database')).default
-    const App = (await import('@ioc:Adonis/Core/Application')).default
-
-    // console.log(Object.keys(App))
+     // console.log(Object.keys(App))
     // console.log();
 
-    const value = "wargásç delmonde steixeira #"
-      .normalize("NFD")
-      .replace(/./g, function(str)  {
-        const charCode = str.charCodeAt(0)
-
-        console.log(charCode)
-
-        if(charCode > 760) {
-          return ''
-        }
-
-        return str
-      })
-
-    this.logger.info(value+'')
     
   }
 }

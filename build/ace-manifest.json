@@ -2,8 +2,8 @@
   "commands": {
     "tests": {
       "settings": {
-        "loadApp": false,
-        "stayAlive": false
+        "loadApp": true,
+        "stayAlive": true
       },
       "commandPath": "./commands/Tests",
       "commandName": "tests",

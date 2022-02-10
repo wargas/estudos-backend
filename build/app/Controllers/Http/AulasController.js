@@ -17,23 +17,29 @@ class AulasController {
             .if(c === 'name', q => q.orderBy(c, o))
             .withCount('questoes')
             .orderBy('ordem', 'asc')
-            .preload('questoes', q => q.preload('respondidas'));
+            .preload('questoes', q => q.preload('respondidas'))
+            .preload('registros');
         return aulas.map(aula => {
             const { questoes, ..._aula } = aula.serialize();
             const respondidas = questoes.reduce((acc, item) => {
                 return [...acc, ...item.respondidas];
             }, []);
-            const days = Array.from(new Set(respondidas.map(item => luxon_1.DateTime
-                .fromISO(item.horario)
-                .toSQLDate()))).map(day => {
+            const days = Array.from(new Set([...respondidas.map(item => luxon_1.DateTime
+                    .fromISO(item.horario)
+                    .toSQLDate()), ...aula.registros.map(reg => reg.horario.toSQLDate())])).map(day => {
                 const _respondidas = respondidas.filter(item => day === luxon_1.DateTime.fromISO(item.horario).toSQLDate());
                 const acertos = _respondidas.filter(item => item.acertou);
                 const erros = _respondidas.filter(item => !item.acertou);
+                const tempo = aula.registros.filter(resp => resp.horario.toSQLDate() === day)
+                    .reduce((acc, res) => {
+                    return acc + res.tempo;
+                }, 0);
                 return {
                     data: day,
                     acertos: acertos.length,
                     total: _respondidas.length,
-                    erros: erros.length
+                    erros: erros.length,
+                    tempo
                 };
             }).map((day, _, items) => {
                 const _arrayInts = items.map(item => luxon_1.DateTime.fromSQL(String(item.data)).toMillis());
