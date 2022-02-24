@@ -13,13 +13,19 @@ export default class QuestionsController {
 
   async index({ request }: HttpContextContract) {
 
+    const { page, perPage = 10 } = request.qs()
+
     const query = Questao.query()
       .if(request.input('id'), q => {
         q.where('id', request.input('id'))
       })
       .if(request.input('aula_id'), q => {
         q.where('aula_id', request.input('aula_id'))
-      }).limit(500)
+      })
+
+    if (page) {
+      return query.paginate(page, perPage)
+    }
 
     return await query;
   }
@@ -115,11 +121,13 @@ export default class QuestionsController {
   }
 
   async respondidas({ params, user }: HttpContextContract) {
-    const { aula } = params;
+    const { aula, questao } = params;
 
     const respondida = await Respondida.query()
       .where("user_id", user?.id || '')
-      .where('aula_id', aula);
+      .where('aula_id', aula)
+      .if(questao, q => q.where('questao_id', questao));
+
 
 
     return respondida;
