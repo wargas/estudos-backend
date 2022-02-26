@@ -41,12 +41,6 @@ Route.group(() => {
   Route.get('me', 'AuthController.currentUser')
 }).prefix('api')
   .middleware('auth')
-  .middleware(async (_, next) => {
-
-    await new Promise((resolve) => setTimeout(resolve, 200))
-    
-    return next()
-  })
 
 
 Route.get('/teste', async () => {
