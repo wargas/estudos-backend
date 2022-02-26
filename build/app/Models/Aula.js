@@ -12,12 +12,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const luxon_1 = require("luxon");
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
+const luxon_1 = require("luxon");
 const Disciplina_1 = __importDefault(require("./Disciplina"));
-const Respondida_1 = __importDefault(require("./Respondida"));
-const Registro_1 = __importDefault(require("./Registro"));
 const Questao_1 = __importDefault(require("./Questao"));
+const Registro_1 = __importDefault(require("./Registro"));
+const Respondida_1 = __importDefault(require("./Respondida"));
 class Aula extends Orm_1.BaseModel {
     constructor() {
         super(...arguments);
@@ -69,7 +69,7 @@ __decorate([
     __metadata("design:type", Object)
 ], Aula.prototype, "registros", void 0);
 __decorate([
-    Orm_1.hasMany(() => Questao_1.default, { foreignKey: 'aula_id' }),
+    Orm_1.manyToMany(() => Questao_1.default),
     __metadata("design:type", Object)
 ], Aula.prototype, "questoes", void 0);
 __decorate([

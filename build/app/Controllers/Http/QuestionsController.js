@@ -4,31 +4,38 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Redis_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Addons/Redis"));
+const Database_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/Database"));
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
 const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
 const Respondida_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Respondida"));
 const QuestionHelper_1 = global[Symbol.for('ioc.use')]("App/repositories/QuestionHelper");
 const luxon_1 = require("luxon");
 class QuestionsController {
-    async index({ request }) {
+    async index({ request, params }) {
+        const { aula_id } = params;
+        const { page, perPage = 10, withAulas } = request.qs();
         const query = Questao_1.default.query()
-            .if(request.input('id'), q => {
-            q.where('id', request.input('id'));
+            .if(aula_id, q => {
+            q.where('aula_id', aula_id);
         })
-            .if(request.input('aula_id'), q => {
-            q.where('aula_id', request.input('aula_id'));
-        }).limit(500);
+            .if(withAulas, q => q.preload('aulas'));
+        if (page) {
+            return query.paginate(page, perPage);
+        }
         return await query;
     }
-    async show(ctx) {
+    async show({ request, params }) {
+        const { withAulas, withRespondidas } = request.qs();
         return Questao_1.default.query()
-            .preload('respondidas')
-            .where('id', ctx.params.id)
+            .where('id', params.id)
+            .if(withAulas, q => q.preload('aulas'))
+            .if(withRespondidas, q => q.preload('respondidas'))
             .first();
     }
     async editarEmLote({ request }) {
         const markdown = request.input('markdown');
         const aula_id = request.input('aula_id');
+        const aula = await Aula_1.default.findOrFail(aula_id);
         const questoes = markdown.split('****').map(mdQuestao => {
             const partes = mdQuestao.split('***');
             const _gabarito = partes.pop();
@@ -42,10 +49,11 @@ class QuestionsController {
             const modalidade = alternativas.length > 2 ? 'MULTIPLA_ESCOLHA' : 'CERTO_ERRADO';
             return { enunciado, id: questaoId, alternativas, gabarito, modalidade, aula_id };
         });
-        return await Promise.all([
-            Questao_1.default.createMany(questoes.filter(it => !it?.id)),
-            Questao_1.default.updateOrCreateMany('id', questoes.filter(it => !!it?.id))
-        ]);
+        return await Database_1.default.transaction(async () => {
+            const news = await aula.related('questoes').createMany(questoes.filter(it => !it?.id));
+            const updated = await Questao_1.default.updateOrCreateMany('id', questoes.filter(it => !!it?.id));
+            return [...news, ...updated];
+        });
     }
     async editar({ params, request }) {
         const { id, questao } = params;
@@ -84,10 +92,11 @@ class QuestionsController {
         return 'ok';
     }
     async respondidas({ params, user }) {
-        const { aula } = params;
+        const { aula, questao } = params;
         const respondida = await Respondida_1.default.query()
             .where("user_id", user?.id || '')
-            .where('aula_id', aula);
+            .where('aula_id', aula)
+            .if(questao, q => q.where('questao_id', questao));
         return respondida;
     }
     async destroy({ params }) {

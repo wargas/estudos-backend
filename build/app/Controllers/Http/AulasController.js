@@ -4,10 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
-const luxon_1 = require("luxon");
+const AulaEstatisticas_1 = __importDefault(global[Symbol.for('ioc.use')]("App/repositories/AulaEstatisticas"));
 class AulasController {
-    async index({ user, request }) {
-        const { disciplina_id = '', order_by = 'ordem:asc' } = request.all();
+    async index({ user, request, params }) {
+        const { disciplina_id } = params;
+        const { withQuestoes, withMeta, withEstatisticas, withRegistros, withRespondidas, withDisciplina, order_by = 'ordem:asc' } = request.qs();
         const [c = 'ordem', o = 'asc'] = order_by.split(':');
         const aulas = await Aula_1.default
             .query()
@@ -15,89 +16,49 @@ class AulasController {
             .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
             .if(c === 'ordem', q => q.orderBy(c, o))
             .if(c === 'name', q => q.orderBy(c, o))
-            .withCount('questoes')
-            .orderBy('ordem', 'asc')
-            .preload('questoes', q => q.preload('respondidas'))
-            .preload('registros');
-        return aulas.map(aula => {
-            const { questoes, ..._aula } = aula.serialize();
-            const respondidas = questoes.reduce((acc, item) => {
-                return [...acc, ...item.respondidas];
-            }, []);
-            const days = Array.from(new Set([...respondidas.map(item => luxon_1.DateTime
-                    .fromISO(item.horario)
-                    .toSQLDate()), ...aula.registros.map(reg => reg.horario.toSQLDate())])).map(day => {
-                const _respondidas = respondidas.filter(item => day === luxon_1.DateTime.fromISO(item.horario).toSQLDate());
-                const acertos = _respondidas.filter(item => item.acertou);
-                const erros = _respondidas.filter(item => !item.acertou);
-                const tempo = aula.registros.filter(resp => resp.horario.toSQLDate() === day)
-                    .reduce((acc, res) => {
-                    return acc + res.tempo;
-                }, 0);
-                return {
-                    data: day,
-                    acertos: acertos.length,
-                    total: _respondidas.length,
-                    erros: erros.length,
-                    tempo
-                };
-            }).map((day, _, items) => {
-                const _arrayInts = items.map(item => luxon_1.DateTime.fromSQL(String(item.data)).toMillis());
-                const lastDay = luxon_1.DateTime.fromMillis(Math.max(..._arrayInts)).toSQLDate();
-                return { ...day, last: lastDay === day.data };
+            .if(withQuestoes || withEstatisticas, q => {
+            q.preload('questoes', q2 => {
+                q2.if(withRespondidas || withEstatisticas, q3 => q3.preload('respondidas'));
             });
-            return { ..._aula, days, questoes_count: aula.$extras.questoes_count };
         })
-            .sort((a, b) => {
-            const lastA = a.days.find(dia => dia.last);
-            const lastB = b.days.find(dia => dia.last);
-            if (c === 'questoes') {
-                return o === 'asc' ?
-                    a.questoes_count - b.questoes_count :
-                    b.questoes_count - a.questoes_count;
+            .if(withRegistros || withEstatisticas, q => q.preload('registros', (query) => {
+            query.select(['id', 'horario', 'tempo']);
+        }))
+            .if(withMeta, q => {
+            q.withCount('questoes');
+        })
+            .if(withDisciplina, q => q.preload('disciplina'))
+            .orderBy('ordem', 'asc');
+        return aulas.map(aula => {
+            const days = AulaEstatisticas_1.default(aula);
+            const _aula = aula.serialize();
+            if (withRespondidas) {
+                delete _aula.questoes.respondidas;
             }
-            if (c === 'last') {
-                if (!lastB) {
-                    return o === 'asc' ? 1 : -1;
-                }
-                if (!lastA) {
-                    return o === 'asc' ? -1 : 1;
-                }
-                if (o === 'asc') {
-                    return luxon_1.DateTime.fromSQL(lastA.data + '').toMillis() -
-                        luxon_1.DateTime.fromSQL(lastB.data + '').toMillis();
-                }
-                else {
-                    return luxon_1.DateTime.fromSQL(lastB.data + '').toMillis() -
-                        luxon_1.DateTime.fromSQL(lastA.data + '').toMillis();
-                }
+            if (!withQuestoes) {
+                delete _aula.questoes;
             }
-            if (c === 'nota') {
-                if (!lastB) {
-                    return o === 'asc' ? 1 : -1;
-                }
-                if (!lastA) {
-                    return o === 'asc' ? -1 : 1;
-                }
-                if (o === 'asc') {
-                    return (lastA.acertos / lastA.total) - (lastB.acertos / lastB.total);
-                }
-                else {
-                    return (lastB.acertos / lastB.total) - (lastA.acertos / lastA.total);
-                }
+            if (!withRegistros) {
+                delete _aula.registros;
             }
-            return 0;
+            return { ..._aula, days, questoes_count: aula.$extras.questoes_count };
         });
     }
-    async show({ params, user }) {
+    async show({ params, user, request }) {
+        const { disciplina_id, id } = params;
+        const { withQuestoes, withRegistros, withRespondidas, withDisciplina, withMeta } = request.qs();
         return await Aula_1.default.query()
-            .where('id', params.id)
+            .where('id', id)
             .where("user_id", user?.id || '')
-            .preload('disciplina')
-            .preload('respondidas')
-            .preload('questoes')
-            .preload('registros', (query) => {
+            .if(disciplina_id, q => q.where('disciplina_id', disciplina_id))
+            .if(withQuestoes, q => q.preload('questoes'))
+            .if(withRespondidas, q => q.preload('respondidas'))
+            .if(withRegistros, q => q.preload('registros', (query) => {
             query.select(['id', 'horario', 'tempo']);
+        }))
+            .if(withDisciplina, q => q.preload('disciplina'))
+            .if(withMeta, q => {
+            q.withCount('questoes');
         })
             .first();
     }

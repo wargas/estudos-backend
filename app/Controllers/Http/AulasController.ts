@@ -1,15 +1,23 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Aula from "App/Models/Aula";
-import { DateTime } from 'luxon';
+import AulaEstatiscas from 'App/repositories/AulaEstatisticas';
 
 
 export default class AulasController {
 
-  async index({ user, request }: HttpContextContract) {
+  async index({ user, request, params }: HttpContextContract) {
 
-    const { disciplina_id = '', order_by = 'ordem:asc' } = request.all()
+    const { disciplina_id } = params
 
+    const { withQuestoes,
+      withMeta,
+      withEstatisticas,
+      withRegistros,
+      withRespondidas,
+      withDisciplina,
+      order_by = 'ordem:asc' } = request.qs()
     const [c = 'ordem', o = 'asc'] = order_by.split(':');
+
 
     const aulas = await Aula
       .query()
@@ -17,111 +25,61 @@ export default class AulasController {
       .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
       .if(c === 'ordem', q => q.orderBy(c, o))
       .if(c === 'name', q => q.orderBy(c, o))
-      .withCount('questoes')
+      .if(withQuestoes || withEstatisticas, q => {
+        q.preload('questoes', q2 => {
+          q2.if(withRespondidas || withEstatisticas, q3 => q3.preload('respondidas'))
+        })
+      })
+      .if(withRegistros || withEstatisticas, q => q.preload('registros', (query) => {
+        query.select(['id', 'horario', 'tempo'])
+      }))
+      .if(withMeta, q => {
+        q.withCount('questoes')
+      })
+      .if(withDisciplina, q => q.preload('disciplina'))
       .orderBy('ordem', 'asc')
-      .preload('questoes', q => q.preload('respondidas'))
-      .preload('registros')
+
 
     return aulas.map(aula => {
-      const { questoes, ..._aula } = aula.serialize()
-      const respondidas = questoes.reduce((acc, item) => {
-        return [...acc, ...item.respondidas]
-      }, [])
+      const days = AulaEstatiscas(aula)
 
+      const _aula = aula.serialize()
 
-      const days = Array.from(
-        new Set(
-          [...respondidas.map(item => DateTime
-            .fromISO(item.horario)
-            .toSQLDate()
-          ), ...aula.registros.map(reg => reg.horario.toSQLDate())]
-        )
-      ).map(day => {
-        const _respondidas = respondidas.filter(item => day === DateTime.fromISO(item.horario).toSQLDate())
-        const acertos = _respondidas.filter(item => item.acertou)
-        const erros = _respondidas.filter(item => !item.acertou)
+      if (withRespondidas) {
+        delete _aula.questoes.respondidas;
+      }
 
-        const tempo = aula.registros.filter(resp => resp.horario.toSQLDate() === day)
-          .reduce((acc, res) => {
-            return acc + res.tempo
-          }, 0)
+      if (!withQuestoes) {
+        delete _aula.questoes;
+      }
 
-        return {
-          data: day,
-          acertos: acertos.length,
-          total: _respondidas.length,
-          erros: erros.length,
-          tempo
-        }
-      }).map((day, _, items) => {
-
-        const _arrayInts = items.map(item => DateTime.fromSQL(String(item.data)).toMillis())
-
-        const lastDay = DateTime.fromMillis(Math.max(..._arrayInts)).toSQLDate()
-
-        return { ...day, last: lastDay === day.data }
-      })
+      if (!withRegistros) {
+        delete _aula.registros;
+      }
 
       return { ..._aula, days, questoes_count: aula.$extras.questoes_count }
 
     })
-      .sort((a, b) => {
-        const lastA = a.days.find(dia => dia.last)
-        const lastB = b.days.find(dia => dia.last)
-
-        if (c === 'questoes') {
-          return o === 'asc' ?
-            a.questoes_count - b.questoes_count :
-            b.questoes_count - a.questoes_count
-        }
-        if (c === 'last') {
-          if (!lastB) {
-            return o === 'asc' ? 1 : -1;
-          }
-
-          if (!lastA) {
-            return o === 'asc' ? -1 : 1;
-          }
-
-          if (o === 'asc') {
-            return DateTime.fromSQL(lastA.data + '').toMillis() -
-              DateTime.fromSQL(lastB.data + '').toMillis()
-          } else {
-            return DateTime.fromSQL(lastB.data + '').toMillis() -
-              DateTime.fromSQL(lastA.data + '').toMillis()
-          }
-        }
-
-        if (c === 'nota') {
-          if (!lastB) {
-            return o === 'asc' ? 1 : -1;
-          }
-
-          if (!lastA) {
-            return o === 'asc' ? -1 : 1;
-          }
-          if (o === 'asc') {
-            return (lastA.acertos / lastA.total) - (lastB.acertos / lastB.total)
-          } else {
-            return (lastB.acertos / lastB.total) - (lastA.acertos / lastA.total)
-          }
-
-        }
-
-        return 0
-      })
 
   }
 
-  async show({ params, user }: HttpContextContract) {
+  async show({ params, user, request }: HttpContextContract) {
+
+    const { disciplina_id, id } = params
+    const { withQuestoes, withRegistros, withRespondidas, withDisciplina, withMeta } = request.qs()
+
     return await Aula.query()
-      .where('id', params.id)
+      .where('id', id)
       .where("user_id", user?.id || '')
-      .preload('disciplina')
-      .preload('respondidas')
-      .preload('questoes')
-      .preload('registros', (query) => {
+      .if(disciplina_id, q => q.where('disciplina_id', disciplina_id))
+      .if(withQuestoes, q => q.preload('questoes'))
+      .if(withRespondidas, q => q.preload('respondidas'))
+      .if(withRegistros, q => q.preload('registros', (query) => {
         query.select(['id', 'horario', 'tempo'])
+      }))
+      .if(withDisciplina, q => q.preload('disciplina'))
+      .if(withMeta, q => {
+        q.withCount('questoes')
       })
       .first()
   }
@@ -133,8 +91,8 @@ export default class AulasController {
     return await Aula.create(_data)
   }
 
-  async storeLote({request, user}: HttpContextContract) {
-    const {disciplina_id, text} = request.only(['disciplina_id', 'text'])
+  async storeLote({ request, user }: HttpContextContract) {
+    const { disciplina_id, text } = request.only(['disciplina_id', 'text'])
 
     const data = text.split("\n").map((item, index) => {
       return {

@@ -91,9 +91,9 @@ __decorate([
     __metadata("design:type", Array)
 ], Questao.prototype, "alternativas", void 0);
 __decorate([
-    Orm_1.belongsTo(() => Aula_1.default, { foreignKey: 'aula_id', localKey: 'id' }),
+    Orm_1.manyToMany(() => Aula_1.default),
     __metadata("design:type", Object)
-], Questao.prototype, "aula", void 0);
+], Questao.prototype, "aulas", void 0);
 __decorate([
     Orm_1.hasMany(() => Respondida_1.default, { foreignKey: 'questao_id' }),
     __metadata("design:type", Object)

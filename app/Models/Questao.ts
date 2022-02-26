@@ -1,4 +1,4 @@
-import { BaseModel, BelongsTo, belongsTo, column, computed, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, computed, HasMany, hasMany, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
 import { QuestionHelper } from 'App/repositories/QuestionHelper'
 import { bancas } from 'Config/bancas'
 import Aula from './Aula'
@@ -62,9 +62,11 @@ export default class Questao extends BaseModel {
   })
   public alternativas: any[]
 
-  @belongsTo(() => Aula, { foreignKey: 'aula_id', localKey: 'id' })
-  public aula: BelongsTo<typeof Aula>
+  @manyToMany(() => Aula)
+  public aulas: ManyToMany<typeof Aula>
 
   @hasMany(() => Respondida, { foreignKey: 'questao_id' })
   public respondidas: HasMany<typeof Respondida>
+
+  
 }

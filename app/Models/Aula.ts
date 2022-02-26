@@ -1,9 +1,9 @@
-import { DateTime } from 'luxon'
-import { BaseModel, column, belongsTo, BelongsTo, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, belongsTo, BelongsTo, column, hasMany, HasMany, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm';
+import { DateTime } from 'luxon';
 import Disciplina from './Disciplina';
-import Respondida from './Respondida';
-import Registro from './Registro';
 import Questao from './Questao';
+import Registro from './Registro';
+import Respondida from './Respondida';
 
 export default class Aula extends BaseModel {
 
@@ -33,7 +33,6 @@ export default class Aula extends BaseModel {
   @column()
   public disciplina_id: number;
 
-
   @hasMany(() => Respondida, {
     foreignKey: 'aula_id'
   })
@@ -44,8 +43,11 @@ export default class Aula extends BaseModel {
   })
   public registros: HasMany<typeof Registro>
 
-  @hasMany(() => Questao, {foreignKey: 'aula_id'})
-  public questoes: HasMany<typeof Questao>
+  // @hasMany(() => Questao, {foreignKey: 'aula_id'})
+  // public questoes: HasMany<typeof Questao>
+
+  @manyToMany(() => Questao)
+  public questoes: ManyToMany<typeof Questao>
 
   @belongsTo(() => Disciplina, {
     foreignKey: 'disciplina_id'

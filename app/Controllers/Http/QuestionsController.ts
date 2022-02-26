@@ -1,27 +1,24 @@
 import Redis from '@ioc:Adonis/Addons/Redis';
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
+import Database from '@ioc:Adonis/Lucid/Database';
 import Aula from 'App/Models/Aula';
 import Questao from 'App/Models/Questao';
 import Respondida from 'App/Models/Respondida';
 import { QuestionHelper } from 'App/repositories/QuestionHelper';
 import { DateTime } from 'luxon';
 
-
-
-
 export default class QuestionsController {
 
-  async index({ request }: HttpContextContract) {
+  async index({ request, params }: HttpContextContract) {
 
-    const { page, perPage = 10 } = request.qs()
+    const { aula_id } = params;
+    const { page, perPage = 10, withAulas } = request.qs()
 
     const query = Questao.query()
-      .if(request.input('id'), q => {
-        q.where('id', request.input('id'))
+      .if(aula_id, q => {
+        q.where('aula_id', aula_id)
       })
-      .if(request.input('aula_id'), q => {
-        q.where('aula_id', request.input('aula_id'))
-      })
+      .if(withAulas, q => q.preload('aulas'))
 
     if (page) {
       return query.paginate(page, perPage)
@@ -30,10 +27,13 @@ export default class QuestionsController {
     return await query;
   }
 
-  async show(ctx: HttpContextContract) {
+  async show({ request, params }: HttpContextContract) {
+    const { withAulas, withRespondidas } = request.qs()
+
     return Questao.query()
-      .preload('respondidas')
-      .where('id', ctx.params.id)
+      .where('id', params.id)
+      .if(withAulas, q => q.preload('aulas'))
+      .if(withRespondidas, q => q.preload('respondidas'))
       .first()
   }
 
@@ -41,6 +41,8 @@ export default class QuestionsController {
 
     const markdown = request.input('markdown')
     const aula_id = request.input('aula_id')
+
+    const aula = await Aula.findOrFail(aula_id)
 
     const questoes = markdown.split('****').map(mdQuestao => {
       const partes = mdQuestao.split('***');
@@ -62,10 +64,12 @@ export default class QuestionsController {
       return { enunciado, id: questaoId, alternativas, gabarito, modalidade, aula_id }
     })
 
-    return await Promise.all([
-      Questao.createMany(questoes.filter(it => !it?.id)),
-      Questao.updateOrCreateMany('id', questoes.filter(it => !!it?.id))
-    ])
+    return await Database.transaction(async () => {
+      const news = await aula.related('questoes').createMany(questoes.filter(it => !it?.id))
+      const updated = await Questao.updateOrCreateMany('id', questoes.filter(it => !!it?.id))
+
+      return [...news, ...updated]
+    })
   }
 
   async editar({ params, request }: HttpContextContract) {

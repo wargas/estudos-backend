@@ -12,7 +12,7 @@ export default class DisciplinasController {
       countQuestoes = '',
       whereArquivada = '0', 
       search = '',
-      preloadAulas = 'false' } = request.all()
+      withAulas } = request.all()
 
     const disciplinas =  await Disciplina
       .query()
@@ -26,7 +26,7 @@ export default class DisciplinasController {
         q.withCount('questoes')
       })
       .if(whereArquivada !== '', q => q.where('arquivada', whereArquivada))
-      .if(preloadAulas === 'true', q => {
+      .if(withAulas === 'true', q => {
         q.preload('aulas')
       })
        

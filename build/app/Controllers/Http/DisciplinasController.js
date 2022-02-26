@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Disciplina_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Disciplina"));
 class DisciplinasController {
     async index({ user, request }) {
-        const { countAulas = '', countQuestoes = '', whereArquivada = '0', search = '', preloadAulas = 'false' } = request.all();
+        const { countAulas = '', countQuestoes = '', whereArquivada = '0', search = '', withAulas } = request.all();
         const disciplinas = await Disciplina_1.default
             .query()
             .where("user_id", user?.id || '')
@@ -18,7 +18,7 @@ class DisciplinasController {
             q.withCount('questoes');
         })
             .if(whereArquivada !== '', q => q.where('arquivada', whereArquivada))
-            .if(preloadAulas === 'true', q => {
+            .if(withAulas === 'true', q => {
             q.preload('aulas');
         });
         return disciplinas;

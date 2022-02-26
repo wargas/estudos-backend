@@ -10,12 +10,16 @@ Events.on('db:query', query => {
 Route.post('api/auth/login', 'AuthController.login')
 
 Route.group(() => {
-  Route.resource('aulas', 'AulasController');
-  Route.post('aulas/insert-lote', 'AulasController.storeLote')
-
   Route.resource('disciplinas', 'DisciplinasController');
+  Route.resource('disciplinas.aulas', 'AulasController');
+  Route.resource('aulas', 'AulasController');
+  Route.resource('aulas.questoes', 'QuestionsController');
+  Route.resource('questoes', 'QuestionsController');
+  Route.resource('aulas.registros', 'RegistrosController');
+  Route.resource('registros', 'RegistrosController');
 
-  Route.resource('questoes', 'QuestionsController')
+
+  Route.post('aulas/insert-lote', 'AulasController.storeLote')
   Route.post('questoes/editar-lote', 'QuestionsController.editarEmLote')
   Route.post('questoes/responder', 'QuestionsController.responder')
 
@@ -25,8 +29,6 @@ Route.group(() => {
   Route.get('respondidas/:aula/:questao', 'QuestionsController.respondidas')
   Route.delete('respondidas/:id', 'QuestionsController.deleteRespondida')
   Route.get('respondidas/:aula', 'QuestionsController.respondidas')
-
-  Route.resource('registros', 'RegistrosController');
 
   Route.get('comentarios/:questao_id', 'ComentariosController.show');
   Route.post('comentarios/:questao_id', 'ComentariosController.store');
@@ -39,12 +41,18 @@ Route.group(() => {
   Route.get('me', 'AuthController.currentUser')
 }).prefix('api')
   .middleware('auth')
+  .middleware(async (_, next) => {
+
+    await new Promise((resolve) => setTimeout(resolve, 200))
+    
+    return next()
+  })
 
 
 Route.get('/teste', async () => {
   const users = await User.query()
 
-  
+
   return users[3]
 })
 
