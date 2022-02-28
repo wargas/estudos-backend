@@ -2,6 +2,7 @@ import Redis from '@ioc:Adonis/Addons/Redis';
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Database from '@ioc:Adonis/Lucid/Database';
 import Aula from 'App/Models/Aula';
+import Caderno from 'App/Models/Caderno';
 import Questao from 'App/Models/Questao';
 import Respondida from 'App/Models/Respondida';
 import { QuestionHelper } from 'App/repositories/QuestionHelper';
@@ -92,28 +93,61 @@ export default class QuestionsController {
     return { text };
   }
 
-  async responder({ request, user }: HttpContextContract) {
+  async responder({ request, user, logger }: HttpContextContract) {
     const today = DateTime.local().set({ hour: 0, minute: 0, second: 0 })
-    const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`
-    await Redis.del(redisTodayKey)
+    try {
 
-    const { questao_id, resposta } = request.all();
+      const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`
+      await Redis.del(redisTodayKey)
+
+    } catch (e) {
+      logger.error('redis indisponível')
+    }
+
+    const { questao_id, resposta, caderno_id } = request.all();
 
     const questao = await Questao.query()
       .where('id', questao_id)
       .firstOrFail()
 
-    const respondida = await Respondida.create({
-      questao_id,
-      resposta,
-      aula_id: questao.aula_id,
-      acertou: questao.gabarito === 'X' || questao.gabarito === resposta,
-      gabarito: questao.gabarito,
-      horario: DateTime.local(),
-      user_id: user?.id || 0
-    })
+    const caderno = await Caderno.findOrFail(caderno_id)
 
-    return respondida;
+    const aula = await Aula.findOrFail(questao.aula_id)
+
+    return Database.transaction(async () => {
+
+      const respondida = await Respondida.create({
+        questao_id,
+        resposta,
+        caderno_id,
+        aula_id: questao.aula_id,
+        acertou: questao.gabarito === 'X' || questao.gabarito === resposta,
+        gabarito: questao.gabarito,
+        horario: DateTime.local(),
+        user_id: user?.id || 0
+      })
+
+      const respondidas = await Respondida.query().where('caderno_id', caderno_id)
+      
+      const questoes = await aula.related('questoes').query()
+           
+      caderno.encerrado = respondidas.length === questoes.length
+      caderno.acertos = respondidas.filter(r => r.acertou).length
+      caderno.erros = respondidas.filter(r => !r.acertou).length
+      caderno.total = questoes.length
+
+      if(respondidas.length === 1) {
+        caderno.inicio = DateTime.local()
+      }
+
+      if(respondidas.length === questoes.length) {
+        caderno.fim = DateTime.local()
+      }
+
+      await caderno.save()
+      
+      return respondida;
+    })
   }
 
   async deleteRespondida({ params }: HttpContextContract) {

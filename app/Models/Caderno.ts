@@ -1,0 +1,42 @@
+import { BaseModel, belongsTo, BelongsTo, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { DateTime } from 'luxon'
+import Aula from './Aula'
+import Respondida from './Respondida'
+
+export default class Caderno extends BaseModel {
+  @column({ isPrimary: true })
+  public id: string
+
+  @column.dateTime()
+  public inicio: DateTime
+
+  @column.dateTime()
+  public fim: DateTime
+
+  @column()
+  public total: number
+
+  @column()
+  public acertos: number
+
+  @column()
+  public erros: number
+
+  @column()
+  public aula_id: number
+
+  @column()
+  public encerrado: boolean
+
+  @belongsTo(() => Aula)
+  public aula: BelongsTo<typeof Aula>
+
+  @hasMany(() => Respondida)
+  public respondidas: HasMany<typeof Respondida>
+
+  @column.dateTime({ autoCreate: true })
+  public createdAt: DateTime
+
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  public updatedAt: DateTime
+}

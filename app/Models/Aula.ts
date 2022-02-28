@@ -1,5 +1,6 @@
 import { BaseModel, belongsTo, BelongsTo, column, hasMany, HasMany, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm';
 import { DateTime } from 'luxon';
+import Caderno from './Caderno';
 import Disciplina from './Disciplina';
 import Questao from './Questao';
 import Registro from './Registro';
@@ -48,6 +49,9 @@ export default class Aula extends BaseModel {
 
   @manyToMany(() => Questao)
   public questoes: ManyToMany<typeof Questao>
+
+  @manyToMany(() => Caderno)
+  public cadernos: ManyToMany<typeof Caderno>
 
   @belongsTo(() => Disciplina, {
     foreignKey: 'disciplina_id'

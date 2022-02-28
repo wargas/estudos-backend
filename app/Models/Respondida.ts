@@ -1,5 +1,6 @@
-import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm';
+import { DateTime } from 'luxon';
+import Caderno from './Caderno';
 import Questao from './Questao';
 
 export default class Respondida extends BaseModel {
@@ -11,6 +12,9 @@ export default class Respondida extends BaseModel {
 
   @column()
   questao_id: number
+
+  @column()
+  public caderno_id: string
 
   // @column()
   // questao: number;
@@ -26,6 +30,12 @@ export default class Respondida extends BaseModel {
 
   @column()
   acertou: boolean;
+
+  @column()
+  public carderno_id: string
+
+  @belongsTo(() => Caderno)
+  public caderno: BelongsTo<typeof Caderno>
 
   @column.dateTime({autoCreate: true})
   horario: DateTime;
