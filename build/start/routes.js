@@ -18,6 +18,8 @@ Route_1.default.group(() => {
     Route_1.default.resource('questoes', 'QuestionsController');
     Route_1.default.resource('aulas.registros', 'RegistrosController');
     Route_1.default.resource('registros', 'RegistrosController');
+    Route_1.default.resource('aulas.cadernos', 'CadernosController');
+    Route_1.default.resource('cadernos', 'CadernosController');
     Route_1.default.post('aulas/insert-lote', 'AulasController.storeLote');
     Route_1.default.post('questoes/editar-lote', 'QuestionsController.editarEmLote');
     Route_1.default.post('questoes/responder', 'QuestionsController.responder');
@@ -33,11 +35,7 @@ Route_1.default.group(() => {
     }).prefix('relatorios');
     Route_1.default.get('me', 'AuthController.currentUser');
 }).prefix('api')
-    .middleware('auth')
-    .middleware(async (_, next) => {
-    await new Promise((resolve) => setTimeout(resolve, 200));
-    return next();
-});
+    .middleware('auth');
 Route_1.default.get('/teste', async () => {
     const users = await User_1.default.query();
     return users[3];

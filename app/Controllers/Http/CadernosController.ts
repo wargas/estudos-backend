@@ -12,6 +12,7 @@ export default class CadernosController {
 
     const query = Caderno.query()
       .if(aula_id, q => q.where('aula_id', aula_id))
+      .orderBy('inicio', 'desc')
 
     if (page) {
       return await query.paginate(page, perPage)

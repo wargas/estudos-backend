@@ -15,6 +15,7 @@ export default class AulasController {
       withRegistros,
       withRespondidas,
       withDisciplina,
+      withCadernos,
       order_by = 'ordem:asc' } = request.qs()
     const [c = 'ordem', o = 'asc'] = order_by.split(':');
 
@@ -25,6 +26,7 @@ export default class AulasController {
       .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
       .if(c === 'ordem', q => q.orderBy(c, o))
       .if(c === 'name', q => q.orderBy(c, o))
+      .if(withCadernos, q => q.preload('cadernos'))
       .if(withQuestoes || withEstatisticas, q => {
         q.preload('questoes', q2 => {
           q2.if(withRespondidas || withEstatisticas, q3 => q3.preload('respondidas'))
@@ -66,7 +68,7 @@ export default class AulasController {
   async show({ params, user, request }: HttpContextContract) {
 
     const { disciplina_id, id } = params
-    const { withQuestoes, withRegistros, withRespondidas, withDisciplina, withMeta } = request.qs()
+    const { withQuestoes, withRegistros, withRespondidas, withDisciplina, withMeta, withCadernos } = request.qs()
 
     return await Aula.query()
       .where('id', id)
@@ -78,6 +80,7 @@ export default class AulasController {
         query.select(['id', 'horario', 'tempo'])
       }))
       .if(withDisciplina, q => q.preload('disciplina'))
+      .if(withCadernos, q => q.preload('cadernos'))
       .if(withMeta, q => {
         q.withCount('questoes')
       })

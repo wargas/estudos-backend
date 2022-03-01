@@ -50,8 +50,8 @@ export default class Aula extends BaseModel {
   @manyToMany(() => Questao)
   public questoes: ManyToMany<typeof Questao>
 
-  @manyToMany(() => Caderno)
-  public cadernos: ManyToMany<typeof Caderno>
+  @hasMany(() => Caderno, {foreignKey: 'aula_id'})
+  public cadernos: HasMany<typeof Caderno>
 
   @belongsTo(() => Disciplina, {
     foreignKey: 'disciplina_id'

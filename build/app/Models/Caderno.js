@@ -14,82 +14,57 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
 const luxon_1 = require("luxon");
-const Caderno_1 = __importDefault(require("./Caderno"));
-const Disciplina_1 = __importDefault(require("./Disciplina"));
-const Questao_1 = __importDefault(require("./Questao"));
-const Registro_1 = __importDefault(require("./Registro"));
+const Aula_1 = __importDefault(require("./Aula"));
 const Respondida_1 = __importDefault(require("./Respondida"));
-class Aula extends Orm_1.BaseModel {
-    constructor() {
-        super(...arguments);
-        this.serializeExtras = true;
-    }
+class Caderno extends Orm_1.BaseModel {
 }
 __decorate([
     Orm_1.column({ isPrimary: true }),
-    __metadata("design:type", Number)
-], Aula.prototype, "id", void 0);
-__decorate([
-    Orm_1.column(),
     __metadata("design:type", String)
-], Aula.prototype, "name", void 0);
+], Caderno.prototype, "id", void 0);
+__decorate([
+    Orm_1.column.dateTime(),
+    __metadata("design:type", luxon_1.DateTime)
+], Caderno.prototype, "inicio", void 0);
+__decorate([
+    Orm_1.column.dateTime(),
+    __metadata("design:type", luxon_1.DateTime)
+], Caderno.prototype, "fim", void 0);
 __decorate([
     Orm_1.column(),
     __metadata("design:type", Number)
-], Aula.prototype, "ordem", void 0);
+], Caderno.prototype, "total", void 0);
 __decorate([
     Orm_1.column(),
     __metadata("design:type", Number)
-], Aula.prototype, "paginas", void 0);
-__decorate([
-    Orm_1.column(),
-    __metadata("design:type", String)
-], Aula.prototype, "markdown", void 0);
+], Caderno.prototype, "acertos", void 0);
 __decorate([
     Orm_1.column(),
     __metadata("design:type", Number)
-], Aula.prototype, "user_id", void 0);
+], Caderno.prototype, "erros", void 0);
 __decorate([
     Orm_1.column(),
     __metadata("design:type", Number)
-], Aula.prototype, "concurso_id", void 0);
+], Caderno.prototype, "aula_id", void 0);
 __decorate([
     Orm_1.column(),
-    __metadata("design:type", Number)
-], Aula.prototype, "disciplina_id", void 0);
+    __metadata("design:type", Boolean)
+], Caderno.prototype, "encerrado", void 0);
 __decorate([
-    Orm_1.hasMany(() => Respondida_1.default, {
-        foreignKey: 'aula_id'
-    }),
+    Orm_1.belongsTo(() => Aula_1.default),
     __metadata("design:type", Object)
-], Aula.prototype, "respondidas", void 0);
+], Caderno.prototype, "aula", void 0);
 __decorate([
-    Orm_1.hasMany(() => Registro_1.default, {
-        foreignKey: 'aula_id'
-    }),
+    Orm_1.hasMany(() => Respondida_1.default),
     __metadata("design:type", Object)
-], Aula.prototype, "registros", void 0);
-__decorate([
-    Orm_1.manyToMany(() => Questao_1.default),
-    __metadata("design:type", Object)
-], Aula.prototype, "questoes", void 0);
-__decorate([
-    Orm_1.hasMany(() => Caderno_1.default, { foreignKey: 'aula_id' }),
-    __metadata("design:type", Object)
-], Aula.prototype, "cadernos", void 0);
-__decorate([
-    Orm_1.belongsTo(() => Disciplina_1.default, {
-        foreignKey: 'disciplina_id'
-    }),
-    __metadata("design:type", Object)
-], Aula.prototype, "disciplina", void 0);
+], Caderno.prototype, "respondidas", void 0);
 __decorate([
     Orm_1.column.dateTime({ autoCreate: true }),
     __metadata("design:type", luxon_1.DateTime)
-], Aula.prototype, "createdAt", void 0);
+], Caderno.prototype, "createdAt", void 0);
 __decorate([
     Orm_1.column.dateTime({ autoCreate: true, autoUpdate: true }),
     __metadata("design:type", luxon_1.DateTime)
-], Aula.prototype, "updatedAt", void 0);
-exports.default = Aula;
-//# sourceMappingURL=Aula.js.map
+], Caderno.prototype, "updatedAt", void 0);
+exports.default = Caderno;
+//# sourceMappingURL=Caderno.js.map

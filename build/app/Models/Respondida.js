@@ -12,8 +12,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const luxon_1 = require("luxon");
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
+const luxon_1 = require("luxon");
+const Caderno_1 = __importDefault(require("./Caderno"));
 const Questao_1 = __importDefault(require("./Questao"));
 class Respondida extends Orm_1.BaseModel {
 }
@@ -31,6 +32,10 @@ __decorate([
 ], Respondida.prototype, "questao_id", void 0);
 __decorate([
     Orm_1.column(),
+    __metadata("design:type", String)
+], Respondida.prototype, "caderno_id", void 0);
+__decorate([
+    Orm_1.column(),
     __metadata("design:type", Number)
 ], Respondida.prototype, "user_id", void 0);
 __decorate([
@@ -45,6 +50,14 @@ __decorate([
     Orm_1.column(),
     __metadata("design:type", Boolean)
 ], Respondida.prototype, "acertou", void 0);
+__decorate([
+    Orm_1.column(),
+    __metadata("design:type", String)
+], Respondida.prototype, "carderno_id", void 0);
+__decorate([
+    Orm_1.belongsTo(() => Caderno_1.default),
+    __metadata("design:type", Object)
+], Respondida.prototype, "caderno", void 0);
 __decorate([
     Orm_1.column.dateTime({ autoCreate: true }),
     __metadata("design:type", luxon_1.DateTime)

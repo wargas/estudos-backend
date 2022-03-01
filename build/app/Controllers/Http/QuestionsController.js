@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Redis_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Addons/Redis"));
 const Database_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/Database"));
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
+const Caderno_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Caderno"));
 const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
 const Respondida_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Respondida"));
 const QuestionHelper_1 = global[Symbol.for('ioc.use')]("App/repositories/QuestionHelper");
@@ -67,24 +68,47 @@ class QuestionsController {
         const text = QuestionHelper_1.QuestionHelper.text(aula?.markdown, questao);
         return { text };
     }
-    async responder({ request, user }) {
+    async responder({ request, user, logger }) {
         const today = luxon_1.DateTime.local().set({ hour: 0, minute: 0, second: 0 });
-        const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`;
-        await Redis_1.default.del(redisTodayKey);
-        const { questao_id, resposta } = request.all();
+        try {
+            const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`;
+            await Redis_1.default.del(redisTodayKey);
+        }
+        catch (e) {
+            logger.error('redis indisponível');
+        }
+        const { questao_id, resposta, caderno_id } = request.all();
         const questao = await Questao_1.default.query()
             .where('id', questao_id)
             .firstOrFail();
-        const respondida = await Respondida_1.default.create({
-            questao_id,
-            resposta,
-            aula_id: questao.aula_id,
-            acertou: questao.gabarito === 'X' || questao.gabarito === resposta,
-            gabarito: questao.gabarito,
-            horario: luxon_1.DateTime.local(),
-            user_id: user?.id || 0
+        const caderno = await Caderno_1.default.findOrFail(caderno_id);
+        const aula = await Aula_1.default.findOrFail(questao.aula_id);
+        return Database_1.default.transaction(async () => {
+            const respondida = await Respondida_1.default.create({
+                questao_id,
+                resposta,
+                caderno_id,
+                aula_id: questao.aula_id,
+                acertou: questao.gabarito === 'X' || questao.gabarito === resposta,
+                gabarito: questao.gabarito,
+                horario: luxon_1.DateTime.local(),
+                user_id: user?.id || 0
+            });
+            const respondidas = await Respondida_1.default.query().where('caderno_id', caderno_id);
+            const questoes = await aula.related('questoes').query();
+            caderno.encerrado = respondidas.length === questoes.length;
+            caderno.acertos = respondidas.filter(r => r.acertou).length;
+            caderno.erros = respondidas.filter(r => !r.acertou).length;
+            caderno.total = questoes.length;
+            if (respondidas.length === 1) {
+                caderno.inicio = luxon_1.DateTime.local();
+            }
+            if (respondidas.length === questoes.length) {
+                caderno.fim = luxon_1.DateTime.local();
+            }
+            await caderno.save();
+            return respondida;
         });
-        return respondida;
     }
     async deleteRespondida({ params }) {
         const { id } = params;
