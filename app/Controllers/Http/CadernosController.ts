@@ -1,4 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
+import Database from '@ioc:Adonis/Lucid/Database';
 import Caderno from 'App/Models/Caderno';
 import Questao from 'App/Models/Questao';
 import { v4 as uuid } from 'uuid';
@@ -25,7 +26,11 @@ export default class CadernosController {
     const { aula_id } = params;
 
     const questoes = await Questao.query()
-      .where('aula_id', aula_id)
+      .whereIn('id',
+        Database.from('aula_questoes')
+          .select('questao_id')
+          .where('aula_id', aula_id)
+      )
 
     return await Caderno.create({
       id: uuid(),
