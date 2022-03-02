@@ -17,9 +17,13 @@ export default class QuestionsController {
 
     const query = Questao.query()
       .if(aula_id, q => {
-        q.where('aula_id', aula_id)
+        q.whereIn('id',
+          Database.from('aula_questao')
+            .select('questao_id')
+            .where('aula_id', aula_id)
+        )
       })
-      .if(withAulas, q => q.preload('aulas'))
+    .if(withAulas, q => q.preload('aulas'))
 
     if (page) {
       return query.paginate(page, perPage)
@@ -128,24 +132,24 @@ export default class QuestionsController {
       })
 
       const respondidas = await Respondida.query().where('caderno_id', caderno_id)
-      
+
       const questoes = await aula.related('questoes').query()
-           
+
       caderno.encerrado = respondidas.length === questoes.length
       caderno.acertos = respondidas.filter(r => r.acertou).length
       caderno.erros = respondidas.filter(r => !r.acertou).length
       caderno.total = questoes.length
 
-      if(respondidas.length === 1) {
+      if (respondidas.length === 1) {
         caderno.inicio = DateTime.local()
       }
 
-      if(respondidas.length === questoes.length) {
+      if (respondidas.length === questoes.length) {
         caderno.fim = DateTime.local()
       }
 
       await caderno.save()
-      
+
       return respondida;
     })
   }
