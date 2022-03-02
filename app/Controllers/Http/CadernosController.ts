@@ -27,7 +27,7 @@ export default class CadernosController {
 
     const questoes = await Questao.query()
       .whereIn('id',
-        Database.from('aula_questoes')
+        Database.from('aula_questao')
           .select('questao_id')
           .where('aula_id', aula_id)
       )
