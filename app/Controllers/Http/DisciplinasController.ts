@@ -20,7 +20,6 @@ export default class DisciplinasController {
       .if(search !== '', q => q.where('name', 'regexp', search))
       .if(countAulas !== '', q => {
         q.withCount('aulas')
-
       })
       .if(countQuestoes !== '', q => {
         q.withCount('questoes')

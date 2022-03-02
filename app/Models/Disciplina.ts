@@ -1,7 +1,7 @@
-import { DateTime } from 'luxon'
-import { BaseModel, column, hasMany, HasMany, HasManyThrough, hasManyThrough } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, hasMany, HasMany, HasManyThrough, hasManyThrough } from '@ioc:Adonis/Lucid/Orm';
+import { DateTime } from 'luxon';
 import Aula from './Aula';
-import Questao from './Questao';
+import AulaQuestao from './AulaQuestao';
 
 export default class Disciplina extends BaseModel {
 
@@ -28,14 +28,14 @@ export default class Disciplina extends BaseModel {
   public aulas: HasMany<typeof Aula>
 
   @hasManyThrough([
-    () => Questao,
+    () => AulaQuestao,
     () => Aula
   ], {
     throughForeignKey: 'aula_id',
     throughLocalKey: 'id',
     foreignKey: 'disciplina_id'
   })
-  public questoes: HasManyThrough<typeof Questao>
+  public questoes: HasManyThrough<typeof AulaQuestao>
 
 
   @column.dateTime({ autoCreate: true })
