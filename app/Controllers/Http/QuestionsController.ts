@@ -23,7 +23,7 @@ export default class QuestionsController {
             .where('aula_id', aula_id)
         )
       })
-    .if(withAulas, q => q.preload('aulas'))
+      .if(withAulas, q => q.preload('aulas'))
 
     if (page) {
       return query.paginate(page, perPage)
@@ -179,9 +179,15 @@ export default class QuestionsController {
 
 
   async destroy({ params }: HttpContextContract) {
-    const questao = await Questao.findOrFail(params.id)
+    return await Database.transaction(async (trx) => {
+      const questao = await Questao.findOrFail(params.id)
 
-    return await questao.delete()
+      await trx.from('aula_questao').where('questao_id', params.id)
+        .delete()
+
+      return await questao.delete()
+    })
+
   }
 
 }

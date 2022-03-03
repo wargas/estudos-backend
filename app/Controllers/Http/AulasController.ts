@@ -1,6 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Aula from "App/Models/Aula";
-import AulaEstatiscas from 'App/repositories/AulaEstatisticas';
 
 
 export default class AulasController {
@@ -10,6 +9,8 @@ export default class AulasController {
     const { disciplina_id } = params
 
     const { withQuestoes,
+      page,
+      perPage = 10,
       withMeta,
       withEstatisticas,
       withRegistros,
@@ -20,7 +21,7 @@ export default class AulasController {
     const [c = 'ordem', o = 'asc'] = order_by.split(':');
 
 
-    const aulas = await Aula
+    const query = Aula
       .query()
       .where("user_id", user?.id || '')
       .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
@@ -41,27 +42,31 @@ export default class AulasController {
       .if(withDisciplina, q => q.preload('disciplina'))
       .orderBy('ordem', 'asc')
 
-
-    return aulas.map(aula => {
-      const days = AulaEstatiscas(aula)
-
-      const _aula = aula.serialize()
-
-      if (withRespondidas) {
-        delete _aula.questoes.respondidas;
+      if(page) {
+        return await query.paginate(page, perPage)
       }
 
-      if (!withQuestoes) {
-        delete _aula.questoes;
-      }
+      return await query;
+    // return aulas.map(aula => {
+    //   const days = AulaEstatiscas(aula)
 
-      if (!withRegistros) {
-        delete _aula.registros;
-      }
+    //   const _aula = aula.serialize()
 
-      return { ..._aula, days, questoes_count: aula.$extras.questoes_count }
+    //   if (withRespondidas) {
+    //     delete _aula.questoes.respondidas;
+    //   }
 
-    })
+    //   if (!withQuestoes) {
+    //     delete _aula.questoes;
+    //   }
+
+    //   if (!withRegistros) {
+    //     delete _aula.registros;
+    //   }
+
+    //   return { ..._aula, days, questoes_count: aula.$extras.questoes_count }
+
+    // })
 
   }
 

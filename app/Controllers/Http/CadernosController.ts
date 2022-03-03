@@ -40,7 +40,12 @@ export default class CadernosController {
     })
   }
 
-  public async show({ }: HttpContextContract) {
+  public async show({ params }: HttpContextContract) {
+
+    const caderno = await Caderno.findOrFail(params.id)
+
+    return caderno;
+
   }
 
   public async edit({ }: HttpContextContract) {
