@@ -2,7 +2,7 @@ export const bancas =
     [
         {
             name: "ESTRATEGIA",
-            imageUrl: "https://concursos.estrategia.com/favicon-concursos.ico"
+            image_url: "https://concursos.estrategia.com/favicon-concursos.ico"
         },
         {
             name: "ACADEPOL-MG",
