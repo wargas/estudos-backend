@@ -24,6 +24,7 @@
     "@adonisjs/repl": "^3.0.0",
     "@types/jsonwebtoken": "^8.5.5",
     "axios": "^0.21.1",
+    "jsdom": "^19.0.0",
     "jsonwebtoken": "^8.5.1",
     "luxon": "^2.0.1",
     "mysql": "^2.18.1",

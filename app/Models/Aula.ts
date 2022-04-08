@@ -44,9 +44,6 @@ export default class Aula extends BaseModel {
   })
   public registros: HasMany<typeof Registro>
 
-  // @hasMany(() => Questao, {foreignKey: 'aula_id'})
-  // public questoes: HasMany<typeof Questao>
-
   @manyToMany(() => Questao)
   public questoes: ManyToMany<typeof Questao>
 

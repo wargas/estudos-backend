@@ -1,4 +1,5 @@
 import { BaseCommand } from '@adonisjs/core/build/standalone'
+import Aula from 'App/Models/Aula'
 
 export default class Tests extends BaseCommand {
 
@@ -30,7 +31,11 @@ export default class Tests extends BaseCommand {
     // const Database = (await import('@ioc:Adonis/Lucid/Database')).default
      // console.log(Object.keys(App))
     // console.log();
+    const aula = await Aula.find(1851);
 
+    const questoes = await aula?.related('questoes').query()
+
+    this.logger.info(`${questoes?.length}`);
     
   }
 }

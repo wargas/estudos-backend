@@ -116,7 +116,7 @@ export default class QuestionsController {
 
     const caderno = await Caderno.findOrFail(caderno_id)
 
-    const aula = await Aula.findOrFail(questao.aula_id)
+    const aula = await Aula.findOrFail(caderno.aula_id)
 
     return Database.transaction(async () => {
 
