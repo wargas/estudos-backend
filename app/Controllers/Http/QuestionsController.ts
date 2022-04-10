@@ -124,7 +124,7 @@ export default class QuestionsController {
         questao_id,
         resposta,
         caderno_id,
-        aula_id: questao.aula_id,
+        aula_id: caderno.aula_id,
         acertou: questao.gabarito === 'X' || questao.gabarito === resposta,
         gabarito: questao.gabarito,
         horario: DateTime.local(),
