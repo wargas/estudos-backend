@@ -15,57 +15,37 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
 const luxon_1 = require("luxon");
 const Aula_1 = __importDefault(require("./Aula"));
-const AulaQuestao_1 = __importDefault(require("./AulaQuestao"));
-class Disciplina extends Orm_1.BaseModel {
-    constructor() {
-        super(...arguments);
-        this.serializeExtras = true;
-    }
+const Questao_1 = __importDefault(require("./Questao"));
+class AulaQuestao extends Orm_1.BaseModel {
 }
+AulaQuestao.table = 'aula_questao';
 __decorate([
     Orm_1.column({ isPrimary: true }),
     __metadata("design:type", Number)
-], Disciplina.prototype, "id", void 0);
-__decorate([
-    Orm_1.column(),
-    __metadata("design:type", String)
-], Disciplina.prototype, "name", void 0);
+], AulaQuestao.prototype, "id", void 0);
 __decorate([
     Orm_1.column(),
     __metadata("design:type", Number)
-], Disciplina.prototype, "user_id", void 0);
+], AulaQuestao.prototype, "aula_id", void 0);
 __decorate([
     Orm_1.column(),
     __metadata("design:type", Number)
-], Disciplina.prototype, "concurso_id", void 0);
+], AulaQuestao.prototype, "questao_id", void 0);
 __decorate([
-    Orm_1.column(),
-    __metadata("design:type", Boolean)
-], Disciplina.prototype, "arquivada", void 0);
-__decorate([
-    Orm_1.hasMany(() => Aula_1.default, {
-        foreignKey: 'disciplina_id'
-    }),
+    Orm_1.belongsTo(() => Aula_1.default),
     __metadata("design:type", Object)
-], Disciplina.prototype, "aulas", void 0);
+], AulaQuestao.prototype, "aula", void 0);
 __decorate([
-    Orm_1.hasManyThrough([
-        () => AulaQuestao_1.default,
-        () => Aula_1.default
-    ], {
-        throughForeignKey: 'aula_id',
-        throughLocalKey: 'id',
-        foreignKey: 'disciplina_id'
-    }),
+    Orm_1.belongsTo(() => Questao_1.default),
     __metadata("design:type", Object)
-], Disciplina.prototype, "questoes", void 0);
+], AulaQuestao.prototype, "questao", void 0);
 __decorate([
     Orm_1.column.dateTime({ autoCreate: true }),
     __metadata("design:type", luxon_1.DateTime)
-], Disciplina.prototype, "createdAt", void 0);
+], AulaQuestao.prototype, "createdAt", void 0);
 __decorate([
     Orm_1.column.dateTime({ autoCreate: true, autoUpdate: true }),
     __metadata("design:type", luxon_1.DateTime)
-], Disciplina.prototype, "updatedAt", void 0);
-exports.default = Disciplina;
-//# sourceMappingURL=Disciplina.js.map
+], AulaQuestao.prototype, "updatedAt", void 0);
+exports.default = AulaQuestao;
+//# sourceMappingURL=AulaQuestao.js.map

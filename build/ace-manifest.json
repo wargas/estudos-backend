@@ -1,5 +1,17 @@
 {
   "commands": {
+    "questoes:insert": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/QuestoesInsert",
+      "commandName": "questoes:insert",
+      "description": "",
+      "args": [],
+      "aliases": [],
+      "flags": []
+    },
     "tests": {
       "settings": {
         "loadApp": true,

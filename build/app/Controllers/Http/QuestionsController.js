@@ -17,7 +17,9 @@ class QuestionsController {
         const { page, perPage = 10, withAulas } = request.qs();
         const query = Questao_1.default.query()
             .if(aula_id, q => {
-            q.where('aula_id', aula_id);
+            q.whereIn('id', Database_1.default.from('aula_questao')
+                .select('questao_id')
+                .where('aula_id', aula_id));
         })
             .if(withAulas, q => q.preload('aulas'));
         if (page) {
@@ -82,7 +84,7 @@ class QuestionsController {
             .where('id', questao_id)
             .firstOrFail();
         const caderno = await Caderno_1.default.findOrFail(caderno_id);
-        const aula = await Aula_1.default.findOrFail(questao.aula_id);
+        const aula = await Aula_1.default.findOrFail(caderno.aula_id);
         return Database_1.default.transaction(async () => {
             const respondida = await Respondida_1.default.create({
                 questao_id,
@@ -124,8 +126,12 @@ class QuestionsController {
         return respondida;
     }
     async destroy({ params }) {
-        const questao = await Questao_1.default.findOrFail(params.id);
-        return await questao.delete();
+        return await Database_1.default.transaction(async (trx) => {
+            const questao = await Questao_1.default.findOrFail(params.id);
+            await trx.from('aula_questao').where('questao_id', params.id)
+                .delete();
+            return await questao.delete();
+        });
     }
 }
 exports.default = QuestionsController;

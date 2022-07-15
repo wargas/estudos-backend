@@ -1,5 +1,25 @@
 {
   "commands": {
+    "questoes:insert": {
+      "settings": {
+        "loadApp": true,
+        "stayAlive": false
+      },
+      "commandPath": "./commands/QuestoesInsert",
+      "commandName": "questoes:insert",
+      "description": "",
+      "args": [
+        {
+          "type": "string",
+          "propertyName": "root",
+          "name": "root",
+          "required": true,
+          "description": "pasta que contem os arquivos"
+        }
+      ],
+      "aliases": [],
+      "flags": []
+    },
     "tests": {
       "settings": {
         "loadApp": true,

@@ -4,13 +4,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
-const AulaEstatisticas_1 = __importDefault(global[Symbol.for('ioc.use')]("App/repositories/AulaEstatisticas"));
 class AulasController {
     async index({ user, request, params }) {
         const { disciplina_id } = params;
-        const { withQuestoes, withMeta, withEstatisticas, withRegistros, withRespondidas, withDisciplina, withCadernos, order_by = 'ordem:asc' } = request.qs();
+        const { withQuestoes, page, perPage = 10, withMeta, withEstatisticas, withRegistros, withRespondidas, withDisciplina, withCadernos, order_by = 'ordem:asc' } = request.qs();
         const [c = 'ordem', o = 'asc'] = order_by.split(':');
-        const aulas = await Aula_1.default
+        const query = Aula_1.default
             .query()
             .where("user_id", user?.id || '')
             .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
@@ -30,20 +29,10 @@ class AulasController {
         })
             .if(withDisciplina, q => q.preload('disciplina'))
             .orderBy('ordem', 'asc');
-        return aulas.map(aula => {
-            const days = AulaEstatisticas_1.default(aula);
-            const _aula = aula.serialize();
-            if (withRespondidas) {
-                delete _aula.questoes.respondidas;
-            }
-            if (!withQuestoes) {
-                delete _aula.questoes;
-            }
-            if (!withRegistros) {
-                delete _aula.registros;
-            }
-            return { ..._aula, days, questoes_count: aula.$extras.questoes_count };
-        });
+        if (page) {
+            return await query.paginate(page, perPage);
+        }
+        return await query;
     }
     async show({ params, user, request }) {
         const { disciplina_id, id } = params;

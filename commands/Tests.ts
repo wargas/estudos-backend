@@ -1,17 +1,16 @@
-import { BaseCommand } from '@adonisjs/core/build/standalone'
-import Aula from 'App/Models/Aula'
+import { BaseCommand } from "@adonisjs/core/build/standalone";
+import markdownToHtml from "App/Utils/markdown";
 
 export default class Tests extends BaseCommand {
-
   /**
    * Command name is used to run the command
    */
-  public static commandName = 'tests'
+  public static commandName = "tests";
 
   /**
    * Command description is displayed in the "help" output
    */
-  public static description = 'Para testes'
+  public static description = "Para testes";
 
   public static settings = {
     /**
@@ -25,17 +24,11 @@ export default class Tests extends BaseCommand {
      * you manually decide to exit the process
      */
     stayAlive: true,
-  }
+  };
 
-  public async run () {
-    // const Database = (await import('@ioc:Adonis/Lucid/Database')).default
-     // console.log(Object.keys(App))
-    // console.log();
-    const aula = await Aula.find(1851);
+  public async run() {
+    const text = "`$1 + 2$`";
 
-    const questoes = await aula?.related('questoes').query()
-
-    this.logger.info(`${questoes?.length}`);
-    
+    console.log(markdownToHtml(text))
   }
 }

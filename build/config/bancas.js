@@ -3,6 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.bancas = void 0;
 exports.bancas = [
     {
+        name: "ESTRATEGIA",
+        image_url: "https://concursos.estrategia.com/favicon-concursos.ico"
+    },
+    {
         name: "ACADEPOL-MG",
         image_url: "https://s3-sa-east-1.amazonaws.com/figuras.tecconcursos.com.br/47330555-e68c-4aa8-b751-a2fbda03491d"
     },

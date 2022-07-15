@@ -14,6 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
 const QuestionHelper_1 = global[Symbol.for('ioc.use')]("App/repositories/QuestionHelper");
+const markdown_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Utils/markdown"));
 const bancas_1 = global[Symbol.for('ioc.use')]("Config/bancas");
 const Aula_1 = __importDefault(require("./Aula"));
 const Respondida_1 = __importDefault(require("./Respondida"));
@@ -21,6 +22,9 @@ class Questao extends Orm_1.BaseModel {
     constructor() {
         super(...arguments);
         this.helper = new QuestionHelper_1.QuestionHelper();
+    }
+    get enunciadoHtml() {
+        return markdown_1.default(this.enunciado);
     }
     get extractBanca() {
         return this.helper.getBanca(this.enunciado, bancas_1.bancas);
@@ -54,6 +58,11 @@ __decorate([
     __metadata("design:type", String)
 ], Questao.prototype, "modalidade", void 0);
 __decorate([
+    Orm_1.computed({ serializeAs: 'enunciadoHtml' }),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [])
+], Questao.prototype, "enunciadoHtml", null);
+__decorate([
     Orm_1.computed({ serializeAs: 'banca' }),
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [])
@@ -78,6 +87,7 @@ __decorate([
                 return Object.values(jsonArray).map((item, position) => {
                     return {
                         conteudo: item,
+                        html: markdown_1.default(`${item}`),
                         letra: letras[position],
                         correta: letras[position] === gabarito
                     };

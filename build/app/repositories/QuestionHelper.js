@@ -1,4 +1,23 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -115,6 +134,33 @@ class QuestionHelper {
         const header = this.extractEnunciadoHeader(enunciado).toLowerCase();
         const match = bancas.find(({ name }) => header.includes(name.toLowerCase()));
         return match;
+    }
+    static async editarEmLote(markdown, aula_id) {
+        const { default: Database } = await Promise.resolve().then(() => __importStar(global[Symbol.for('ioc.use')]("Adonis/Lucid/Database")));
+        const { default: Aula } = await Promise.resolve().then(() => __importStar(global[Symbol.for('ioc.use')]('App/Models/Aula')));
+        const { default: Questao } = await Promise.resolve().then(() => __importStar(global[Symbol.for('ioc.use')]('App/Models/Questao')));
+        const aula = await Aula.findOrFail(aula_id);
+        const questoes = markdown.split('****').map(mdQuestao => {
+            const partes = mdQuestao.split('***');
+            const _gabarito = partes.pop();
+            const [_enunciado, ..._alternativas] = partes;
+            const idRegex = /^\[ID: ?(\d{1,11})\]/;
+            const matchId = _enunciado.trim().match(idRegex);
+            const questaoId = matchId ? matchId[1] : undefined;
+            const enunciado = _enunciado.trim().replace(idRegex, "");
+            const alternativas = JSON.stringify(_alternativas.length === 0 ? ['Certo', 'Errado'] : _alternativas.map(alt => alt.trim()));
+            const gabarito = _gabarito?.trim();
+            const modalidade = alternativas.length > 2 ? 'MULTIPLA_ESCOLHA' : 'CERTO_ERRADO';
+            return { enunciado, id: questaoId, alternativas, gabarito, modalidade, aula_id };
+        });
+        return await Database.transaction(async () => {
+            const news = await aula
+                .related('questoes')
+                .createMany(questoes.filter(it => !it?.id));
+            const updated = await Questao
+                .updateOrCreateMany('id', questoes.filter(it => !!it?.id));
+            return [...news, ...updated];
+        });
     }
 }
 exports.QuestionHelper = QuestionHelper;

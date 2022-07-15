@@ -152,4 +152,47 @@ export class QuestionHelper {
     return match
   }
 
+  static async editarEmLote(markdown: string, aula_id: number) {
+
+    const { default: Database } = await import('@ioc:Adonis/Lucid/Database');
+    const { default: Aula } = await import('App/Models/Aula');
+    const { default: Questao } = await import('App/Models/Questao');
+
+    const aula = await Aula.findOrFail(aula_id)
+
+    const questoes = markdown.split('****').map(mdQuestao => {
+      const partes = mdQuestao.split('***');
+      const _gabarito = partes.pop()
+
+      const [_enunciado, ..._alternativas] = partes
+
+      const idRegex = /^\[ID: ?(\d{1,11})\]/
+      const matchId = _enunciado.trim().match(idRegex)
+
+      const questaoId = matchId ? matchId[1] : undefined
+
+      const enunciado = _enunciado.trim().replace(idRegex, "")
+      const alternativas = JSON.stringify(
+        _alternativas.length === 0 ? ['Certo', 'Errado'] : _alternativas.map(alt => alt.trim()))
+      const gabarito = _gabarito?.trim()
+      const modalidade = alternativas.length > 2 ? 'MULTIPLA_ESCOLHA' : 'CERTO_ERRADO'
+
+      return { enunciado, id: questaoId, alternativas, gabarito, modalidade, aula_id }
+    })
+
+    return await Database.transaction(async () => {
+      const news = await aula
+        .related('questoes')
+        .createMany(questoes.filter(it => !it?.id) as [])
+      const updated = await Questao
+        .updateOrCreateMany(
+          'id',
+          questoes.filter(it => !!it?.id) as []
+        );
+
+      return [...news, ...updated]
+    })
+
+  }
+
 }
