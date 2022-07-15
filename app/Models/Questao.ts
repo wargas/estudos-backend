@@ -28,7 +28,7 @@ export default class Questao extends BaseModel {
 
   @computed({serializeAs: 'enunciadoHtml'})
   public get enunciadoHtml() {
-    return markdownToHtml(this.enunciado)
+    return markdownToHtml(this.extractHeader)
   }
 
   @computed({serializeAs: 'banca'})

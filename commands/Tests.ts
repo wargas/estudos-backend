@@ -27,7 +27,7 @@ export default class Tests extends BaseCommand {
   };
 
   public async run() {
-    const text = "`$1 + 2$`";
+    const text = "$1 + 2$";
 
     console.log(markdownToHtml(text))
   }

@@ -29,6 +29,7 @@
     "jsonwebtoken": "^8.5.1",
     "luxon": "^2.0.1",
     "markdown-it": "^13.0.1",
+    "markdown-it-katex": "^2.0.3",
     "markdown-it-latex": "^0.2.0",
     "markdown-it-sub": "^1.0.0",
     "markdown-it-sup": "^1.0.0",
