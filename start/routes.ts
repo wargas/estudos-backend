@@ -1,7 +1,6 @@
 import Events from "@ioc:Adonis/Core/Event";
 import Route from "@ioc:Adonis/Core/Route";
 import Questao from "App/Models/Questao";
-import User from "App/Models/User";
 
 Events.on("db:query", (query) => {
   console.log(query.sql);
