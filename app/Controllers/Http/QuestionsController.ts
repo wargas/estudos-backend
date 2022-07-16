@@ -13,7 +13,7 @@ export default class QuestionsController {
   async index({ request, params }: HttpContextContract) {
 
     const { aula_id } = params;
-    const { page, perPage = 10, withAulas } = request.qs()
+    const { page, perPage = 10, withAulas, withRespondidas } = request.qs()
 
     const query = Questao.query()
       .if(aula_id, q => {
@@ -24,6 +24,7 @@ export default class QuestionsController {
         )
       })
       .if(withAulas, q => q.preload('aulas'))
+      .if(withRespondidas, q => q.preload('respondidas'))
 
     if (page) {
       return query.paginate(page, perPage)
