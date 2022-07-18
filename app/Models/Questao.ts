@@ -67,7 +67,7 @@ export default class Questao extends BaseModel {
       }
     }
   })
-  public alternativas: any[]
+  public alternativas: any[] | string
 
   @manyToMany(() => Aula)
   public aulas: ManyToMany<typeof Aula>

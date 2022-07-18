@@ -43,6 +43,20 @@ export default class QuestionsController {
       .first()
   }
 
+  async update({request, params}: HttpContextContract)  {
+    const {enunciado, alternativas, gabarito} = request.all()
+
+    const questao = await Questao.findOrFail(params.id)
+    questao.merge({
+      enunciado, gabarito, alternativas: JSON.stringify(alternativas.length <= 1 ? ['Certo', 'Errado'] : alternativas)
+    })
+
+
+    await questao.save()
+
+    return questao;
+  }
+
   async editarEmLote({ request }: HttpContextContract) {
 
     const markdown = request.input('markdown')
