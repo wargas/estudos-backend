@@ -15,6 +15,7 @@ Route.group(() => {
   Route.resource("aulas.questoes", "QuestionsController");
   Route.resource("questoes", "QuestionsController");
   Route.resource('questoes/:questao_id/comentarios', 'ComentariosController')
+  Route.resource('questoes/:questao_id/respondidas', 'RespondidasController')
   Route.resource('comentarios', 'ComentariosController')
   Route.resource("aulas.registros", "RegistrosController");
   Route.resource("registros", "RegistrosController");
