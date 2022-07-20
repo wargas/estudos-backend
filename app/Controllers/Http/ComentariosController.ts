@@ -3,22 +3,19 @@ import Comentario from 'App/Models/Comentario';
 
 export default class ComentariosController {
 
+  async index({params}: HttpContextContract) {
+
+    const { questao_id } = params;
+
+    const query = Comentario.query()
+      .if(questao_id, q => q.where('questao_id', questao_id))
+
+    return await query
+  }
+
   async store({ params, request, user }: HttpContextContract) {
 
     const {texto} = request.all();
-
-    const comentario = await Comentario.query()
-      .where('user_id', user?.id || '')
-      .where('questao_id', params.questao_id)
-      .orderBy('id', 'desc')
-      .first();
-
-    if (comentario) {
-      comentario.texto = texto;
-      await comentario.save();
-
-      return comentario;
-    }
 
     return Comentario.create({
       questao_id: params.questao_id,
@@ -26,6 +23,12 @@ export default class ComentariosController {
       texto
     })
 
+  }
+
+  async destroy({params}: HttpContextContract) {
+    const item = await Comentario.findOrFail(params.id);
+
+    return await item.delete()
   }
 
   async show({ params, user }: HttpContextContract) {
