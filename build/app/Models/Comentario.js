@@ -8,9 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
+const markdown_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Utils/markdown"));
 class Comentario extends Orm_1.BaseModel {
+    get html() {
+        return markdown_1.default(this.texto);
+    }
 }
 __decorate([
     Orm_1.column({ isPrimary: true }),
@@ -28,5 +35,10 @@ __decorate([
     Orm_1.column(),
     __metadata("design:type", String)
 ], Comentario.prototype, "texto", void 0);
+__decorate([
+    Orm_1.computed(),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [])
+], Comentario.prototype, "html", null);
 exports.default = Comentario;
 //# sourceMappingURL=Comentario.js.map

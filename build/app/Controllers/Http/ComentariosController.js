@@ -5,23 +5,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Comentario_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Comentario"));
 class ComentariosController {
+    async index({ params }) {
+        const { questao_id } = params;
+        const query = Comentario_1.default.query()
+            .if(questao_id, q => q.where('questao_id', questao_id));
+        return await query;
+    }
     async store({ params, request, user }) {
         const { texto } = request.all();
-        const comentario = await Comentario_1.default.query()
-            .where('user_id', user?.id || '')
-            .where('questao_id', params.questao_id)
-            .orderBy('id', 'desc')
-            .first();
-        if (comentario) {
-            comentario.texto = texto;
-            await comentario.save();
-            return comentario;
-        }
         return Comentario_1.default.create({
             questao_id: params.questao_id,
             user_id: user?.id,
             texto
         });
+    }
+    async destroy({ params }) {
+        const item = await Comentario_1.default.findOrFail(params.id);
+        return await item.delete();
     }
     async show({ params, user }) {
         const comentario = await Comentario_1.default.query()

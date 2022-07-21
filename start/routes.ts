@@ -28,6 +28,7 @@ Route.group(() => {
 
   Route.post("questoes/:id/:questao", "QuestionsController.editar");
   Route.get("questoes/:id/:questao", "QuestionsController.text");
+  Route.post('questoes/prepare', 'QuestionsController.prepareFromFile')
 
   Route.get("respondidas/:aula/:questao", "QuestionsController.respondidas");
   Route.delete("respondidas/:id", "QuestionsController.deleteRespondida");

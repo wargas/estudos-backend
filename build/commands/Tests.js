@@ -7,7 +7,7 @@ const standalone_1 = require("@adonisjs/core/build/standalone");
 const markdown_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Utils/markdown"));
 class Tests extends standalone_1.BaseCommand {
     async run() {
-        const text = "`$1 + 2$`";
+        const text = "$1 + 2$";
         console.log(markdown_1.default(text));
     }
 }

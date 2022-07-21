@@ -24,7 +24,7 @@ class Questao extends Orm_1.BaseModel {
         this.helper = new QuestionHelper_1.QuestionHelper();
     }
     get enunciadoHtml() {
-        return markdown_1.default(this.enunciado);
+        return markdown_1.default(this.extractHeader);
     }
     get extractBanca() {
         return this.helper.getBanca(this.enunciado, bancas_1.bancas);
@@ -98,7 +98,7 @@ __decorate([
             }
         }
     }),
-    __metadata("design:type", Array)
+    __metadata("design:type", Object)
 ], Questao.prototype, "alternativas", void 0);
 __decorate([
     Orm_1.manyToMany(() => Aula_1.default),
