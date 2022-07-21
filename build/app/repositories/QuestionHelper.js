@@ -128,6 +128,9 @@ class QuestionHelper {
         return enunciado.substring(this.getEnunciadoDividerPosition(enunciado)).trim();
     }
     extractEnunciadoHeader(enunciado) {
+        if (!enunciado) {
+            return '';
+        }
         return enunciado.substr(0, this.getEnunciadoDividerPosition(enunciado));
     }
     getBanca(enunciado, bancas) {

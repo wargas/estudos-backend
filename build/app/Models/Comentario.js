@@ -14,6 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
 const markdown_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Utils/markdown"));
+const luxon_1 = require("luxon");
+const Questao_1 = __importDefault(require("./Questao"));
 class Comentario extends Orm_1.BaseModel {
     get html() {
         return markdown_1.default(this.texto);
@@ -40,5 +42,17 @@ __decorate([
     __metadata("design:type", Object),
     __metadata("design:paramtypes", [])
 ], Comentario.prototype, "html", null);
+__decorate([
+    Orm_1.belongsTo(() => Questao_1.default),
+    __metadata("design:type", Object)
+], Comentario.prototype, "questao", void 0);
+__decorate([
+    Orm_1.column.dateTime({ autoCreate: true }),
+    __metadata("design:type", luxon_1.DateTime)
+], Comentario.prototype, "createdAt", void 0);
+__decorate([
+    Orm_1.column.dateTime({ autoCreate: true, autoUpdate: true }),
+    __metadata("design:type", luxon_1.DateTime)
+], Comentario.prototype, "updatedAt", void 0);
 exports.default = Comentario;
 //# sourceMappingURL=Comentario.js.map

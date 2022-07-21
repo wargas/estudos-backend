@@ -2,7 +2,9 @@ import { BaseModel, column, computed, HasMany, hasMany, ManyToMany, manyToMany }
 import { QuestionHelper } from 'App/repositories/QuestionHelper'
 import markdownToHtml from 'App/Utils/markdown'
 import { bancas } from 'Config/bancas'
+import { DateTime } from 'luxon'
 import Aula from './Aula'
+import Comentario from './Comentario'
 import Respondida from './Respondida'
 
 
@@ -38,7 +40,7 @@ export default class Questao extends BaseModel {
 
   @computed({serializeAs: 'texto'})
   public get extractHeader() {
-    return this.helper.extractEnunciadoContent(this.enunciado)
+    return this.helper.extractEnunciadoContent(this?.enunciado || '')
   }
 
   @computed({serializeAs: 'header'})
@@ -75,5 +77,15 @@ export default class Questao extends BaseModel {
   @hasMany(() => Respondida, { foreignKey: 'questao_id' })
   public respondidas: HasMany<typeof Respondida>
 
+  @hasMany(() => Comentario, {foreignKey: 'questao_id'})
+  public comentarios: HasMany<typeof Comentario>
+
+
+  @column.dateTime({ autoCreate: true })
+  public createdAt: DateTime
+
+
+  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  public updatedAt: DateTime
 
 }

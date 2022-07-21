@@ -140,6 +140,9 @@ export class QuestionHelper {
   }
 
   extractEnunciadoHeader(enunciado: string): string {
+    if(!enunciado) {
+      return ''
+    }
     return enunciado.substr(0, this.getEnunciadoDividerPosition(enunciado))
   }
 

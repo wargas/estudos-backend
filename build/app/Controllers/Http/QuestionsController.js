@@ -49,10 +49,15 @@ class QuestionsController {
         return questao;
     }
     async store({ request, params }) {
-        const data = request.only(['gabarito', 'enunciado', 'alternativas', 'modalidade']);
+        const { comentario, ...data } = request.only(['gabarito', 'enunciado', 'alternativas', 'modalidade', 'comentario']);
         const { aula_id } = params;
         const questao = await Questao_1.default.create({ ...data, aula_id, alternativas: JSON.stringify(data.alternativas) });
         await questao.related('aulas').attach([aula_id]);
+        if (comentario) {
+            questao.related('comentarios').create({
+                texto: comentario.texto
+            });
+        }
         return questao;
     }
     async prepareFromFile({ request, response }) {
@@ -187,10 +192,10 @@ class QuestionsController {
             .map((item) => {
             const questao = new Questao_1.default();
             const partes = item.split("***");
-            questao.gabarito = partes.pop()?.trim().replace(/\n/g, "") || "X";
+            questao.gabarito = partes.pop()?.trim()?.replace(/\n/g, "") || "X";
             const [enunciado, ...alternativas] = partes;
             const modalidade = alternativas.length > 2 ? "MULTIPLA_ESCOLHA" : "CERTO_ERRADO";
-            questao.enunciado = enunciado.replace(/^\n/, "");
+            questao.enunciado = enunciado?.replace(/^\n/, "");
             questao.alternativas =
                 alternativas.length === 0 ? ["Certo", "Errado"] : alternativas;
             questao.modalidade = modalidade;
@@ -224,7 +229,7 @@ class QuestionsController {
                 return alternativa?.body;
             });
             questao.aula_id = aula_id;
-            return questao;
+            return { ...questao.serialize(), comentario: { texto: item?.solution?.brief || '' } };
         });
         return questoes;
     }

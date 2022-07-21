@@ -61,12 +61,19 @@ export default class QuestionsController {
   }
 
   async store({request, params}: HttpContextContract) {
-    const data = request.only(['gabarito', 'enunciado', 'alternativas', 'modalidade'])
+    const {comentario, ...data} = request.only(['gabarito', 'enunciado', 'alternativas', 'modalidade', 'comentario'])
     const { aula_id } = params
 
     const questao = await Questao.create({...data, aula_id, alternativas: JSON.stringify(data.alternativas)})
 
     await questao.related('aulas').attach([aula_id])
+
+    if(comentario) {
+      questao.related('comentarios').create({
+        texto: comentario.texto
+      })
+    }
+
 
     return questao;
   }
@@ -254,12 +261,12 @@ export default class QuestionsController {
 
         const partes = item.split("***");
 
-        questao.gabarito = partes.pop()?.trim().replace(/\n/g, "") || "X";
+        questao.gabarito = partes.pop()?.trim()?.replace(/\n/g, "") || "X";
         const [enunciado, ...alternativas] = partes;
         const modalidade =
           alternativas.length > 2 ? "MULTIPLA_ESCOLHA" : "CERTO_ERRADO";
 
-        questao.enunciado = enunciado.replace(/^\n/, "");
+        questao.enunciado = enunciado?.replace(/^\n/, "");
         questao.alternativas =
           alternativas.length === 0 ? ["Certo", "Errado"] : alternativas;
         questao.modalidade = modalidade;
@@ -271,8 +278,11 @@ export default class QuestionsController {
     return questoes;
   }
 
-  _extractFromJSON(texto: string, aula_id: any): Questao[] {
+
+
+  _extractFromJSON(texto: string, aula_id: any): NewQuestao[] {
     const json:any = JSON.parse(texto);
+
 
 
     const questoes = json?.data?.map((item: any) => {
@@ -295,6 +305,8 @@ export default class QuestionsController {
         ano = exam.year
       }
 
+
+
       questao.enunciado = `(${banca} - ${ano} - ${orgao} - ${cargo}) ${item?.statement}`;
       questao.alternativas = item?.alternatives?.map((alternativa:any, index: number) => {
 
@@ -310,7 +322,7 @@ export default class QuestionsController {
 
       questao.aula_id = aula_id
 
-      return questao;
+      return {...questao.serialize(), comentario: {texto: item?.solution?.brief || ''}};
 
     })
 
@@ -328,3 +340,9 @@ export default class QuestionsController {
   }
 
 }
+
+type NewQuestao = {
+    comentario?: {
+      texto: string
+    }
+} & Questao
