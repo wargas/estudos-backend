@@ -27,7 +27,7 @@ export default class AulasController {
       .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
       .if(c === 'ordem', q => q.orderBy(c, o))
       .if(c === 'name', q => q.orderBy(c, o))
-      .if(withCadernos, q => q.preload('cadernos'))
+      .if(withCadernos, q => q.preload('cadernos', q2 => q2.orderBy('fim', 'desc')))
       .if(withQuestoes || withEstatisticas, q => {
         q.preload('questoes', q2 => {
           q2.if(withRespondidas || withEstatisticas, q3 => q3.preload('respondidas'))
@@ -47,26 +47,7 @@ export default class AulasController {
       }
 
       return await query;
-    // return aulas.map(aula => {
-    //   const days = AulaEstatiscas(aula)
 
-    //   const _aula = aula.serialize()
-
-    //   if (withRespondidas) {
-    //     delete _aula.questoes.respondidas;
-    //   }
-
-    //   if (!withQuestoes) {
-    //     delete _aula.questoes;
-    //   }
-
-    //   if (!withRegistros) {
-    //     delete _aula.registros;
-    //   }
-
-    //   return { ..._aula, days, questoes_count: aula.$extras.questoes_count }
-
-    // })
 
   }
 

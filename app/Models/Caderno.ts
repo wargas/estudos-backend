@@ -5,7 +5,7 @@ import Respondida from './Respondida'
 
 export default class Caderno extends BaseModel {
   @column({ isPrimary: true })
-  public id: string
+  public id: number
 
   @column.dateTime()
   public inicio: DateTime

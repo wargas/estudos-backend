@@ -33,7 +33,6 @@ export default class CadernosController {
       )
 
     return await Caderno.create({
-      id: uuid(),
       aula_id: aula_id,
       total: questoes.length,
       encerrado: false
