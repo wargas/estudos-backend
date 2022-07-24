@@ -2,7 +2,6 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Database from '@ioc:Adonis/Lucid/Database';
 import Caderno from 'App/Models/Caderno';
 import Questao from 'App/Models/Questao';
-import { v4 as uuid } from 'uuid';
 
 
 export default class CadernosController {
