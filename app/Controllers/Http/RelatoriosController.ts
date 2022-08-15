@@ -41,11 +41,23 @@ export default class RelatoriosController {
 
   async getDashboardDays(user_id = 0, whereTempo = '') {
     const [queryQuestoes] = await Database
-      .rawQuery(`SELECT DATE(horario) as data, COUNT(id) as total, SUM(acertou) acertos, user_id FROM respondidas  WHERE user_id = ${user_id} AND ${whereTempo} GROUP BY DATE(horario)`)
+      .rawQuery(`SELECT 
+        DATE(horario) as data, 
+        COUNT(id) as total, 
+        SUM(acertou) acertos, 
+        RANK() OVER (order by COUNT(*) desc) as position,  
+        user_id 
+        FROM respondidas
+      WHERE user_id = ${user_id} AND ${whereTempo} GROUP BY DATE(horario)`)
 
 
     const [queryTempo] = await Database
-      .rawQuery(`SELECT DATE(horario) as data, sum(tempo) as tempo, user_id FROM registros  WHERE user_id = ${user_id} AND ${whereTempo} GROUP BY DATE(horario)`)
+      .rawQuery(`SELECT 
+        DATE(horario) as data, 
+        sum(tempo) as tempo, 
+        RANK() OVER (order by sum(tempo) desc) as position,  
+        user_id 
+      FROM registros  WHERE user_id = ${user_id} AND ${whereTempo} GROUP BY DATE(horario)`)
 
 
     const days = Array.from(new Set([
@@ -60,6 +72,8 @@ export default class RelatoriosController {
         return {
           day: day,
           tempo: tempo?.tempo || 0,
+          positionTempo: tempo?.position,
+          positionQuestoes: questao?.position || 0,
           questoes: {
             total: questao?.total || 0,
             acertos: questao?.acertos || 0

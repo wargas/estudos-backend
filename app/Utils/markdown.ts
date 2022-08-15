@@ -11,8 +11,16 @@ export default function markdownToHtml(markdown: string): string {
   .use(markdownItSub)
   .use(markdownItSup)
 
+  let text = '';
+
+  try {
+    text = decodeURIComponent(escape(markdown))
+  } catch (error) {
+    text = markdown
+  }
+
   return md.render(
-    markdown
+    text
     .replace(/\n/g, "\n\n")
     .replace(/\n\n\|/g, "\n|")
   )

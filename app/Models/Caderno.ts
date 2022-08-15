@@ -1,9 +1,12 @@
-import { BaseModel, belongsTo, BelongsTo, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, belongsTo, BelongsTo, column, HasMany, hasMany, ManyToMany, manyToMany } from '@ioc:Adonis/Lucid/Orm'
 import { DateTime } from 'luxon'
 import Aula from './Aula'
+import Questao from './Questao'
 import Respondida from './Respondida'
 
 export default class Caderno extends BaseModel {
+  public serializeExtras = true
+  
   @column({ isPrimary: true })
   public id: number
 
@@ -28,10 +31,13 @@ export default class Caderno extends BaseModel {
   @column()
   public encerrado: boolean
 
+  @manyToMany(() => Questao)
+  public questoes: ManyToMany<typeof Questao>
+
   @belongsTo(() => Aula)
   public aula: BelongsTo<typeof Aula>
 
-  @hasMany(() => Respondida)
+  @hasMany(() => Respondida, { foreignKey: 'caderno_id'})
   public respondidas: HasMany<typeof Respondida>
 
   @column.dateTime({ autoCreate: true })

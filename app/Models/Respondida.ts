@@ -16,9 +16,6 @@ export default class Respondida extends BaseModel {
   @column()
   public caderno_id: string
 
-  // @column()
-  // questao: number;
-
   @column()
   user_id: number;
 
@@ -31,9 +28,7 @@ export default class Respondida extends BaseModel {
   @column()
   acertou: boolean;
 
-  @column()
-  public carderno_id: string
-
+ 
   @belongsTo(() => Caderno)
   public caderno: BelongsTo<typeof Caderno>
 

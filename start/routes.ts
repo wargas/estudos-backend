@@ -47,7 +47,8 @@ Route.group(() => {
   .middleware("auth");
 
 Route.get("/teste", async () => {
-  const questao = await Questao.query().where('enunciado', 'like', '%II%').first()
+  const c = await Questao.findOrFail(9082);
 
-  return questao?.enunciadoHtml;
+
+  return c
 });
