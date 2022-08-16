@@ -14,7 +14,14 @@ function markdownToHtml(markdown) {
         .use(markdown_it_katex_1.default)
         .use(markdown_it_sub_1.default)
         .use(markdown_it_sup_1.default);
-    return md.render(markdown
+    let text = '';
+    try {
+        text = decodeURIComponent(escape(markdown));
+    }
+    catch (error) {
+        text = markdown;
+    }
+    return md.render(text
         .replace(/\n/g, "\n\n")
         .replace(/\n\n\|/g, "\n|"));
 }

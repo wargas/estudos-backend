@@ -15,12 +15,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
 const luxon_1 = require("luxon");
 const Aula_1 = __importDefault(require("./Aula"));
+const Questao_1 = __importDefault(require("./Questao"));
 const Respondida_1 = __importDefault(require("./Respondida"));
 class Caderno extends Orm_1.BaseModel {
+    constructor() {
+        super(...arguments);
+        this.serializeExtras = true;
+    }
 }
 __decorate([
     Orm_1.column({ isPrimary: true }),
-    __metadata("design:type", String)
+    __metadata("design:type", Number)
 ], Caderno.prototype, "id", void 0);
 __decorate([
     Orm_1.column.dateTime(),
@@ -51,11 +56,15 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Caderno.prototype, "encerrado", void 0);
 __decorate([
+    Orm_1.manyToMany(() => Questao_1.default),
+    __metadata("design:type", Object)
+], Caderno.prototype, "questoes", void 0);
+__decorate([
     Orm_1.belongsTo(() => Aula_1.default),
     __metadata("design:type", Object)
 ], Caderno.prototype, "aula", void 0);
 __decorate([
-    Orm_1.hasMany(() => Respondida_1.default),
+    Orm_1.hasMany(() => Respondida_1.default, { foreignKey: 'caderno_id' }),
     __metadata("design:type", Object)
 ], Caderno.prototype, "respondidas", void 0);
 __decorate([

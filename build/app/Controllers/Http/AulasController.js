@@ -15,7 +15,7 @@ class AulasController {
             .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
             .if(c === 'ordem', q => q.orderBy(c, o))
             .if(c === 'name', q => q.orderBy(c, o))
-            .if(withCadernos, q => q.preload('cadernos'))
+            .if(withCadernos, q => q.preload('cadernos', q2 => q2.orderBy('fim', 'desc')))
             .if(withQuestoes || withEstatisticas, q => {
             q.preload('questoes', q2 => {
                 q2.if(withRespondidas || withEstatisticas, q3 => q3.preload('respondidas'));

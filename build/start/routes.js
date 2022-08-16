@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Event_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Event"));
 const Route_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Route"));
-const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
+const ViewDisciplina_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/ViewDisciplina"));
 Event_1.default.on("db:query", (query) => {
     console.log(query.sql);
 });
@@ -42,7 +42,7 @@ Route_1.default.group(() => {
     .prefix("api")
     .middleware("auth");
 Route_1.default.get("/teste", async () => {
-    const questao = await Questao_1.default.query().where('enunciado', 'like', '%II%').first();
-    return questao?.enunciadoHtml;
+    const c = await ViewDisciplina_1.default.all();
+    return c;
 });
 //# sourceMappingURL=routes.js.map

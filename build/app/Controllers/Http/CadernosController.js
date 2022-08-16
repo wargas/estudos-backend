@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Database_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Lucid/Database"));
 const Caderno_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Caderno"));
 const Questao_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Questao"));
-const uuid_1 = require("uuid");
 class CadernosController {
     async index({ params, request }) {
         const { aula_id } = params;
@@ -26,7 +25,6 @@ class CadernosController {
             .select('questao_id')
             .where('aula_id', aula_id));
         return await Caderno_1.default.create({
-            id: uuid_1.v4(),
             aula_id: aula_id,
             total: questoes.length,
             encerrado: false

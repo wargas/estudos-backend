@@ -51,10 +51,6 @@ __decorate([
     __metadata("design:type", Boolean)
 ], Respondida.prototype, "acertou", void 0);
 __decorate([
-    Orm_1.column(),
-    __metadata("design:type", String)
-], Respondida.prototype, "carderno_id", void 0);
-__decorate([
     Orm_1.belongsTo(() => Caderno_1.default),
     __metadata("design:type", Object)
 ], Respondida.prototype, "caderno", void 0);
