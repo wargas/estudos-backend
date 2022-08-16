@@ -1,6 +1,6 @@
 import Events from "@ioc:Adonis/Core/Event";
 import Route from "@ioc:Adonis/Core/Route";
-import Questao from "App/Models/Questao";
+import ViewDisciplina from "App/Models/ViewDisciplina";
 
 Events.on("db:query", (query) => {
   console.log(query.sql);
@@ -47,8 +47,7 @@ Route.group(() => {
   .middleware("auth");
 
 Route.get("/teste", async () => {
-  const c = await Questao.findOrFail(9082);
-
+  const c = await ViewDisciplina.all();
 
   return c
 });

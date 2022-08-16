@@ -1,5 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 import Disciplina from "App/Models/Disciplina";
+import ViewDisciplina from 'App/Models/ViewDisciplina';
 
 
 export default class DisciplinasController {
@@ -14,7 +15,7 @@ export default class DisciplinasController {
       search = '',
       withAulas } = request.all()
 
-    const disciplinas =  await Disciplina
+    const disciplinas =  await ViewDisciplina
       .query()
       .where("user_id", user?.id || '')
       .if(search !== '', q => q.where('name', 'regexp', search))
@@ -34,7 +35,7 @@ export default class DisciplinasController {
 
   async show({ params, user }: HttpContextContract) {
 
-    return await Disciplina.query()
+    return await ViewDisciplina.query()
       .where('id', params.id)
       .where("user_id", user?.id || '')
       .first()

@@ -60,4 +60,5 @@ export default class Aula extends BaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime
+  
 }
