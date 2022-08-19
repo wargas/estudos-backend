@@ -60,15 +60,15 @@ export default class QuestionsController {
     return questao;
   }
 
-  async store({request, params}: HttpContextContract) {
-    const {comentario, ...data} = request.only(['gabarito', 'enunciado', 'alternativas', 'modalidade', 'comentario'])
+  async store({ request, params }: HttpContextContract) {
+    const { comentario, ...data } = request.only(['gabarito', 'enunciado', 'alternativas', 'modalidade', 'comentario'])
     const { aula_id } = params
 
-    const questao = await Questao.create({...data, aula_id, alternativas: JSON.stringify(data.alternativas)})
+    const questao = await Questao.create({ ...data, aula_id, alternativas: JSON.stringify(data.alternativas) })
 
     await questao.related('aulas').attach([aula_id])
 
-    if(comentario) {
+    if (comentario) {
       questao.related('comentarios').create({
         texto: comentario.texto
       })
@@ -88,13 +88,13 @@ export default class QuestionsController {
     try {
       const dataText = (await fs.readFile(file?.tmpPath)).toString();
 
-      if(this._isJson(dataText)) {
+      if (this._isJson(dataText)) {
         return this._extractFromJSON(dataText, aula_id)
       } else {
         return this._extractFromMarkdown(dataText, aula_id);
       }
 
-    } catch (error:any) {
+    } catch (error: any) {
       return response.json({ error: "ERROR PARSER", message: error.message });
     }
   }
@@ -178,49 +178,23 @@ export default class QuestionsController {
     }
 
     const { questao_id, resposta, caderno_id } = request.all();
-
     const questao = await Questao.query().where("id", questao_id).firstOrFail();
 
-    const caderno = await Caderno.findOrFail(caderno_id);
 
-    const aula = await Aula.findOrFail(caderno.aula_id);
-
-    return Database.transaction(async () => {
-      const respondida = await Respondida.create({
-        questao_id,
-        resposta,
-        caderno_id,
-        aula_id: questao.aula_id,
-        acertou: questao.gabarito === "X" || questao.gabarito === resposta,
-        gabarito: questao.gabarito,
-        horario: DateTime.local(),
-        user_id: user?.id || 0,
-      });
-
-      const respondidas = await Respondida.query().where(
-        "caderno_id",
-        caderno_id
-      );
-
-      const questoes = await aula.related("questoes").query();
-
-      caderno.encerrado = respondidas.length === questoes.length;
-      caderno.acertos = respondidas.filter((r) => r.acertou).length;
-      caderno.erros = respondidas.filter((r) => !r.acertou).length;
-      caderno.total = questoes.length;
-
-      if (respondidas.length === 1) {
-        caderno.inicio = DateTime.local();
-      }
-
-      if (respondidas.length === questoes.length) {
-        caderno.fim = DateTime.local();
-      }
-
-      await caderno.save();
-
-      return respondida;
+    const respondida = await Respondida.create({
+      questao_id,
+      resposta,
+      caderno_id,
+      aula_id: questao.aula_id,
+      acertou: questao.gabarito === "X" || questao.gabarito === resposta,
+      gabarito: questao.gabarito,
+      horario: DateTime.local(),
+      user_id: user?.id || 0,
     });
+
+
+
+    return respondida;
   }
 
   async deleteRespondida({ params }: HttpContextContract) {
@@ -281,7 +255,7 @@ export default class QuestionsController {
 
 
   _extractFromJSON(texto: string, aula_id: any): NewQuestao[] {
-    const json:any = JSON.parse(texto);
+    const json: any = JSON.parse(texto);
 
 
 
@@ -291,11 +265,11 @@ export default class QuestionsController {
 
       let [ano, banca, orgao, cargo] = ['', '', '', '']
 
-      if(item?.exams?.length > 0) {
+      if (item?.exams?.length > 0) {
         const [exam] = item.exams;
 
-        if(exam?.catalogs) {
-          const {jury_id, institution_id, role_id } = exam.catalogs;
+        if (exam?.catalogs) {
+          const { jury_id, institution_id, role_id } = exam.catalogs;
 
           banca = jury_id?.name
           orgao = institution_id?.name
@@ -308,12 +282,12 @@ export default class QuestionsController {
 
 
       questao.enunciado = `(${banca} - ${ano} - ${orgao} - ${cargo}) ${item?.statement}`;
-      questao.alternativas = item?.alternatives?.map((alternativa:any, index: number) => {
+      questao.alternativas = item?.alternatives?.map((alternativa: any, index: number) => {
 
         const letrasAE = ["A", "B", "C", "D", "E"]
         const letrasCE = ["C", "E"]
 
-        if(alternativa?.correct) {
+        if (alternativa?.correct) {
           questao.gabarito = item.alternatives.length === 2 ? letrasCE[index] : letrasAE[index]
         }
 
@@ -322,7 +296,7 @@ export default class QuestionsController {
 
       questao.aula_id = aula_id
 
-      return {...questao.serialize(), comentario: {texto: item?.solution?.brief || ''}};
+      return { ...questao.serialize(), comentario: { texto: item?.solution?.brief || '' } };
 
     })
 
@@ -342,7 +316,7 @@ export default class QuestionsController {
 }
 
 type NewQuestao = {
-    comentario?: {
-      texto: string
-    }
+  comentario?: {
+    texto: string
+  }
 } & Questao

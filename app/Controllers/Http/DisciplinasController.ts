@@ -9,6 +9,7 @@ export default class DisciplinasController {
   async index({ user, request }: HttpContextContract) {
 
     const {
+      sortby,
       whereArquivada = '0', 
       search = '' } = request.all()
 
@@ -16,6 +17,10 @@ export default class DisciplinasController {
       .query()
       .where("user_id", user?.id || '')
       .if(whereArquivada !== '', q => q.where('arquivada', whereArquivada))
+      .if(sortby, q => {
+        const [col, order = "asc"] = sortby.split(':')
+        q.orderBy(col, order)
+      })
       .if(search, q => {
         q.where('name', 'like', `%${search}%`)
         q.orWhere('dia', 'like', `%${search}%`)
