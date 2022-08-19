@@ -2,7 +2,6 @@ import Redis from "@ioc:Adonis/Addons/Redis";
 import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import Database from "@ioc:Adonis/Lucid/Database";
 import Aula from "App/Models/Aula";
-import Caderno from "App/Models/Caderno";
 import Questao from "App/Models/Questao";
 import Respondida from "App/Models/Respondida";
 import { QuestionHelper } from "App/repositories/QuestionHelper";
