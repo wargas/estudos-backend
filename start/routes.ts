@@ -21,6 +21,7 @@ Route.group(() => {
   Route.resource("registros", "RegistrosController");
   Route.resource("aulas.cadernos", "CadernosController");
   Route.resource("cadernos", "CadernosController");
+  Route.resource("cadernos.questoes", "QuestionsController");
 
   Route.post("aulas/insert-lote", "AulasController.storeLote");
   Route.post("questoes/editar-lote", "QuestionsController.editarEmLote");

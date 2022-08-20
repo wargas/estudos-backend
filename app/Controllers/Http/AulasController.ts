@@ -13,6 +13,7 @@ export default class AulasController {
       perPage = 10,
       ordem = 'asc', sort = 'ordem' } = request.qs()
 
+      console.time('teste')
 
     const query = ViewAula
       .query()
@@ -21,15 +22,16 @@ export default class AulasController {
         q.orderBy(sort, ordem)
       })
       .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
-      
-
-      if(page) {
-        return await query.paginate(page, perPage)
-      }
-
-      return await query;
 
 
+    if (page) {
+      return await query.paginate(page, perPage)
+    }
+
+
+    const q = await query;
+    console.timeEnd('teste')
+    return q
   }
 
   async show({ params, user, request }: HttpContextContract) {

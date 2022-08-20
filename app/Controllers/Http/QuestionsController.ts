@@ -10,7 +10,7 @@ import fs from "fs/promises";
 
 export default class QuestionsController {
   async index({ request, params }: HttpContextContract) {
-    const { aula_id } = params;
+    const { aula_id, caderno_id } = params;
     const { page, perPage = 10, withAulas, withRespondidas } = request.qs();
 
     const query = Questao.query()
@@ -21,6 +21,13 @@ export default class QuestionsController {
             .select("questao_id")
             .where("aula_id", aula_id)
         );
+      })
+      .if(caderno_id, q => {
+        q.whereIn(
+          "id", Database.from('caderno_questao')
+            .select('questao_id')
+            .where('caderno_id', caderno_id)
+        )
       })
       .if(withAulas, (q) => q.preload("aulas"))
       .if(withRespondidas, (q) => q.preload("respondidas"));
@@ -176,7 +183,7 @@ export default class QuestionsController {
       logger.error("redis indisponível");
     }
 
-    const { questao_id, resposta, caderno_id } = request.all();
+    const { questao_id, resposta, caderno_id, aula_id } = request.all();
     const questao = await Questao.query().where("id", questao_id).firstOrFail();
 
 
@@ -184,7 +191,7 @@ export default class QuestionsController {
       questao_id,
       resposta,
       caderno_id,
-      aula_id: questao.aula_id,
+      aula_id: aula_id,
       acertou: questao.gabarito === "X" || questao.gabarito === resposta,
       gabarito: questao.gabarito,
       horario: DateTime.local(),
