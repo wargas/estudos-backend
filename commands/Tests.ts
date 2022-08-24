@@ -1,5 +1,4 @@
 import { BaseCommand } from "@adonisjs/core/build/standalone";
-import QConcursos from "App/Utils/Qconcursos";
 
 export default class Tests extends BaseCommand {
   /**
@@ -27,11 +26,6 @@ export default class Tests extends BaseCommand {
   };
 
   public async run() {
-    const q = new QConcursos('discipline_ids[]=18&examining_board_ids[]=63');
-
-    const list = await q.getQuestionsList(1)
-
-    console.debug(list[0].alternativas)
   }
 
   

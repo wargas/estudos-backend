@@ -4,35 +4,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Aula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/Aula"));
+const ViewAula_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/ViewAula"));
 class AulasController {
     async index({ user, request, params }) {
         const { disciplina_id } = params;
-        const { withQuestoes, page, perPage = 10, withMeta, withEstatisticas, withRegistros, withRespondidas, withDisciplina, withCadernos, order_by = 'ordem:asc' } = request.qs();
-        const [c = 'ordem', o = 'asc'] = order_by.split(':');
-        const query = Aula_1.default
+        const { page, perPage = 10, ordem = 'asc', sort = 'ordem' } = request.qs();
+        console.time('teste');
+        const query = ViewAula_1.default
             .query()
             .where("user_id", user?.id || '')
-            .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id))
-            .if(c === 'ordem', q => q.orderBy(c, o))
-            .if(c === 'name', q => q.orderBy(c, o))
-            .if(withCadernos, q => q.preload('cadernos', q2 => q2.orderBy('fim', 'desc')))
-            .if(withQuestoes || withEstatisticas, q => {
-            q.preload('questoes', q2 => {
-                q2.if(withRespondidas || withEstatisticas, q3 => q3.preload('respondidas'));
-            });
+            .if(sort, q => {
+            q.orderBy(sort, ordem);
         })
-            .if(withRegistros || withEstatisticas, q => q.preload('registros', (query) => {
-            query.select(['id', 'horario', 'tempo']);
-        }))
-            .if(withMeta, q => {
-            q.withCount('questoes');
-        })
-            .if(withDisciplina, q => q.preload('disciplina'))
-            .orderBy('ordem', 'asc');
+            .if(disciplina_id !== '', q => q.where('disciplina_id', disciplina_id));
         if (page) {
             return await query.paginate(page, perPage);
         }
-        return await query;
+        const q = await query;
+        console.timeEnd('teste');
+        return q;
     }
     async show({ params, user, request }) {
         const { disciplina_id, id } = params;

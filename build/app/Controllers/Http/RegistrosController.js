@@ -15,10 +15,15 @@ class RegistrosController {
             concurso_id: 1
         });
     }
-    async update({ request, user }) {
-        const today = luxon_1.DateTime.local().set({ hour: 0, minute: 0, second: 0 });
-        const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`;
-        await Redis_1.default.del(redisTodayKey);
+    async update({ request, user, logger }) {
+        try {
+            const today = luxon_1.DateTime.local().set({ hour: 0, minute: 0, second: 0 });
+            const redisTodayKey = `dashboard:${user?.id}:>=${today.toSQLDate()}`;
+            await Redis_1.default.del(redisTodayKey);
+        }
+        catch (error) {
+            logger.error("redis indisponível");
+        }
         const { tempo, id } = request.all();
         const registro = await Registro_1.default.find(id);
         registro.tempo = tempo;

@@ -7,20 +7,18 @@ const Disciplina_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/D
 const ViewDisciplina_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/ViewDisciplina"));
 class DisciplinasController {
     async index({ user, request }) {
-        const { countAulas = '', countQuestoes = '', whereArquivada = '0', search = '', withAulas } = request.all();
+        const { sortby, whereArquivada = '0', search = '' } = request.all();
         const disciplinas = await ViewDisciplina_1.default
             .query()
             .where("user_id", user?.id || '')
-            .if(search !== '', q => q.where('name', 'regexp', search))
-            .if(countAulas !== '', q => {
-            q.withCount('aulas');
-        })
-            .if(countQuestoes !== '', q => {
-            q.withCount('questoes');
-        })
             .if(whereArquivada !== '', q => q.where('arquivada', whereArquivada))
-            .if(withAulas === 'true', q => {
-            q.preload('aulas');
+            .if(sortby, q => {
+            const [col, order = "asc"] = sortby.split(':');
+            q.orderBy(col, order);
+        })
+            .if(search, q => {
+            q.where('name', 'like', `%${search}%`);
+            q.orWhere('dia', 'like', `%${search}%`);
         });
         return disciplinas;
     }
