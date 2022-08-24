@@ -1,6 +1,5 @@
 import Events from "@ioc:Adonis/Core/Event";
 import Route from "@ioc:Adonis/Core/Route";
-import ViewDisciplina from "App/Models/ViewDisciplina";
 import QConcursos from "App/Utils/Qconcursos";
 
 Events.on("db:query", (query) => {
