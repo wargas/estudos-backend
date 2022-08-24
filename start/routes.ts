@@ -1,6 +1,7 @@
 import Events from "@ioc:Adonis/Core/Event";
 import Route from "@ioc:Adonis/Core/Route";
 import ViewDisciplina from "App/Models/ViewDisciplina";
+import QConcursos from "App/Utils/Qconcursos";
 
 Events.on("db:query", (query) => {
   console.log(query.sql);
@@ -42,13 +43,18 @@ Route.group(() => {
     Route.get("dashboard", "RelatoriosController.dashboard");
   }).prefix("relatorios");
 
+  Route.post('qconcursos/count', 'QconcursosController.getPages')
+  Route.post('qconcursos/list', 'QconcursosController.listQuestions')
+
   Route.get("me", "AuthController.currentUser");
 })
   .prefix("api")
   .middleware("auth");
 
 Route.get("/teste", async () => {
-  const c = await ViewDisciplina.all();
+  const q = new QConcursos('discipline_ids[]=18&examining_board_ids[]=63');
 
-  return c
+  const list = await q.getQuestionsList(1)
+
+  return list;
 });

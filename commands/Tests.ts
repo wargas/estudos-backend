@@ -1,5 +1,5 @@
 import { BaseCommand } from "@adonisjs/core/build/standalone";
-import markdownToHtml from "App/Utils/markdown";
+import QConcursos from "App/Utils/Qconcursos";
 
 export default class Tests extends BaseCommand {
   /**
@@ -27,8 +27,12 @@ export default class Tests extends BaseCommand {
   };
 
   public async run() {
-    const text = "$1 + 2$";
+    const q = new QConcursos('discipline_ids[]=18&examining_board_ids[]=63');
 
-    console.log(markdownToHtml(text))
+    const list = await q.getQuestionsList(1)
+
+    console.debug(list[0].alternativas)
   }
+
+  
 }
