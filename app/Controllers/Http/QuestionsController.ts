@@ -97,7 +97,12 @@ export default class QuestionsController {
       if (this._isJson(dataText)) {
         return this._extractFromJSON(dataText, aula_id)
       } else {
-        return this._extractFromMarkdown(dataText, aula_id);
+        
+        if(this._isMarkdown(dataText)) {
+          return this._extractFromMarkdown(dataText, aula_id);
+        } else {
+          return this._extractFromText(dataText, aula_id)
+        }
       }
 
     } catch (error: any) {
@@ -258,8 +263,6 @@ export default class QuestionsController {
     return questoes;
   }
 
-
-
   _extractFromJSON(texto: string, aula_id: any): NewQuestao[] {
     const json: any = JSON.parse(texto);
 
@@ -309,6 +312,43 @@ export default class QuestionsController {
     return questoes;
   }
 
+  _extractFromText(texto: string, aula_id: any): Questao[] {
+    const [conteudoText, gabaritoText] = texto.split('GABARITO');
+
+    if(!conteudoText || !gabaritoText) {
+      throw new Error("ERROR: TEXTO INVALIDO");      
+    }
+
+    const gabaritos = gabaritoText.split("\n")
+    .filter(l => l.match(/\d+\. \w/))
+    .map(l => l.trim()
+        .replace(/ (ALTERNATIVA|LETRA) /i, " ")
+        .replace(/(\d+\.\s)(\w)(ORRETA|RRADA|ORRETO|RRADO)/i, "$1$2"))
+    .map(gab => gab.slice(-1))
+
+    const questions = conteudoText.replace(/\d{1,3}\. \(/g, "@@@(")
+    .replace(/(\n|\s)\(?[a-eA-E]\) /gi, "\n***\n")
+    .split('@@@').slice(1)
+
+    if(gabaritos.length !== questions.length) {
+      throw new Error(`ERROR: QUESTOES: ${questions.length}; GABARITOS: ${gabaritos.length}`);    
+    }
+    
+    return questions.map((questionText, index) => {
+      const question = new Questao()
+
+      const [enunciado, ...alternativas] = questionText.split('***')
+
+      question.enunciado = enunciado
+      question.gabarito = gabaritos[index]
+      question.alternativas = alternativas.length === 0 ? ["Certo", "Errado"] : alternativas,
+      question.aula_id = aula_id
+      question.modalidade = alternativas.length > 2 ? "MULTIPLA_ESCOLHA" : "CERTO_ERRADO";
+
+      return question;
+    })
+  }
+
   _isJson(texto: string): boolean {
     try {
       JSON.parse(texto);
@@ -318,6 +358,11 @@ export default class QuestionsController {
 
     return true;
   }
+
+  _isMarkdown(texto: string): boolean {
+    return texto.split('****').length > 1
+  }
+
 
 }
 
