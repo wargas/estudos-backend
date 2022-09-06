@@ -4,7 +4,7 @@ import markdownItSup from 'markdown-it-sup';
 import markdownItKatex from 'markdown-it-katex';
 
 
-export default function markdownToHtml(markdown: string): string {
+export default function markdownToHtml(markdown: string, duplicateLines = true): string {
 
   
   const md = markdownIt({
@@ -24,7 +24,7 @@ export default function markdownToHtml(markdown: string): string {
 
   return md.render(
     text
-    .replace(/\n/g, "\n\n")
+    .replace(/\n/g, duplicateLines ? "\n\n" : "\n")
     .replace(/\n\n\|/g, "\n|")
   )
 
