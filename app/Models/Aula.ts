@@ -34,6 +34,9 @@ export default class Aula extends BaseModel {
   @column()
   public disciplina_id: number;
 
+  @column()
+  public notion_id: string;
+
   @hasMany(() => Respondida, {
     foreignKey: 'aula_id'
   })
