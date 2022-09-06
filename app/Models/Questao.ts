@@ -13,6 +13,7 @@ export default class Questao extends BaseModel {
   static table = "questoes"
   helper = new QuestionHelper()
 
+
   @column()
   public enunciado: string
 

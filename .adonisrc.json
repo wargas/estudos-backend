@@ -21,7 +21,16 @@
   },
   "preloads": [
     "./start/routes",
-    "./start/kernel"
+    "./start/kernel",
+    "./start/notion",
+    {
+      "file": "./start/tests",
+      "environment": [
+        "console",
+        "repl",
+        "web"
+      ]
+    }
   ],
   "providers": [
     "./providers/AppProvider",

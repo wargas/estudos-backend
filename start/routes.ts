@@ -47,6 +47,4 @@ Route.group(() => {
   .prefix("api")
   .middleware("auth");
 
-Route.get("/teste", async () => {
-  
-});
+
