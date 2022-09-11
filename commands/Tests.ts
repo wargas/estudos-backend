@@ -1,7 +1,6 @@
 import { BaseCommand } from "@adonisjs/core/build/standalone";
 import Questao from "App/Models/Questao";
 import fs from 'fs/promises'
-import { chunk }  from 'lodash'
 
 export default class Tests extends BaseCommand {
   /**
