@@ -8,15 +8,7 @@
       "commandPath": "./commands/QuestoesInsert",
       "commandName": "questoes:insert",
       "description": "",
-      "args": [
-        {
-          "type": "string",
-          "propertyName": "root",
-          "name": "root",
-          "required": true,
-          "description": "pasta que contem os arquivos"
-        }
-      ],
+      "args": [],
       "aliases": [],
       "flags": []
     },

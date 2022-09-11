@@ -1,5 +1,6 @@
 import Route from "@ioc:Adonis/Core/Route";
 
 Route.get('testes', async () => {
-    return 'testes'
+    
+    return {r:'testes'}
 })

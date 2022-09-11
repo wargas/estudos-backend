@@ -18,6 +18,9 @@ export default class Questao extends BaseModel {
   public enunciado: string
 
   @column()
+  public resolucao: string
+
+  @column()
   public aula_id: number
 
   @column()
@@ -28,6 +31,11 @@ export default class Questao extends BaseModel {
 
   @column()
   public modalidade: string
+
+  @computed({serializeAs: 'resolucaoHtml'})
+  public get resolucaoHtml() {
+    return markdownToHtml(this.resolucao)
+  }
 
   @computed({serializeAs: 'enunciadoHtml'})
   public get enunciadoHtml() {
