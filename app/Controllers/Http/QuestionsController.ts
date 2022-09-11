@@ -289,6 +289,7 @@ export default class QuestionsController {
 
 
       questao.enunciado = `(${banca} - ${ano} - ${orgao} - ${cargo}) ${item?.statement}`;
+      questao.resolucao = item?.solution?.brief || ''
       questao.alternativas = item?.alternatives?.map((alternativa: any, index: number) => {
 
         const letrasAE = ["A", "B", "C", "D", "E"]
@@ -303,7 +304,7 @@ export default class QuestionsController {
 
       questao.aula_id = aula_id
 
-      return { ...questao.serialize(), comentario: { texto: item?.solution?.brief || '' } };
+      return { ...questao.serialize() };
 
     })
 
