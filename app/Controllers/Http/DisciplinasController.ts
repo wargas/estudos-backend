@@ -22,8 +22,7 @@ export default class DisciplinasController {
         q.orderBy(col, order)
       })
       .if(search, q => {
-        q.where('name', 'like', `%${search}%`)
-        q.orWhere('dia', 'like', `%${search}%`)
+        q.whereRaw(`(name like '%${search}%' OR dia like '%${search}%')`)
       })
       
        
