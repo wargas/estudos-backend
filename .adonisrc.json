@@ -30,6 +30,12 @@
         "repl",
         "web"
       ]
+    },
+    {
+      "file": "./start/graphql",
+      "environment": [
+        "web"
+      ]
     }
   ],
   "providers": [
