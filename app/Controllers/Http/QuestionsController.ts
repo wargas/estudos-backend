@@ -232,6 +232,11 @@ export default class QuestionsController {
       const questao = await Questao.findOrFail(params.id);
 
       await trx.from("aula_questao").where("questao_id", params.id).delete();
+      await trx.from("caderno_questao").where("questao_id", params.id).delete();
+      await trx.from("respondidas").where("questao_id", params.id).update({
+        caderno_id: 0,
+        aula_id: 0
+      })
 
       return await questao.delete();
     });

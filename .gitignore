@@ -1,5 +1,6 @@
 node_modules
 build
+ssl
 coverage
 .vscode
 .DS_STORE

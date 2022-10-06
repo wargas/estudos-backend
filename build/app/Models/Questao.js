@@ -25,6 +25,9 @@ class Questao extends Orm_1.BaseModel {
         super(...arguments);
         this.helper = new QuestionHelper_1.QuestionHelper();
     }
+    get resolucaoHtml() {
+        return markdown_1.default(this.resolucao);
+    }
     get enunciadoHtml() {
         return markdown_1.default(this.extractHeader);
     }
@@ -45,6 +48,10 @@ __decorate([
 ], Questao.prototype, "enunciado", void 0);
 __decorate([
     Orm_1.column(),
+    __metadata("design:type", String)
+], Questao.prototype, "resolucao", void 0);
+__decorate([
+    Orm_1.column(),
     __metadata("design:type", Number)
 ], Questao.prototype, "aula_id", void 0);
 __decorate([
@@ -59,6 +66,11 @@ __decorate([
     Orm_1.column(),
     __metadata("design:type", String)
 ], Questao.prototype, "modalidade", void 0);
+__decorate([
+    Orm_1.computed({ serializeAs: 'resolucaoHtml' }),
+    __metadata("design:type", Object),
+    __metadata("design:paramtypes", [])
+], Questao.prototype, "resolucaoHtml", null);
 __decorate([
     Orm_1.computed({ serializeAs: 'enunciadoHtml' }),
     __metadata("design:type", Object),

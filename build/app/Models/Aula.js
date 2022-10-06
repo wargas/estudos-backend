@@ -58,6 +58,10 @@ __decorate([
     __metadata("design:type", Number)
 ], Aula.prototype, "disciplina_id", void 0);
 __decorate([
+    Orm_1.column(),
+    __metadata("design:type", String)
+], Aula.prototype, "notion_id", void 0);
+__decorate([
     Orm_1.hasMany(() => Respondida_1.default, {
         foreignKey: 'aula_id'
     }),

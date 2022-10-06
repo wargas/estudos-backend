@@ -21,7 +21,22 @@
   },
   "preloads": [
     "./start/routes",
-    "./start/kernel"
+    "./start/kernel",
+    "./start/notion",
+    {
+      "file": "./start/tests",
+      "environment": [
+        "console",
+        "repl",
+        "web"
+      ]
+    },
+    {
+      "file": "./start/graphql",
+      "environment": [
+        "web"
+      ]
+    }
   ],
   "providers": [
     "./providers/AppProvider",
@@ -32,5 +47,5 @@
   "aceProviders": [
     "@adonisjs/repl"
   ],
-  "lastCompiledAt": "2022-08-24T17:01:31.254Z"
+  "lastCompiledAt": "2022-10-06T13:33:31.170Z"
 }

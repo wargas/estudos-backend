@@ -7,7 +7,7 @@ const markdown_it_1 = __importDefault(require("markdown-it"));
 const markdown_it_sub_1 = __importDefault(require("markdown-it-sub"));
 const markdown_it_sup_1 = __importDefault(require("markdown-it-sup"));
 const markdown_it_katex_1 = __importDefault(require("markdown-it-katex"));
-function markdownToHtml(markdown) {
+function markdownToHtml(markdown, duplicateLines = true) {
     const md = markdown_it_1.default({
         html: true
     })
@@ -22,7 +22,7 @@ function markdownToHtml(markdown) {
         text = markdown;
     }
     return md.render(text
-        .replace(/\n/g, "\n\n")
+        .replace(/\n/g, duplicateLines ? "\n\n" : "\n")
         .replace(/\n\n\|/g, "\n|"));
 }
 exports.default = markdownToHtml;

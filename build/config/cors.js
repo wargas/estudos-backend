@@ -13,7 +13,7 @@ const corsConfig = {
         'last-modified',
         'pragma',
     ],
-    credentials: true,
+    credentials: false,
     maxAge: 90,
 };
 exports.default = corsConfig;

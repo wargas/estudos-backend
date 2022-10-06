@@ -41,6 +41,4 @@ Route_1.default.group(() => {
 })
     .prefix("api")
     .middleware("auth");
-Route_1.default.get("/teste", async () => {
-});
 //# sourceMappingURL=routes.js.map

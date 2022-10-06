@@ -42,18 +42,19 @@ class QuestionsController {
             .first();
     }
     async update({ request, params }) {
-        const { enunciado, alternativas, gabarito } = request.all();
+        const { enunciado, alternativas, gabarito, resolucao } = request.all();
         const questao = await Questao_1.default.findOrFail(params.id);
         questao.merge({
             enunciado,
             gabarito,
+            resolucao,
             alternativas: JSON.stringify(alternativas.length <= 1 ? ["Certo", "Errado"] : alternativas),
         });
         await questao.save();
         return questao;
     }
     async store({ request, params }) {
-        const { comentario, ...data } = request.only(['gabarito', 'enunciado', 'alternativas', 'modalidade', 'comentario']);
+        const { comentario, ...data } = request.only(['gabarito', 'enunciado', 'alternativas', 'modalidade', 'comentario', 'resolucao']);
         const { aula_id } = params;
         const questao = await Questao_1.default.create({ ...data, aula_id, alternativas: JSON.stringify(data.alternativas) });
         await questao.related('aulas').attach([aula_id]);
@@ -76,7 +77,12 @@ class QuestionsController {
                 return this._extractFromJSON(dataText, aula_id);
             }
             else {
-                return this._extractFromMarkdown(dataText, aula_id);
+                if (this._isMarkdown(dataText)) {
+                    return this._extractFromMarkdown(dataText, aula_id);
+                }
+                else {
+                    return this._extractFromText(dataText, aula_id);
+                }
             }
         }
         catch (error) {
@@ -169,6 +175,11 @@ class QuestionsController {
         return await Database_1.default.transaction(async (trx) => {
             const questao = await Questao_1.default.findOrFail(params.id);
             await trx.from("aula_questao").where("questao_id", params.id).delete();
+            await trx.from("caderno_questao").where("questao_id", params.id).delete();
+            await trx.from("respondidas").where("questao_id", params.id).update({
+                caderno_id: 0,
+                aula_id: 0
+            });
             return await questao.delete();
         });
     }
@@ -207,6 +218,7 @@ class QuestionsController {
                 ano = exam.year;
             }
             questao.enunciado = `(${banca} - ${ano} - ${orgao} - ${cargo}) ${item?.statement}`;
+            questao.resolucao = item?.solution?.brief || '';
             questao.alternativas = item?.alternatives?.map((alternativa, index) => {
                 const letrasAE = ["A", "B", "C", "D", "E"];
                 const letrasCE = ["C", "E"];
@@ -216,9 +228,63 @@ class QuestionsController {
                 return alternativa?.body;
             });
             questao.aula_id = aula_id;
-            return { ...questao.serialize(), comentario: { texto: item?.solution?.brief || '' } };
+            return { ...questao.serialize() };
         });
         return questoes;
+    }
+    _extractFromText(_texto, aula_id) {
+        const texto = _texto.split('---').map((split, index) => {
+            if (index % 2 === 1) {
+                return `[comentario]${Buffer.from(split, 'utf-8').toString('base64')}`;
+            }
+            return split;
+        }).join('');
+        const [conteudoText, gabaritoText] = texto.split('GABARITO');
+        if (!conteudoText || !gabaritoText) {
+            throw new Error("ERROR: TEXTO INVALIDO");
+        }
+        const gabaritos = gabaritoText.split("\n")
+            .filter(l => l.match(/\d+\. \w/))
+            .map(l => l.trim()
+            .replace(/ (ALTERNATIVA|LETRA) /i, " ")
+            .replace(/(\d+\.\s)(\w)(ORRETA|RRADA|ORRETO|RRADO)/i, "$1$2"))
+            .map(gab => gab.slice(-1));
+        const ids = conteudoText.split('\n')
+            .find(l => l.startsWith('[UPDATE]'))?.replace('[UPDATE]', '')
+            .split(',');
+        console.log(ids);
+        const questions = conteudoText.replace(/\d{1,3}\. \(/g, "@@@(")
+            .replace(/(\n|\s)\(?[a-eA-E]\) /gi, "\n***\n")
+            .split('@@@').slice(1);
+        if (ids !== undefined && ids.length !== questions.length) {
+            throw new Error(`ERROR: IDS: ${ids.length}; QUESTOES: ${gabaritos.length}`);
+        }
+        if (gabaritos.length !== questions.length) {
+            throw new Error(`ERROR: QUESTOES: ${questions.length}; GABARITOS: ${gabaritos.length}`);
+        }
+        return questions.map((questionText, index) => {
+            const question = new Questao_1.default();
+            const [enunciado, ...alternativas] = questionText
+                .split('\n')
+                .filter(l => !l.startsWith('[comentario]'))
+                .join('\n')
+                .split('***');
+            const resolucao64 = questionText.split('\n').find(l => l.startsWith('[comentario]')) || '';
+            if (ids !== undefined) {
+                try {
+                    question.id = parseInt(ids[index]);
+                }
+                catch (e) {
+                }
+            }
+            question.resolucao = Buffer.from(resolucao64.replace('[comentario]', ''), 'base64').toString('utf-8');
+            question.enunciado = enunciado;
+            question.gabarito = gabaritos[index];
+            question.alternativas = alternativas.length === 0 ? ["Certo", "Errado"] : alternativas,
+                question.aula_id = aula_id;
+            question.modalidade = alternativas.length > 2 ? "MULTIPLA_ESCOLHA" : "CERTO_ERRADO";
+            return question;
+        });
     }
     _isJson(texto) {
         try {
@@ -228,6 +294,9 @@ class QuestionsController {
             return false;
         }
         return true;
+    }
+    _isMarkdown(texto) {
+        return texto.split('****').length > 1;
     }
 }
 exports.default = QuestionsController;
