@@ -1,9 +1,4 @@
-import Events from "@ioc:Adonis/Core/Event";
 import Route from "@ioc:Adonis/Core/Route";
-
-Events.on("db:query", (query) => {
-  console.log(query.sql);
-});
 
 Route.post("api/auth/login", "AuthController.login");
 
@@ -43,8 +38,17 @@ Route.group(() => {
 
 
   Route.get("me", "AuthController.currentUser");
+
+
+
 })
   .prefix("api")
   .middleware("auth");
 
+Route.get('/api', () => {
+  return { api: 'v2' }
+})
 
+Route.get('/', () => {
+  return { api: 'v2' }
+})
