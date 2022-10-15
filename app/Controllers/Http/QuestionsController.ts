@@ -7,6 +7,8 @@ import Respondida from "App/Models/Respondida";
 import { QuestionHelper } from "App/repositories/QuestionHelper";
 import { DateTime } from "luxon";
 import fs from "fs/promises";
+import extratFromText from "App/Utils/extract-from-text";
+
 
 export default class QuestionsController {
   async index({ request, params }: HttpContextContract) {
@@ -101,7 +103,7 @@ export default class QuestionsController {
         if (this._isMarkdown(dataText)) {
           return this._extractFromMarkdown(dataText, aula_id);
         } else {
-          return this._extractFromText(dataText, aula_id)
+          return extratFromText(dataText, aula_id)
         }
       }
 
@@ -344,8 +346,7 @@ export default class QuestionsController {
       .find(l => l.startsWith('[UPDATE]'))?.replace('[UPDATE]', '')
       .split(',')
 
-    console.log(ids)
-
+    
     const questions = conteudoText.replace(/\d{1,3}\. \(/g, "@@@(")
       .replace(/(\n|\s)\(?[a-eA-E]\) /gi, "\n***\n")
       .split('@@@').slice(1)
