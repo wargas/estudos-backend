@@ -1,6 +1,4 @@
 import { BaseCommand } from "@adonisjs/core/build/standalone";
-import extratFromText from "App/Utils/extract-from-text";
-import { readFile } from "fs/promises";
 
 export default class Tests extends BaseCommand {
   /**
@@ -30,7 +28,7 @@ export default class Tests extends BaseCommand {
   public async run() {
     
 
-    const file = (await readFile('modelo.md')).toString()
+  
 
     // console.log(extratFromText(file));
     
