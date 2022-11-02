@@ -3,7 +3,7 @@ import Questao from "App/Models/Questao";
 export default function extratFromText(_texto: string, aula_id: number) {
 
     const texto = _texto.replace(/---([\s\r\S]*?)---/g, (_, p1) => {
-        return `[comentario]${Buffer.from(p1, 'utf-8').toString('base64')}`
+        return `\n[comentario]${Buffer.from(p1, 'utf-8').toString('base64')}`
     })
 
 

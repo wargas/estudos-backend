@@ -1,412 +1,885 @@
-1. (FEPESE / ISS-Criciúma – 2022) Analise as afirmativas abaixo com relação à Lei Geral de Proteção de Dados (LGDP).
-1. É permitido ao poder público transferir a entidades privadas dados pessoais constantes em suas bases de dados desde que exista algum contrato entre as entidades pública e privada.
-2. As pessoas jurídicas de direito público devem informar as hipóteses em que realizam o tratamento de dados pessoais, com informações sobre a previsão legal, a finalidade e os procedimentos e as práticas empregadas.
-3. O uso compartilhado de dados pessoais de pessoa jurídica de direito público a pessoa jurídica de direito privado deverá sempre ser informado à autoridade nacional e dependerá sempre de consentimento do titular.
-a) É correta apenas a afirmativa 2.
-b) São corretas apenas as afirmativas 1 e 2.
-c) São corretas apenas as afirmativas 1 e 3.
-d) São corretas apenas as afirmativas 2 e 3.
-e) São corretas as afirmativas 1, 2 e 3.
+1. (ESTRATEGIA - SIMULADO 01 - 30/10) De acordo com o texto, pode-se afirmar que a) o objetivo da medicina antecipativa é fazer com que as pessoas vivam mais e melhor.
+b) apesar de o sistema de saúde atual ser suficiente, é imprescindível a inclusão da medicina antecipativa.
+c) assim como protegemos nossas casas com fechaduras e alarmes, também temos a mesma responsabilidade no que diz respeito à proteção da nossa saúde.
+d) durante a pandemia de Covid-19 houve a implantação da medicina antecipativa.
+e) não há nenhuma relação entre a medicina antecipativa e a longevidade.
 ---
-**Comentários**
-(1) Correto. De acordo com Art. 26, § 1º:
-É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso, exceto: IV - quando houver previsão legal ou a transferência for respaldada em contratos, convênios ou instrumentos congêneres.
-(2) Correto. De acordo com o Art. 23:
-O tratamento de dados pessoais pelas pessoas jurídicas de direito público referidas no parágrafo único do art. 1º da Lei nº 12.527, de 18 de novembro de 2011 (Lei de Acesso à Informação), deverá ser realizado para o atendimento de sua finalidade pública, na persecução do interesse público, com o objetivo de executar as competências legais ou cumprir as atribuições legais do serviço público, desde que:
-I - sejam informadas as hipóteses em que, no exercício de suas competências, realizam o tratamento de dados pessoais, fornecendo informações claras e atualizadas sobre a previsão legal, a finalidade, os procedimentos e as práticas utilizadas para a execução dessas atividades, em veículos de fácil acesso, preferencialmente em seus sítios eletrônicos;
-(3) Errado. De acordo com Art. 27:
-A comunicação ou o uso compartilhado de dados pessoais de pessoa jurídica de direito público a pessoa de direito privado será informado à autoridade nacional e dependerá de consentimento do titular, exceto: I - nas hipóteses de dispensa de consentimento previstas nesta Lei; II - nos casos de uso compartilhado de dados, em que será dada publicidade nos termos do inciso I do caput do art. 23 desta Lei; ou III - nas exceções constantes do § 1º do art. 26 desta Lei.
-O gabarito preliminar considerou o primeiro item como errado, mas não o vejo dessa maneira!
-Gabarito: Letra A
+SEM COMENTÁRIOS
 ---
-2. (CESPE / TELEBRÁS - 2021) A LGPD prevê a realização do tratamento de dados pessoais, mediante o consentimento do titular dos dados, para o cumprimento de obrigação legal ou regulatória e para a realização de estudos ou a execução de contratos a pedido do titular.
-Entretanto, as situações que envolvam segurança pública e defesa nacional não serão objeto de aplicação da referida lei.
+2. (ESTRATEGIA - SIMULADO 01 - 30/10) De acordo com o texto acima, marque a alternativa correta.
+a) No segmento “Convivemos com um sistema de saúde que não é saudável, com foco em tratar a doença”, o termo em destaque desempenha a função de pronome.
+b) Em “(...) e as empresas têm que estar abertas para diferentes modelos de negócios (...)”, a presença do acento circunflexo na palavra “têm” se deve ao fato de que se trata de uma monossílaba tônica.
+c) “Ann Aerts, diretora da Novartis Foundation, concordou com a necessidade da soma de esforços (...)”. As vírgulas utilizadas no excerto não são obrigatórias.
+d) No trecho “(...) trata-se de garantir o máximo de proteção detectando ameaças (...)”, a palavra em destaque recebe acento por ser uma oxítona terminada em “O”.
+e) Em “Além disso, como indivíduos, tendemos a ser fatalistas e irracionais.”, a conjunção em destaque poderia ser substituída, sem prejuízo, por “entretanto”.
 ---
-**Comentários**
-O Art. 4 ̊ da LGPD elenca situações em que a lei não se aplica ao tratamento de dados pessoais.
-Entre elas, temos as situações de segurança pública e defesa nacional.
-Vejamos:
-Art. 4º Esta Lei não se aplica ao tratamento de dados pessoais:
-(...)
-III - realizado para fins exclusivos de:
-a) segurança pública;
-b) defesa nacional;
-Gabarito: Correto
+SEM COMENTÁRIOS
 ---
-3. (CESPE / DPE-RO – 2021) De acordo com a Lei Geral de Proteção de Dados Pessoais, assinale a opção que indica quem deve comunicar à autoridade nacional a ocorrência de incidente de segurança relacionado a dados pessoais que possa acarretar risco ou dano relevante.
-a) encarregado.
-b) titular.
-c) segurança de TI.
-d) operador.
-e) controlador.
-4. (CESPE / APEX-BRASIL – 2021) No seu processo de cadastramento de usuários, um site na Web obteve dados pessoais sensíveis de um usuário. Nessa situação hipotética, de acordo com a Lei n.º 13.709/2018, o tratamento dos referidos dados pelo site poderá ser feito sem o consentimento do titular se:
-a) for indispensável para a proteção da vida.
-b) houver demanda para a realização de estudos por órgão de pesquisa reconhecido pelo governo federal, sendo desnecessária, nesse caso, a anonimização dos dados.
-c) for necessário para promover exclusivamente ações de marketing.
-d) houver a necessidade de disponibilizar os dados para uma empresa parceira.
+3. (ESTRATEGIA - SIMULADO 01 - 30/10) O texto acima deve ser classificado como:
+a) informativo.
+b) dissertativo-expositivo.
+c) injuntivo.
+d) dissertativo-argumentativo.
+e) descritivo.
 ---
-**Comentários**
-De acordo com o Art. 11, Inciso II, alínea e, temos que:
-O tratamento de dados pessoais sensíveis somente poderá ocorrer nas seguintes hipóteses:
-(...)
-II - sem fornecimento de consentimento do titular, nas hipóteses em que for indispensável para:
-e) proteção da vida ou da incolumidade física do titular ou de terceiro;
-Gabarito: Letra A
+SEM COMENTÁRIOS
 ---
-5. (CESPE / TJ-PA – 2020) A Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados Pessoais) prevê a realização do tratamento de dados pessoais, mediante o consentimento do titular dos dados, para o cumprimento de obrigação legal ou regulatória e para a realização de estudos ou execução de contratos a pedido do titular. As hipóteses em questão são exemplos de:
-a) princípios das atividades de tratamento de dados pessoais.
-b) requisitos para o tratamento de dados pessoais sensíveis.
-c) tratamento de dados pessoais de crianças e adolescentes.
-d) direitos do titular dos dados.
-e) requisitos para o tratamento de dados pessoais.
+4. (ESTRATEGIA - SIMULADO 01 - 30/10) No texto acima há a ocorrência de um vocábulo que poderia ser confundido com seu parônimo:
+mandado/mandato.
+A frase abaixo em que o vocábulo destacado está bem empregado é
+a) A rosa recendia um perfume flagrante.
+b) Não farei a ninguém a sessão de meus direitos.
+c) Este relógio não tem concerto.
+d) Dirigindo-se nas grandes cidades, é preciso cuidado para não se infringirem as regras do trânsito.
+e) Após confissão, o padre absorveu todos os fiéis de seus pecados.
 ---
-**Comentários**
-Vocês se lembram das hipóteses para tratamento de dados pessoais do Art. 7? O tratamento de dados pessoais somente poderá ser realizado nas seguintes hipóteses:
-(I) mediante o fornecimento de consentimento pelo titular; (II) para o cumprimento de obrigação legal ou regulatória pelo controlador; (IV) para a realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais; e (V) quando necessário para a execução de contrato ou de procedimentos preliminares relacionados a contrato do qual seja parte o titular, a pedido do titular dos dados.
-Logo, as hipóteses em questão são exemplos de requisitos para o tratamento de dados pessoais.
-Gabarito: Letra E
+SEM COMENTÁRIOS
 ---
-6. (CESPE / TJ-PA – 2020) De acordo com a Lei n.º 13.709/2018 (Lei Geral de Proteção de Dados Pessoais), as atividades de tratamento de dados pessoais devem observar a boa-fé e o princípio:
-a) de dado pessoal, segundo o qual a informação é relacionada à pessoa natural identificada ou identificável.
-b) de banco de dados, como um conjunto estruturado de dados pessoais estabelecido em um ou em vários locais, em suporte eletrônico ou físico.
-c) da anonimização, com a utilização de meios técnicos razoáveis e disponíveis no momento do tratamento, por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo.
-d) da prevenção, com a adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais.
-e) da eliminação, que é a exclusão de dado ou de conjunto de dados armazenados em banco de dados, independentemente do procedimento empregado.
+5. (ESTRATEGIA - SIMULADO 01 - 30/10) As preposições podem apresentar valor relacional ou nocional. Assinale a alternativa em que a preposição apresenta valor nocional.
+a) Ele assistiu a vários jogos no domingo.
+b) João voltou das férias mais descansado.
+c) Tenho necessidade de sua ajuda imediata.
+d) O concurseiro treina muito para vencer.
+e) Estou desconfiado de um funcionário.
 ---
-**Comentários**
-(a) Errado, essa é a definição de dados pessoais; (b) Errado, essa é a definição de banco de dados;
-(c) Errado, essa é a definição de anonimização; (d) Correto; (e) Errado, essa é definição de eliminação. O Art. 6 trata dos princípios que as atividades de tratamento de dados pessoais deverão 79
-observar e um deles é a (VIII) prevenção: adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais.
-Gabarito: Letra D
+SEM COMENTÁRIOS
 ---
-7. (CESPE / Ministério da Economia – 2020) Entre os fundamentos que disciplinam a proteção de dados pessoais no Brasil, estão o respeito à privacidade, a autodeterminação informativa e a liberdade de expressão, de informação, de comunicação e de opinião.
+6. (ESTRATEGIA - SIMULADO 01 - 30/10) Era inteligente e bom com palavras, porém, estava nervoso na prova.
+Preservando-se o sentido original, o elemento sublinhado acima pode ser corretamente substituído por
+a) ademais.
+b) portanto.
+c) porquanto.
+d) entretanto.
+e) logo.
 ---
-**Comentários**
-Perfeito... conforme o Art. 2º: a disciplina da proteção de dados pessoais tem como fundamentos:
-I - o respeito à privacidade;
-II - a autodeterminação informativa;
-III - a liberdade de expressão, de informação, de comunicação e de opinião;
-IV - a inviolabilidade da intimidade, da honra e da imagem;
-V - o desenvolvimento econômico e tecnológico e a inovação;
-VI - a livre iniciativa, a livre concorrência e a defesa do consumidor; e VII - os direitos humanos, o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania pelas pessoas naturais.
-Gabarito: Correto
+SEM COMENTÁRIOS
 ---
-8. (CESPE / Ministério da Economia – 2020) A referida lei não se aplica ao tratamento de dados pessoais realizado por pessoa natural para fins econômicos.
+7. (ESTRATEGIA - SIMULADO 01 - 30/10) Assinale a alternativa em que a concordância verbal não está de acordo com a norma-padrão da língua portuguesa.
+a) Trata-se de provas complexas.
+b) Vive-se bem em qualquer lugar.
+c) Vendem-se casas.
+d) Não se tratam de atividades complicadas.
+e) Era-se feliz no campo.
 ---
-**Comentários**
-Opa... de acordo com o Art. 4, I: esta lei não se aplica ao tratamento de dados pessoais realizado por pessoa natural para fins exclusivamente particulares e não econômicos – para fins econômicos, ela é aplicada!
-Gabarito: Errado
+SEM COMENTÁRIOS
 ---
-9. (CESPE / Ministério da Economia – 2020) Os dados pessoais serão eliminados após o término de seu tratamento, sendo autorizada a sua conservação para a finalidade de estudo por órgão de pesquisa, sendo garantida, sempre que possível, a anonimização desses dados.
+8. (ESTRATEGIA - SIMULADO 01 - 30/10) Assinale a alternativa em que o par de palavras não estabelece relação de hiperonímia/hiponímia, nessa ordem:
+a) Carro – Veículo.
+b) Cor – Verde.
+c) Esporte – Natação.
+d) Animal - Cobra.
+e) Móvel – Estante.
 ---
-**Comentários**
-De acordo com o Art. 16, Os dados pessoais serão eliminados após o término de seu tratamento, no âmbito e nos limites técnicos das atividades, autorizada a conservação para (II) estudo por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais.
-Gabarito: Correto
+SEM COMENTÁRIOS
 ---
-10. (FGV / SEFAZ-AM – 2022) Sobre os tipos de dados abordados pela Lei Geral de Proteção de Dados Pessoais (LGPD) em vigor no Brasil, analise as afirmativas a seguir.
-I. O número de telefone e o endereço de IP de acesso à Internet são considerados dados pessoais.
-II. Dados de adolescentes podem ser coletados e repassados a terceiros sem o consentimento dos pais, desde que sejam pseudonimizados.
-III. Dados biométricos são classificados como públicos e não estão sujeitos à LGPD.
-Está correto o que se afirma em:
-a) I, apenas.
-b) II, apenas.
-c) III, apenas.
-d) I e II, apenas.
-e) I, II e III.
+9. (ESTRATEGIA - SIMULADO 01 - 30/10) Assinale a alternativa em que o uso da vírgula está incorreto.
+a) Objetivos, conteúdo, método e recursos didáticos compõem um plano.
+b) Maria, atenda a campainha!
+c) João, professor de Português, está de licença.
+d) Ele não vai, de forma alguma, obedecer.
+e) O professor, finalizará o plano de aula durante esta semana.
 ---
-**Comentários**
-Questão extremamente polêmica, mas vamos lá...
-(I) Correto. Aqui já começa a polêmica: são considerados dados pessoais aqueles que comumente fornecemos em um cadastro, como nome, RG, CPF, gênero, data e local de nascimento, filiação, telefone, endereço residencial, cartão ou dados bancários. Mas também são dados pessoais algumas informações que nem sempre fornecemos de forma consciente, como localização via GPS, retrato em fotografia, prontuário de saúde, hábitos de consumo, endereço de IP (Protocolo da Internet) e cookies. Agora esses últimos são bem abstratos – eles podem eventualmente em uma circunstância específica ser considerados dados pessoais, mas isso não é regra. Se você errou essa questão, estamos juntos! Eu errei quando a fiz também :) (II) Correto. De acordo com o art. 12, os dados anonimizados não serão considerados dados pessoais para os fins desta Lei, salvo quando o processo de anonimização ao qual foram submetidos for revertido, utilizando exclusivamente meios próprios, ou quando, com esforços razoáveis, puder ser revertido.
-(III) Errado. Dado pessoal sensível: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado 82
-referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural. Logo, os dados biométricos não são classificados como públicos e estão sujeitos à LGPD.
-Gabarito: Letra D
+SEM COMENTÁRIOS
 ---
-11. (FGV / TJDFT – 2022) A Lei Geral de Proteção de Dados Pessoais (LGPD) tem entre seus objetivos a proteção dos direitos fundamentais de liberdade e de privacidade da pessoa natural.
-A LGPD define o que são dados pessoais, classificando alguns como sensíveis, além de definir responsabilidades entre os manipuladores desses dados, obrigando os órgãos públicos e empresas privadas a adequarem seus processos para operarem em conformidade com a nova Lei.
-De acordo com o Art. 4º da LGPD, uma das exceções para o tratamento de dados pessoais é:
-a) que a atividade de tratamento tenha por objetivo a oferta ou o fornecimento de bens ou serviços ou o tratamento de dados de indivíduos localizados no território nacional;
-b) que os dados pessoais objeto do tratamento tenham sido coletados no território nacional com o consentimento do titular;
-c) que se destine à realização de estudos por órgão de pesquisa, garantida, sempre que possível, a anonimização dos dados pessoais;
-d) que seja realizado para fins exclusivos de atividades de investigação e repressão de infrações penais;
-e) que seja realizado para o exercício regular de direitos em processo judicial, administrativo ou arbitral (nos termos da Lei nº 9.307/1996).
+10. (ESTRATEGIA - SIMULADO 01 - 30/10) Na língua portuguesa, há diversos tipos de coesão textual. Assinale a alternativa em que conste coesão referencial.
+a) Isto posto, continuaremos realizando nosso trabalho.
+b) Ainda estou cozinhando o arroz. Quando acabar de o fazer, poderemos almoçar.
+c) Minha mãe está na feira. Foi comprar frutas e verduras.
+d) Meu pai pediu bolo de chocolate, eu pedi um de limão.
+e) Ana gritou. Ela fica apavorada quando fica sozinha, apesar de ser uma menina calma e inteligente.
 ---
-**Comentários**
-Art. 4º Esta Lei não se aplica ao tratamento de dados pessoais:
-I - realizado por pessoa natural para fins exclusivamente particulares e não econômicos;
-II - realizado para fins exclusivamente:
-a) jornalístico e artísticos; ou b) acadêmicos, aplicando-se a esta hipótese os arts. 7º e 11 desta Lei;
-III - realizado para fins exclusivos de:
-a) segurança pública;
-b) defesa nacional;
-c) segurança do Estado; ou 83
-d) atividades de investigação e repressão de infrações penais;
-Gabarito: Letra D
+SEM COMENTÁRIOS
 ---
-12. (FGV / TJDFT – 2022) De acordo com a composição da ANPD (Autoridade Nacional de Proteção de Dados) prevista na LGPD (Lei Geral de Proteção de Dados Pessoais), disseminar o conhecimento sobre a proteção de dados pessoais e da privacidade à população é uma atribuição do(a):
-a) Conselho Diretor;
-b) Unidades especializadas;
-c) Unidades administrativas;
-d) Coordenação-Geral de Administração;
-e) Conselho Nacional de Proteção de Dados Pessoais e da Privacidade.
+11. (ESTRATEGIA - SIMULADO 01 - 30/10) Admita que as seguintes proposições são verdadeiras:
+➔ Alguns peixes são animais singulares.
+➔ Todos os animais singulares estão em extinção.
+A partir dessas premissas, é CORRETO inferir que:
+a) Há peixes que não são singulares.
+b) Todos os animais em extinção são singulares.
+c) Há animais singulares que não são peixes.
+d) Existem peixes em extinção.
+e) Todos os animais singulares não estão em extinção.
 ---
-**Comentários**
-Art. 58-B. Compete ao Conselho Nacional de Proteção de Dados Pessoais e da Privacidade: (V) disseminar o conhecimento sobre a proteção de dados pessoais e da privacidade à população.
-Gabarito: Letra E
+SEM COMENTÁRIOS
 ---
-13. (FGV / TJDFT – 2022) De acordo com o Art. 37 da LGPD (Lei Geral de Proteção de Dados Pessoais), as operações de tratamento realizadas nos dados pessoais devem ser registradas.
-Para isso, o controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem.
-O registro das operações é realizado por meio do:
-a) inventário de dados pessoais;
-b) catálogo de base de dados;
-c) relatório de impacto à proteção de dados pessoais;
-d) serviços notariais e de registro;
-e) termo de consentimento.
+12. (ESTRATEGIA - SIMULADO 01 - 30/10) Júnior e Carlinhos são amigos e colecionam figurinhas para a Copa do Mundo de 2022. Se Júnior der 11 de suas figurinhas para Carlinhos, a quantidade de figurinhas de Carlinhos passará a ser o triplo da quantidade de figurinhas de Júnior. Por outro lado, se Carlinhos der 14 de suas figurinhas para Júnior, a quantidade de figurinhas de Júnior passará a ser o dobro da quantidade de figurinhas de Carlinhos. Júnior e Carlinhos têm juntos a) 48 figurinhas.
+b) 56 figurinhas.
+c) 60 figurinhas.
+d) 72 figurinhas.
+e) 84 figurinhas.
 ---
-**Comentários**
-O Inventário de Dados Pessoais – IDP consiste no registro das operações de tratamento dos dados pessoais realizados pela instituição (LGPD. Art. 37). De uma forma geral, esse registro mantido pelo IDP envolve descrever informações em relação ao tratamento de dados pessoais realizado pelo órgão ou entidade como: atores envolvidos (agentes de tratamento e o encarregado); finalidade (o que a instituição faz com o dado pessoal); hipótese (arts. 7º e 11 da LGPD); previsão legal; dados pessoais tratados pela instituição; categoria dos titulares dos dados pessoais; tempo de retenção 84
-dos dados pessoais; instituições com as quais os dados pessoais são compartilhados; transferência internacional de dados (art. 33 LGPD); e medidas de segurança atualmente adotadas.
-O IDP representa um documento importante de governança de dados pessoais e de subsídio para avaliação de impacto à proteção de dados pessoais com vistas a verificar a conformidade da instituição no que se refere ao preconizado pela LGPD.
-Gabarito: Letra A
+SEM COMENTÁRIOS
 ---
-14. (FGV/ TCU – 2022) Conjuntos de dados identificados de pessoas são úteis em pesquisas, ao mesmo tempo que são motivo de preocupação em relação à privacidade das pessoas naturais envolvidas. A classificação de atributos identificadores ajuda a priorizar atividades de desidentificação para alavancar a pesquisa sob a observância da LGPD.
-São exemplos: a) de identificadores explícitos, b) de identificadores sensíveis e c) de quasi identificadores:
-a) CNH – Carteira Nacional de Habilitação, b) número do telefone celular e c) endereço;
-b) CPF – Cadastro de Pessoas Físicas, b) quadro clínico e c) gênero;
-c) RG – Registro Geral, b) escolha política e c) registro de doença rara;
-d) data de nascimento, b) endereço de e-mail e c) endereço;
-e) CPF – Cadastro de Pessoas Físicas, b) município de residência e c) time de futebol preferido.
+13. (ESTRATEGIA - SIMULADO 01 - 30/10) Considere como verdadeiras as afirmativas:
+
+- Se Jorge é francês, então Denise é espanhola.
+- Denise não é espanhola ou Beatriz é brasileira.
+Sabe-se que Beatriz não é brasileira. Logo, é correto afirmar que:
+a) Denise é espanhola e Jorge é francês;
+b) Denise é espanhola ou Jorge é francês;
+c) se Beatriz não é brasileira, então Denise é espanhola;
+d) se Denise não é espanhola, então Jorge é francês;
+e) se Jorge não é francês, então Denise não é espanhola.
+
 ---
-**Comentários**
-De onde a FGV tirou isso? Não faço ideia! De toda forma, podemos responder por inferência: (a) Identificadores Explícitos são aqueles dados que permitem identificar univocamente um indivíduo de forma direta; (b) Identificadores Sensíveis são aqueles dados que permitem identificar um indivíduo de forma indireta por meio de informações sensíveis, tais como etnia, religião, opinião política, filiação sindical, dados de saúde, entre outros; (c) Quasi Identificadores são dados que não identificam univocamente um indivíduo por si só, mas têm o potencial de fazê-lo quando associado a outros dados.
-Dito isso, temos que: (a) CNH, CPF, RG, Endereço de E-Mail e Número de Celular; (b) Escolha Política, Quadro Clínico, Registro de Doença Rara; (c) Gênero, Endereço, Data de Nascimento, Município de Residência e Time de Futebol Preferido*.
-*Esse é polêmico porque pode ser considerado sensível.
-Gabarito: Letra B
+SEM COMENTÁRIOS
 ---
-15. (FGV / SEFAZ-ES – 2021) A lei Geral de Proteção de Dados Pessoais faz distinção entre dados pessoais e dados pessoais sensíveis. Assinale um tipo de dados que NÃO se enquadra na categoria de dados sensíveis.
-a) Convicção religiosa.
-b) Dados biométricos.
-c) Data de nascimento.
-d) Filiação a sindicatos.
-e) Origem étnica.
+14. (ESTRATEGIA - SIMULADO 01 - 30/10) Em uma urna há oito bolas brancas e doze bolas pretas, cada uma delas contendo um número. Das oito bolas brancas, seis contêm números maiores do que 7 e das doze bolas pretas nove contêm números maiores do que 7. Retiram-se ao acaso dez bolas da urna. Sobre essas dez bolas é correto concluir que
+a) no máximo duas são pretas.
+b) no máximo duas são brancas.
+c) no máximo cinco têm números maiores do que 7.
+d) no mínimo cinco têm números maiores do que 7.
+e) no mínimo cinco têm números menores ou iguais a 7.
 ---
-**Comentários**
-De acordo com o Art. 5º - Para os fins desta Lei, considera-se:
-I – dado pessoal: informação relacionada a pessoa natural identificada ou identificável;
-II – dado pessoal sensível: dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural;
-Logo, podemos ver que data de nascimento não é um tipo de dado sensível.
-Gabarito: Letra C
+SEM COMENTÁRIOS
 ---
-16. (FUNDATEC / IPE SAÚDE – 2022) Em relação aos fundamentos especificados no Art. 2º da Lei Geral de Proteção de Dados Pessoais (LGPD), o fundamento que NÃO faz parte dessa Lei é:
-a) Respeito à privacidade.
-b) Autodeterminação informativa.
-c) Inviolabilidade da intimidade, da honra e da imagem.
-d) Liberdade na divulgação de dados pessoais em meios digitais, seguindo o princípio da liberdade de informação.
-e) Liberdade de expressão, de informação, de comunicação e de opinião.
+15. (ESTRATEGIA - SIMULADO 01 - 30/10) Giovanni e sua esposa moram em uma cidade que possui 25 pizzarias. Em todos os sábados do ano passado, eles jantaram em uma pizzaria, sempre na cidade em que residem. A partir dessas informações, é correto concluir que, necessariamente, no ano passado, Giovanni e sua esposa:
+a) estiveram mais de duas vezes em pelo menos uma pizzaria da cidade.
+b) estiveram pelo menos duas vezes em cada pizzaria da cidade.
+c) nunca repetiram a pizzaria em seus jantares de sábado.
+d) jantaram pelo menos 25 vezes na mesma pizzaria.
+e) não jantaram todos os sábados na mesma pizzaria
 ---
-**Comentários**
-Essa questão é bem a letra da lei! De acordo com o art. 2º, a liberdade na divulgação de dados pessoais não é um fundamento da disciplina da proteção de dados pessoais.
-Gabarito: Letra D
+SEM COMENTÁRIOS
 ---
-17. (FUNDATEC / IPE SAÚDE – 2022) “Esta Lei dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado, com o objetivo de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural”. A citação refere-se ao Art. 1º:
-a) Do Princípio à Liberdade de Divulgação de Dados Pessoais.
-b) Do Princípio à Liberdade de Divulgação de Dados Corporativos.
-c) Da Lei de Direito à Liberdade da Informação.
-d) Da Lei Geral de Proteção de Dados Corporativos.
-e) Da Lei Geral de Proteção de Dados Pessoais.
+16. (ESTRATEGIA - SIMULADO 01 - 30/10) Ao se lançar uma moeda viciada, a probabilidade do resultado ser "cara" é de dois terços. Se essa moeda for jogada 18 vezes, teremos, portanto, 12 caras em média com desvio padrão igual a:
+a) 1.
+b) 2.
+c) 3.
+d) 4.
+e) 5.
 ---
-**Comentários**
-Essa citação se trata do Art. 1º da Lei Geral de Proteção de Dados Pessoais (LGPD). Vejam o começo a citação "Esta Lei dispõe sobre o tratamento de dados".
-Gabarito: Letra E
+SEM COMENTÁRIOS
 ---
-18. (QUADRIX / CRECI-MS – 2021) O respeito à privacidade e a inviolabilidade da intimidade, da honra e da imagem são fundamentos observados no diploma legal, os quais disciplinam a proteção de dados pessoais.
+17. (ESTRATEGIA - SIMULADO 01 - 30/10) Considere duas variáveis x e y que apresentam um coeficiente de correlação de Pearson igual a r(xy) = 0,318 e que, ao testar sua significância encontrou-se p = 0,27. Assim, é correto afirmar que, ao nível de significância de 5%, a) a correlação não é significativa.
+b) a correlação é significativa.
+c) existe pouca correlação.
+d) existe uma correlação muito forte.
+e) não é possível afirmar se há ou não correlação.
 ---
-**Comentários**
-Perfeito! De acordo com o Art. 2, Incisos I e IV, a disciplina da proteção de dados pessoais tem como fundamentos (I) o respeito à privacidade e (IV) a inviolabilidade da intimidade, da honra e da imagem.
-Gabarito: Correto
+SEM COMENTÁRIOS
 ---
-19. (QUADRIX / CRECI-MS – 2021) O tratamento de dados pessoais somente poderá ser realizado mediante o fornecimento de consentimento por seu titular, mesmo que este os tenha tornado manifestamente públicos.
+18. (ESTRATEGIA - SIMULADO 01 - 30/10) Em um determinado colégio, 50% dos alunos têm sangue do tipo O enquanto o restante tem sangue dos outros tipos (A, B e AB). Se 6 alunos dessa escola são escolhidos ao acaso, qual é a probabilidade de exatamente 3 deles terem sangue do tipo O?
+a) 31,25%
+b) 50%
+c) 15,625%
+d) 62,5%
+e) 25%
 ---
-**Comentários**
-De acordo com o § 4º do Art. 7, é dispensada a exigência do consentimento previsto no caput deste artigo para os dados tornados manifestamente públicos pelo titular, resguardados os direitos do titular e os princípios previstos nesta Lei.
-Gabarito: Errado
+SEM COMENTÁRIOS
 ---
-20. (QUADRIX / CRECI-MS – 2021) Na realização de estudos em saúde pública, os órgãos de pesquisa poderão ter acesso a bases de dados pessoais, com a estrita finalidade de realização de estudos e pesquisas, desde que observada a ética e as normas de tratamento de dados pertinentes.
+19. (ESTRATEGIA - SIMULADO 01 - 30/10) A tabela acima mostra a quantidade de produtos vendidos (Xn) nos 7 primeiros meses de 2021 em uma determinada loja de calçados. Nesse caso, a moda da sequência numérica {Xn}, n = 1, 2, 3, ..., 7 é igual a:
+a) 3
+b) 4
+c) 5
+d) 6
+e) 7
 ---
-**Comentários**
-Perfeito! De acordo com o Art. 13: na realização de estudos em saúde pública, os órgãos de pesquisa poderão ter acesso a bases de dados pessoais, que serão tratados exclusivamente dentro do órgão e estritamente para a finalidade de realização de estudos e pesquisas e mantidos em ambiente controlado e seguro, conforme práticas de segurança previstas em regulamento específico e que incluam, sempre que possível, a anonimização ou pseudonimização dos dados, bem como considerem os devidos padrões éticos relacionados a estudos e pesquisas.
-Gabarito: Correto
+SEM COMENTÁRIOS
 ---
-21. (QUADRIX / CRECI-MS – 2021) É vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso, com o objetivo exclusivo de prevenção de fraudes.
+20. (ESTRATEGIA - SIMULADO 01 - 30/10) Deseja-se saber se a proporção de usuários de determinado posto de gasolina entre os moradores de uma grande região é realmente 30%, como se imagina. Há uma relação atualizada desses moradores a partir da qual pretende-se retirar uma amostra aleatória simples para fazer essa verificação. Que tamanho deve ter a amostra para que o intervalo de confiança (95%) referente ao parâmetro a ser estimado tenha 10 pontos percentuais para mais e para menos? Considere z = 2.
+a) 88
+b) 84
+c) 841
+d) 384
+e) 348
 ---
-**Comentários**
-De acordo com o Art. 26, § 1º: é vedado ao Poder Público transferir a entidades privadas dados pessoais constantes de bases de dados a que tenha acesso, exceto: (V) na hipótese de a 88
-transferência dos dados objetivar exclusivamente a prevenção de fraudes e irregularidades, ou proteger e resguardar a segurança e a integridade do titular dos dados, desde que vedado o tratamento para outras finalidades.
-Gabarito: Errado
+SEM COMENTÁRIOS
 ---
-22. (QUADRIX / CRECI-MS – 2021) A transferência internacional de dados pessoais só é admitida na legislação pátria quando a transferência for necessária para a proteção da vida ou da incolumidade física do titular ou de terceiros.
+21. (ESTRATEGIA - SIMULADO 01 - 30/10) Sobre o tema Direitos e garantias fundamentais, julgue as assertivas a seguir.
+I- Não será concedida extradição de estrangeiro por crime de opinião.
+II- A idade não é um critério utilizado pela Constituição Federal para distinguir o cumprimento de penas em estabelecimentos prisionais distintos.
+III- Os crimes hediondos são imprescritíveis.
+Marque a alternativa correta:
+a) Somente a alternativa I está correta.
+b) Somente a alternativa II está correta.
+c) Somente a alternativa III está correta.
+d) Somente as alternativas I e II estão corretas.
+e) Somente as alternativas II e III estão corretas.
 ---
-**Comentários**
-De acordo com o Art. 33, a transferência internacional de dados pessoais somente é permitida nos seguintes casos: (I) para países ou organismos internacionais que proporcionem grau de proteção de dados pessoais adequado ao previsto nesta Lei; (II) quando a transferência for necessária para a proteção da vida ou da incolumidade física do titular ou de terceiro. Logo, existem duas possibilidades e não apenas a de proteção à vida ou da incolumidade física do titular ou de terceiros.
-Gabarito: Errado
+SEM COMENTÁRIOS
 ---
-23. (AOCP / MJ-SP – 2020) Considerando o que dispõe a Lei n° 13.709/2018, de Proteção de Dados, o titular tem direito ao acesso facilitado às informações sobre o tratamento de seus dados, que deverão ser disponibilizadas de forma clara, adequada e ostensiva acerca, dentre outras características, de:
-a) sigilo quanto a informações de contato do controlador.
-b) informações acerca do uso compartilhado de dados pelo controlador e a finalidade.
-c) não divulgação das responsabilidades dos agentes que realizarão o tratamento.
-d) não identificação do controlador.
-e) sigilo quanto à finalidade específica do tratamento.
+22. (ESTRATEGIA - SIMULADO 01 - 30/10) Marque a alternativa incorreta, segundo a Constituição Federal de 1988:
+a) É facultada a participação dos sindicatos nas negociações coletivas de trabalho.
+b) A CF/88 possui previsão expressa sobre a possibilidade de desapropriação por interesse social.
+c) Um dos critérios adotados para o cumprimento da pena em estabelecimentos distintos é a idade do apenado.
+d) O brasileiro naturalizado não poderá ocupar o cargo de diplomata.
+e) Nas empresas de mais de duzentos empregados, é assegurada a eleição de um representante destes com a finalidade exclusiva de promover- lhes o entendimento direto com os empregadores.
 ---
-**Comentários**
-(a) Errado, o titular tem direito a informações de contato do controlador e, não, ao seu sigilo; (b) Correto; (c) Errado, o titular tem direito de acesso às informações de responsabilidades dos agentes que realizarão o tratamento; (d) Errado, o titular tem direito de acesso às informações de identificação do controlador; (e) Errado, o titular tem direito de acesso às informações quanto à finalidade específica do tratamento. Vejamos:
-I - finalidade específica do tratamento;
-III - identificação do controlador;
-IV - informações de contato do controlador;
-V - informações acerca do uso compartilhado de dados pelo controlador e a finalidade;
-VI - responsabilidades dos agentes que realizarão o tratamento;
-Gabarito: Letra B
+SEM COMENTÁRIOS
 ---
-24. (AOCP / MJ-SP – 2020) Para fins da Lei n° 13.709/2018, de Proteção de Dados, considera-se:
-a) dado anonimizado a utilização de meios técnicos razoáveis e disponíveis no momento do tratamento, por meio dos quais um dado perde a possibilidade de associação, direta ou indireta, a um indivíduo.
-b) operador a pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões referentes ao tratamento de dados pessoais.
-c) dado pessoal sensível o dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural.
-d) controlador a pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador.
-e) anonimização o dado relativo a titular que não possa ser identificado, considerando a utilização de meios técnicos razoáveis e disponíveis na ocasião de seu tratamento.
+23. (ESTRATEGIA - SIMULADO 01 - 30/10) O artigo 15, da Constituição Federal de 1988, traz as hipóteses de perda ou suspensão de direitos políticos. Porém, na doutrina há uma divergência sobre uma dessas hipóteses, visto que para alguns doutrinadores trata-se de um caso de suspensão de direitos políticos, mas para outros trata-se de um caso de perda dos direitos políticos. Nesse caso, a discussão gira em torno da hipótese de:
+a) Cancelamento da naturalização por sentença transitada em julgado.
+b) Recusa de cumprir obrigação a todos imposta ou prestação alternativa.
+c) Condenação criminal transitada em julgado.
+d) Incapacidade civil absoluta.
+e) Improbidade Administrativa.
 ---
-**Comentários**
-(a) Errado, essa é a definição de anonimização e, não, de dado anonimizado; (b) Errado, essa é a definição de controlador e, não, de operador; (c) Correto; (d) Errado, essa é a definição de operador e, não, de controlador; (e) Errado, essa é a definição de dado anonimizado e, não, de anonimização.
-Gabarito: Letra C
+SEM COMENTÁRIOS
 ---
-25. (AOCP / MJ-SP – 2020) Considerando o que dispõe a Lei n° 13.709/2018, de Proteção de Dados, assinale a alternativa correta.
-a) O término do tratamento de dados pessoais ocorrerá, dentre outras hipóteses, quando se verificar que os dados deixaram de ser necessários ou pertinentes ao alcance da finalidade específica almejada.
-b) O titular dos dados pessoais não tem direito de obter do controlador, em relação aos dados do titular por ele tratados, a confirmação da existência de tratamento.
-c) A portabilidade dos dados pessoais a outro fornecedor de serviço ou produto, prevista na Lei n° 13.709/2018, inclui dados que já tenham sido anonimizados pelo controlador.
-d) O titular dos dados pessoais não tem direito de obter do controlador, em relação aos dados do titular por ele tratados, informação sobre a possibilidade de não fornecer consentimento e sobre as consequências da negativa.
-e) Ao titular dos dados pessoais não é dado o direito de peticionar em relação aos seus dados, perante a autoridade nacional, contra o controlador.
+24. (ESTRATEGIA - SIMULADO 01 - 30/10) Segundo a Constituição Federal de 1988, a faixa de até ******\_\_\_\_******de largura, ao longo das fronteiras terrestres, designada como faixa de fronteira, é considerada fundamental para defesa do território nacional, e sua ocupação e utilização serão reguladas em lei.
+a) Cinquenta quilômetros.
+b) Cem quilômetros.
+c) Cento e cinquenta quilômetros.
+d) Duzentos quilômetros.
+e) Duzentos e cinquenta quilômetros.
 ---
-**Comentários**
-(a) Correto, conforme Art. 15, Inciso I; (b) Errado, o titular dos dados pessoais tem esse direito – conforme Art. 18, Inciso I; (c) Errado, não inclui dados que já tenham sido anonimizados pelo controlador – conforme Art. 18, Inciso 7; (d) Errado, o titular dos dados pessoais tem esse direito – conforme Art. 18, Inciso VIII; (e) Errado, o titular dos dados pessoais tem esse direito – conforme Art. 18, Inciso I.
-Gabarito: Letra A
+SEM COMENTÁRIOS
 ---
-26. (AOCP / MJ-SP – 2020) Segundo a Lei nº 13.709/2018, de Proteção de Dados, a transferência internacional de dados pessoais é permitida nas seguintes situações, EXCETO:
-a) para países ou organismos internacionais que proporcionem grau de proteção de dados pessoais adequado ao previsto na Lei específica.
-b) quando a autoridade nacional autorizar a transferência.
-c) quando a transferência for necessária para a proteção da vida ou da incolumidade física do titular ou de terceiro.
-d) quando o titular tiver fornecido o seu consentimento específico e em destaque para a transferência, com informação prévia sobre o caráter internacional da operação, distinguindo claramente esta de outras finalidades.
-e) quando a transferência for necessária para a cooperação jurídica internacional entre órgãos públicos de inteligência, de investigação e de persecução, de acordo com os instrumentos de direito internos.
+25. (ESTRATEGIA - SIMULADO 01 - 30/10) É competência administrativa exclusiva da União, EXCETO:
+a) Fiscalizar a produção e o comércio de material bélico.
+b) Declarar a guerra.
+c) Organizar e manter o Poder Judiciário, o Ministério Público do Distrito Federal e dos Territórios e a Defensoria Pública dos Territórios.
+d) Elaborar e executar planos nacionais e regionais de ordenação do território e de desenvolvimento econômico e social.
+e) Preservar as florestas, a fauna e a flora.
 ---
-**Comentários**
-De acordo com o Art. 33, todas estão corretas – exceto a última! De acordo com o Inciso III, a transferência internacional de dados pessoais é permitida quando a transferência for necessária para a cooperação jurídica internacional entre órgãos públicos de inteligência, de investigação e de persecução, de acordo com os instrumentos de direito internos internacional;
-Art. 33. A transferência internacional de dados pessoais somente é permitida nos seguintes casos:
-I - para países ou organismos internacionais que proporcionem grau de proteção de dados pessoais adequado ao previsto nesta Lei;
-III - quando a transferência for necessária para a cooperação jurídica internacional entre órgãos públicos de inteligência, de investigação e de persecução, de acordo com os instrumentos de direito internacional;
-IV - quando a transferência for necessária para a proteção da vida ou da incolumidade física do titular ou de terceiro;
-V - quando a autoridade nacional autorizar a transferência;
-VIII - quando o titular tiver fornecido o seu consentimento específico e em destaque para a transferência, com informação prévia sobre o caráter internacional da operação, distinguindo claramente esta de outras finalidades; ou 
-Gabarito: Letra E
+SEM COMENTÁRIOS
 ---
-27. (AOCP / MJ-SP – 2020) Nos termos da Lei Brasileira que trata da Proteção de Dados, Lei nº 13.709/2018, a respeito da Autoridade Nacional de Proteção de Dados (ANPD), assinale a alternativa correta.
-a) A natureza jurídica da ANPD é permanente, podendo ser transformada pelo Poder Executivo em entidade da administração pública federal indireta, submetida a regime autárquico especial e vinculada à Presidência da República.
-b) Ato do Ministro da Ciência, Tecnologia, Inovações e Comunicações disporá sobre a estrutura regimental da ANPD.
-c) Não é da competência da ANDP apreciar petições de titular contra controlador após comprovada pelo titular a apresentação de reclamação ao controlador não solucionada no prazo estabelecido em regulamentação.
-d) Os valores apurados na venda ou no aluguel de bens móveis e imóveis de sua propriedade não constituem receitas da ANDP.
-e) Os cargos em comissão e as funções de confiança da ANPD serão remanejados de outros órgãos e entidades do Poder Executivo federal.
+26. (ESTRATEGIA - SIMULADO 01 - 30/10) Compete à União, aos Estados e ao Distrito Federal legislar concorrentemente sobre, EXCETO:
+a) Produção.
+b) Juntas comerciais.
+c) Registros Públicos.
+d) Previdência social.
+e) Consumo.
 ---
-**Comentários**
-(a) Errado, ela é transitória e, não, permanente – conforme Art. 55-A, § 1º; (b) Errado, não é um ato do Ministro da Ciência, Tecnologia, Inovações e Comunicações e, sim, do Presidente da República – conforme Art. 55-G; (c) Errado, essa é uma das competências da ANPD – conforme Art. 55-J; (d) Errado, essa é uma das receitas que constituem a ANPD – conforme Art. 55-L, Parágrafo III; (e) Correto, conforme Art. 55-H.
-Gabarito: Letra E
+SEM COMENTÁRIOS
 ---
-28. (VUNESP / EBSERH – 2020) A Lei Geral de Proteção de Dados considera como dados pessoais sensíveis os dados sobre:
-a) contas bancárias.
-b) viagens realizadas.
-c) formação acadêmica.
-d) origem racial ou étnica.
-e) numeração de documentos.
+27. (ESTRATEGIA - SIMULADO 01 - 30/10) É assegurado à categoria dos trabalhadores domésticos:
+a) Proteção do mercado de trabalho da mulher, mediante incentivos específicos, nos termos da lei.
+b) Remuneração do trabalho noturno superior à do diurno.
+c) Salário-família pago em razão do dependente do trabalhador de baixa renda nos termos da lei.
+d) Aviso prévio proporcional.
+e) Adicional de remuneração para as atividades penosas, insalubres ou perigosas, na forma da lei.
 ---
-**Comentários**
-A LGPD considera como dados pessoais sensíveis todo dado pessoal sobre origem racial ou étnica, convicção religiosa, opinião política, filiação a sindicato ou a organização de caráter religioso, filosófico ou político, dado referente à saúde ou à vida sexual, dado genético ou biométrico, quando vinculado a uma pessoa natural.
-Gabarito: Letra D
+SEM COMENTÁRIOS
 ---
-29. (EDUCA / Prefeitura de Cabedelo-PB – 2020) Inúmeros escândalos de vazamento de dados aconteceram nos últimos anos, e muitos desses vazamentos envolveram empresas famosas como o Facebook e o Uber. No Uber, foram vazados dados pessoais de 57 milhões de clientes e motoristas, e no Facebook, 87, milhões de usuários do Facebook tiveram seus dados violados.
-Dada a recorrência de acontecimentos desta natureza, o mundo sentiu a necessidade de implementar leis que protejam a privacidade dos usuários de serviços. No Brasil, foi criada a lei 13.709/18, também conhecida como Lei Geral da Proteção de Dados Pessoais (ou LGPD), que estabelece que dado pessoal é toda informação relacionada à pessoa natural “identificada” ou “identificável”, e determina condições específicas para o tratamento desses dados. Sobre a LGPD, assinale a alternativa INCORRETA:
-a) A LGPD foi criada em agosto de 2018, mas somente entrou em vigor em 2020.
-b) A LGPD foi inspirada em uma lei europeia, a GDPR.
-c) A LGPD regulamentará qualquer atividade que envolva utilização de dados pessoais, seja a atividade relacionada a meios digitais ou não.
-d) A LGPD rege que o consentimento de acesso aos dados por uma empresa pode ser revogado a qualquer momento mediante manifestação expressa do titular dos dados.
-e) A LGPD aplica-se a qualquer operação de tratamento realizada apenas no Brasil.
+28. (ESTRATEGIA - SIMULADO 01 - 30/10) As Comissões Parlamentares de Inquérito não podem, EXCETO:
+a) Apreender passaporte.
+b) Determinar arresto de bens.
+c) Determinar sequestro de bens.
+d) Expedir mandado de busca e apreensão domiciliar.
+e) Convocar o Ministro da Justiça.
 ---
-**Comentários**
-Todos os itens estão corretos, exceto o último! De acordo com o Art. 3º, esta lei aplica-se a qualquer operação de tratamento realizada por pessoa natural ou por pessoa jurídica de direito público ou privado, independentemente do meio, do país de sua sede ou do país onde estejam localizados os dados.
-Gabarito: Letra E
+SEM COMENTÁRIOS
 ---
-30. (FUNDATEC / Prefeitura de Imbé – 2020) A nova Lei Geral de Proteção de Dados deverá afetar todos os setores da indústria, serviço ou comércio. A legislação determina que todos os dados pessoais (informação relacionada à pessoa natural identificada ou identificável, como nome, idade, estado civil, documentos) só podem ser coletados mediante o consentimento do usuário.
-Essa lei está sendo chamada de:
-a) Medida Protetiva.
-b) LGPD.
-c) Dados.
-d) Código Civil.
-e) CLT.
+29. (ESTRATEGIA - SIMULADO 01 - 30/10) Sobre o tema Remédios Constitucionais, julgue as assertivas a seguir.
+I- Compete ao Supremo Tribunal Federal conhecer originariamente de mandado de segurança contra atos de outros tribunais.
+II-O Superior Tribunal de Justiça consolidou sua posição de que cabe mandado de segurança contra ato praticado em licitação promovida por sociedade de economia mista ou empresa pública.
+III- Embora esteja previsto na CF/88 que não caberá habeas corpus em relação a punições disciplinares militares, o Supremo Tribunal Federal entende que não há que se falar em violação ao art. 142, § 2º, da CF, se a concessão de habeas corpus, impetrado contra punição disciplinar militar, volta-se tão somente para os pressupostos de sua legalidade, excluindo a apreciação de questões referentes ao mérito.
+a) Somente a alternativa I está correta.
+b) Somente a alternativa II está correta.
+c) Somente a alternativa III está correta.
+d) Somente as alternativas I e II estão corretas.
+e) Somente as alternativas II e III estão corretas.
 ---
-**Comentários**
-A Lei Geral de Proteção de Dados está sendo chamada de LGPD.
-Gabarito: Letra B
+SEM COMENTÁRIOS
 ---
-31. (IADES / CRN3 – 2019) A Lei n° 13.709/2018 (Lei Geral de Proteção de Dados) incide quanto ao cadastro de usuários e clientes, alterando a maneira como as organizações devem tratar dados pessoais, com vistas a proteger os direitos fundamentais de liberdade e de privacidade e a respeitar o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania.
-Considerando o disposto na referida lei, assinale a alternativa correta.
-a) Essa lei aplica-se exclusivamente a dados coletados por meio digital.
-b) Para os fins dessa lei, considera-se dado pessoal qualquer informação relacionada a pessoa física ou jurídica identificada ou identificável.
-c) O tratamento de dados pessoais, bem como o compartilhamento desses dados, somente é permitido mediante consentimento do titular, salvo casos de exceção previstos na lei.
-d) Dados pessoais de crianças podem ser coletados sem consentimento prévio e armazenados para fins de contato com os pais ou o responsável legal.
-e) O consentimento do tratamento dos dados deve ser fornecido pelo titular antecipadamente à coleta dos dados e presume concordância com o compartilhamento dos respectivos dados pessoais com entidades parceiras por tempo indeterminado.
+30. (ESTRATEGIA - SIMULADO 01 - 30/10) É da competência exclusiva do Congresso Nacional:
+a) Suspender o estado de defesa.
+b) Modificar o efetivo das Forças Armadas.
+c) Desmembrar áreas de Estados, ouvidas as respectivas Assembleias Legislativas;
+d) Transferir temporariamente a sede do Governo Federal.
+e) Extinguir Ministérios.
 ---
-**Comentários**
-(a) Errado. O Art. 1º afirma que essa lei dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado, com o objetivo de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural;
-(b) Errado. O Inciso I do Art. 5º afirma que dado pessoal é qualquer informação relacionada a pessoa natural identificada ou identificável. Logo, não há que se falar em pessoa jurídica;
-(c) Correto. O Inciso I do Art. 7º afirma que o tratamento de dados pessoais somente poderá ser realizado na seguinte hipótese: mediante o fornecimento de consentimento pelo titular. A lei apresenta também algumas exceções para a concessão de consentimento, como – por exemplo – quando os dados são manifestamente públicos;
-(d) Errado. O §3º do Art. 14 afirma que poderão ser coletados dados pessoais de crianças sem o consentimento a que se refere o § 1º deste artigo quando a coleta for necessária para contatar os pais ou o responsável legal, utilizados uma única vez e sem armazenamento, ou para sua proteção, e em nenhum caso poderão ser repassados a terceiro sem o consentimento de que trata o §1º deste artigo;
-(e) Errado. O §5º do Art. 7 afirma que o controlador que obteve o consentimento referido no inciso I do caput deste artigo que necessitar comunicar ou compartilhar dados pessoais com outros controladores deverá obter consentimento específico do titular para esse fim, ressalvadas as hipóteses de dispensa do consentimento previstas nesta Lei.
-Gabarito: Letra C
+SEM COMENTÁRIOS
 ---
-32. (IADES / BRB – 2019) Considere que, em um órgão público, foi detectada a necessidade da atribuição de responsáveis para manterem registro das operações de tratamento de dados pessoais. De acordo com a Lei nº 13.709/2018, quem devem ser esses responsáveis?
-a) Os agentes de tratamento de dados e o conselho diretor.
-b) O controlador e o operador.
-c) O presidente da República e o controlador.
-d) A autoridade nacional e o operador.
-e) O governante e a autoridade nacional.
+31. (ESTRATEGIA - SIMULADO 01 - 30/10) O Secretário da Fazenda de determinado estado da Federação que publicar uma portaria e, na semana seguinte, revogá-la, em nova publicação, terá praticado ato revogatório com base no princípio:
+a) da Legalidade
+b) da Impessoalidade c) da Moralidade
+d) da Autotutela
+e) da Presunção de legalidade, legitimidade e veracidade
 ---
-**Comentários**
-De acordo com o Art. 37, o controlador e o operador devem manter registro das operações de tratamento de dados pessoais que realizarem, especialmente quando baseado no legítimo interesse. Lembrando que o controlador é a pessoa natural ou jurídica, de direito público ou privado, a quem competem as decisões referentes ao tratamento de dados pessoais; e o operador é a pessoa natural ou jurídica, de direito público ou privado, que realiza o tratamento de dados pessoais em nome do controlador.
-Gabarito: Letra B
+SEM COMENTÁRIOS
+---
+32. (ESTRATEGIA - SIMULADO 01 - 30/10) Marque a opção incorreta sobre Atos Administrativos:
+a) As certidões são tipos de atos Enunciativos que consistem nas cópias fieis e autenticadas de atos ou fatos constantes de processo, livro ou documento que se encontre nas repartições públicas.
+b) A convalidação dos atos administrativos pode ser feita por quem não pertença aos quadros da Administração pública.
+c) De acordo com Maria Sylvia Zanella Di Pietro os atos administrativos normativos que veiculam regras gerais e abstratas, alcançando número de destinatários indeterminado, são típicos atos administrativos.
+d) São exemplos de Atos Ordinatórios ordens de serviço, circulares internas e portarias em geral.
+e) O vício sanável, portanto aquele anulável, poderá ser convalidado.
+---
+SEM COMENTÁRIOS
+---
+33. (ESTRATEGIA - SIMULADO 01 - 30/10) Agente público é uma expressão genérica que designa os sujeitos que servem ao Poder Público como instrumentos expressivos de sua vontade ou ação, ainda quando o façam apenas ocasional ou episodicamente.
+Marque a opção correta sobre Agentes Públicos:
+a) Os servidores públicos aprovados para cargos de livre nomeação se tornarão estáveis após 3 (três) anos de efetivo exercício e aprovação em avaliação especial de desempenho.
+b) Os Conselhos Profissionais, que são espécies de autarquias, podem contratar empregados regidos pela CLT.
+c) Agentes Honoríficos são particulares em colaboração com o Estado, tais como mesários e jurados.
+d) Em sentido estrito, considera-se Agente Público todas as pessoas que servem ao poder público, de forma transitória ou definitiva, remuneradas ou não.
+e) A estabilidade tem relação com o cargo público.
+Dessa forma, a estabilidade, em regra, é adquirida uma única vez pelo servidor na administração pública de um mesmo ente federado
+---
+SEM COMENTÁRIOS
+---
+34. (ESTRATEGIA - SIMULADO 01 - 30/10) Um contrato é o acordo de vontades, pelo qual duas ou mais pessoas se comprometem a honrar determinadas obrigações.
+Em relação aos contratos administrativos marque a opção incorreta:
+a) O instrumento de contrato é obrigatório nos casos de concorrência e de tomada de preços, bem como nas dispensas e inexigibilidades cujos preços estejam compreendidos nos limites dessas duas modalidades de licitação.
+b) O instrumento de contrato ou de seus aditamentos serão publicados de forma resumida na imprensa oficial, que é condição indispensável para sua eficácia, será providenciada pela Administração até o quinto dia útil do mês seguinte ao de sua assinatura.
+c) Os contratos administrativos regulam-se pelas suas cláusulas e pelos preceitos de direito público, aplicando-se-lhes, supletivamente, os princípios da teoria geral dos contratos e as disposições de direito privado.
+d) Nos contratos privados da Administração, as cláusulas exorbitantes somente produzirão efeitos quando expressamente previstas nos respectivos contratos.
+e) O Termo de contrato é indispensável, sendo obrigatório qualquer que seja o valor e as obrigações adquiridas.
+---
+SEM COMENTÁRIOS
+---
+35. (ESTRATEGIA - SIMULADO 01 - 30/10) A empresa pública XYW, que exerce a atividade de coleta de lixo no município Alfa, foi citada em uma ação civil de reparação de danos, sob o fundamento de que o local onde ela despejava os dejetos recolhidos, estava poluindo a nascente de um importante rio que fornecia água para toda a cidade, assim causando dano ambiental.
+Em seus argumentos a empresa XYW alega que adotou todo o protocolo exigido pela secretaria de meio ambiente do município Alfa e as regras impostas pelos órgãos federais.
+À luz da sistemática legal e doutrinária afeta à responsabilização do Estado é correto afirmar que a responsabilidade da empresa pública XYW:
+a) Caso a contaminação da nascente do rio cause algum tipo de dano a terceiro, a vítima será obrigada a provar o dano sofrido, conforme a teoria do risco administrativo.
+b) A empresa poderá arguir como excludente de sua culpa o atendimento de todos os protocolos da secretaria do meio ambiente e normas legais dos órgãos federais.
+c) No caso de dano ambiental a empresa responderá pela teoria do risco integral não podendo arguir excludentes que pudessem afastar ou minorar sua responsabilidade.
+d) É subjetiva, pois somente a Administração Pública direta pode responder de modo objetivo.
+e) Somente será objetiva em relação ao dano causado para aqueles que consumiram as águas daquele rio.
+---
+SEM COMENTÁRIOS
+---
+36. (ESTRATEGIA - SIMULADO 01 - 30/10) Astolfo, servidor público efetivo da União, utilizou mão de obra de servidores públicos e máquinas pertencentes à União para auxiliar na construção da sua casa de praia. Transcorrido sete anos da utilização dos servidores e máquinas, a corregedoria do seu órgão foi comunicada de tal fato.
+Encerrado o processo disciplinar e aplicadas as penas cabíveis, o órgão responsável pela denúncia propôs ação de improbidade após transcorrido 8 anos do esquema fraudulento ter ocorrido.
+Considerando o exposto, assinale a afirmativa correta.
+a) Poderá ser proposta tanto a ação de improbidade como a ação de ressarcimento, pois ambas são imprescritíveis.
+b) A ação de improbidade para a aplicação das sanções previstas na lei pode ser proposta em até cinco anos após a prática do ato de improbidade, ressalvada a ação de ressarcimento, que é imprescritível.
+c) A ação de improbidade para a aplicação das sanções previstas na lei ou a ação de ressarcimento ao Erário não podem ser propostas, em razão da consumação da prescrição.
+d) A ação de improbidade para a aplicação das sanções previstas na lei não prescreveu e pode ser proposta ação de ressarcimento ao Erário.
+e) A ação de improbidade para a aplicação das sanções previstas na lei prescreveu após transcorrido o prazo de cinco anos, mas pode ser proposta ação de ressarcimento ao Erário.
+---
+SEM COMENTÁRIOS
+---
+37. (ESTRATEGIA - SIMULADO 01 - 30/10) Em relação ao controle da administração pública, marque a opção incorreta:
+a) O controle da Administração Pública decorre do princípio da Autotutela, onde é exercido controle sobre seus próprios atos, tendo a possibilidade de anular os ilegais e de revogar os inoportunos.
+b) . O controle externo, a cargo do Congresso Nacional, será exercido com o auxílio das Comissões de Inquérito e do Ministério Público.
+c) O controle judicial é realizado por órgãos do Poder Judiciário no exercício de sua função típica.
+d) O controle da legalidade avalia a conformidade do ato com a lei e os princípios aplicáveis.
+e) O controle do mérito avalia a conveniência e a oportunidade da prática do ato e os seus resultados.
+---
+SEM COMENTÁRIOS
+---
+38. (ESTRATEGIA - SIMULADO 01 - 30/10) Quanto a lei 12.527/2011, marque a opção incorreta:
+a) Qualquer interessado poderá apresentar pedido de acesso a informações aos órgãos e entidades, por qualquer meio legítimo, devendo o pedido conter a identificação do requerente e a especificação da informação requerida.
+b) No caso de indeferimento de acesso a informações ou às razões da negativa do acesso, poderá o interessado interpor recurso contra a decisão no prazo de 10 (dez) dias a contar da sua ciência.
+c) As informações ou documentos que versem sobre condutas que impliquem violação dos direitos humanos praticada por agentes públicos ou a mando de autoridades públicas não poderão ser objeto de restrição de acesso.
+d) O prazo máximo de restrição de acesso à informação, para documentos classificados como secretos, é de 25 (vinte e cinco) anos.
+e) O acesso à informação classificada como sigilosa cria a obrigação para aquele que a obteve de resguardar o sigilo.
+---
+SEM COMENTÁRIOS
+---
+39. (ESTRATEGIA - SIMULADO 01 - 30/10) Marque a opção incorreta sobre os princípios que rege o direito administrativo:
+a) A nomeação de cônjuge, companheiro ou parente em linha reta, colateral ou por afinidade, até o terceiro grau fere o princípio da moralidade.
+b) O princípio da juridicidade está vinculado à ideia de submissão da Administração a todo o ordenamento jurídico, e não somente à lei em sentido estrito.
+c) O princípio da eficiência, considerado um dos princípios da administração pública, não consta expressamente na CF.
+d) A administração pública, por força do princípio da legalidade, só poderá agir quando houver determinação ou, pelo menos, autorização legal.
+e) O princípio da impessoalidade veda a promoção pessoal dos agentes públicos às custas dos feitos da Administração.
+---
+SEM COMENTÁRIOS
+---
+40. (ESTRATEGIA - SIMULADO 01 - 30/10) Marque a opção correta sobre o pregão:
+a) O pregão, destinando-se à aquisição de obras, serviços especiais de engenharia, às locações imobiliárias, alienações em geral e bens e serviços especiais.
+b) Para que uma empresa se habilite a participar de um pregão será exigido uma garantia.
+c) Para julgamento e classificação das propostas apresentadas no pregão, será adotado o critério de menor preço, observados os prazos máximos para fornecimento, as especificações técnicas e parâmetros mínimos de desempenho e qualidade definidos no edital.
+d) O pregão consiste em modalidade licitatória utilizada exclusivamente pela União.
+e) Na União, nos Estados, Distrito Federal e Municípios o art. 1º, §1º, do Decreto 10.024/2019 tornou obrigatória sua adoção para bens e serviços comuns.
+---
+SEM COMENTÁRIOS
+---
+41. (ESTRATEGIA - SIMULADO 01 - 30/10) Na recuperação judicial da sociedade empresária HC Consultoria Ltda., foi apresentado plano de recuperação judicial que previa aos credores quirografários pagamento integral do débito em 60 (sessenta) meses a contar da data da concessão da recuperação. Com a aprovação do plano pela assembleia de credores, as condições contratuais originais foram alteradas, passando o pagamento a ser feito nos termos do plano.
+Em 30 de setembro de 2021 e estando em curso o pagamento aos credores quirografários, a recuperação foi convolada em falência e, na sentença, o juiz fixou o termo legal em 90 dias anteriores à data do pedido de recuperação.
+Considerados esses dados, assinale a alternativa correta.
+a) Em virtude de ter sido previsto no plano de recuperação judicial aprovado e homologado pelo juiz, o ato será ineficaz com a decretação da falência, haja vista que o pagamento estava em desacordo com o contrato. Entretanto, o juiz fixou corretamente o termo legal, pois adotou um dos critérios legais para sua fixação, no caso, a data do pedido de recuperação, bem como não extrapolou o limite máximo de 90 dias anteriores àquele evento.
+b) Em virtude de ter sido previsto no plano de recuperação judicial aprovado e homologado pelo juiz, o ato não será ineficaz com a decretação da falência, mesmo tendo havido pagamento no termo legal e em desacordo com o contrato. Além disso, o juiz fixou corretamente o termo legal, pois adotou um dos critérios legais para sua fixação, no caso, a data do pedido de recuperação, bem como não extrapolou o limite máximo de 90 dias anteriores àquele evento.
+c) Em virtude de ter sido previsto no plano de recuperação judicial aprovado e homologado pelo juiz, o ato não será ineficaz com a decretação da falência, mesmo tendo havido pagamento no termo legal e em desacordo com o contrato.
+Entretanto, o juiz fixou incorretamente o termo legal, pois não adotou um dos critérios legais para sua fixação, no caso, a data do pedido de recuperação, bem como extrapolou o limite máximo de 60 dias anteriores àquele evento.
+d) Em virtude de ter sido previsto no plano de recuperação judicial aprovado e homologado pelo juiz, o ato não será ineficaz com a decretação da falência, mesmo tendo havido pagamento no termo legal e em desacordo com o contrato.
+Entretanto, o juiz fixou incorretamente o termo legal, pois não adotou um dos critérios legais para sua fixação, no caso, a data do pedido de recuperação, bem como extrapolou o limite máximo de 30 dias anteriores àquele evento.
+e) Em virtude de ter sido previsto no plano de recuperação judicial aprovado e homologado pelo juiz, o ato não será ineficaz com a decretação da falência, mesmo tendo havido pagamento no termo legal e em desacordo com o contrato. Além disso, o juiz fixou corretamente o termo legal, pois adotou um dos critérios legais para sua fixação, no caso, a data do pedido de recuperação, bem como não extrapolou o limite máximo de 45 dias anteriores àquele evento.
+---
+SEM COMENTÁRIOS
+---
+42. (ESTRATEGIA - SIMULADO 01 - 30/10) Altair, sócio de uma sociedade simples constituída por prazo indeterminado, informou aos demais sócios que pretendia se retirar da sociedade. A notificação observou o prazo legal e, quinze dias após o recebimento da notificação, os demais sócios se reuniram para deliberar a dissolução da sociedade, sendo a decisão aprovada por votos correspondentes a 63% (sessenta e três por cento) do capital.
+A sócia Gália, titular de 29% (vinte e nove por cento) do capital social, que ficou vencida na deliberação, pretende anulá-la sob os seguintes argumentos: a) os sócios somente poderiam deliberar a dissolução da sociedade após o pagamento dos haveres ao sócio Altair e, na data da deliberação, isso não havia ocorrido; e b) inobservância do quórum exigido para deliberação sobre a dissolução.
+Considerando os fatos narrados e os argumentos apontados pela sócia Gália para invalidação da deliberação, assinale a alternativa correta.
+a) A deliberação dos sócios ocorreu dentro dos trinta dias subsequentes à notificação do sócio retirante Altair, sendo-lhes facultado deliberar sobre a dissolução da sociedade. Além disso, o quórum regular da deliberação foi observado, haja vista que nas sociedades simples constituídas por prazo indeterminado, o quórum para aprovar a dissolução é de maioria absoluta do capital, e a matéria foi aprovada por 63% (sessenta e três por cento) do capital.
+b) A deliberação dos sócios ocorreu dentro dos trinta dias subsequentes à notificação do sócio retirante Altair, sendo-lhes obrigado a deliberar sobre a dissolução da sociedade. Além disso, o quórum regular da deliberação foi observado, haja vista que nas sociedades simples constituídas por prazo indeterminado, o quórum para aprovar a dissolução é de maioria simples do capital, e a matéria foi aprovada por 63% (sessenta e três por cento) do capital.
+c) A deliberação dos sócios ocorreu dentro dos trinta dias subsequentes à notificação do sócio retirante Altair, sendo-lhes facultado deliberar sobre a dissolução da sociedade. Além disso, o quórum regular da deliberação não foi observado, haja vista que nas sociedades simples constituídas por prazo indeterminado, o quórum para aprovar a dissolução é de maioria relativa do capital, e a matéria foi aprovada por 63% (sessenta e três por cento) do capital.
+d) A deliberação dos sócios ocorreu dentro dos trinta dias subsequentes à notificação do sócio retirante Altair, sendo-lhes obrigado a deliberar sobre a dissolução da sociedade. Além disso, o quórum regular da deliberação não foi observado, haja vista que nas sociedades simples constituídas por prazo indeterminado, o quórum para aprovar a dissolução é de totalidade do capital, e a matéria foi aprovada por 63% (sessenta e três por cento) do capital.
+e) A deliberação dos sócios ocorreu depois de 10 dias subsequentes à notificação do sócio retirante Altair, sendo-lhes obrigado a deliberar sobre a dissolução da sociedade. Além disso, o quórum regular da deliberação foi observado, haja vista que nas sociedades simples constituídas por prazo indeterminado, o quórum para aprovar a dissolução é de maioria absoluta do capital, e a matéria foi aprovada por 63% (sessenta e três por cento) do capital.
+---
+SEM COMENTÁRIOS
+---
+43. (ESTRATEGIA - SIMULADO 01 - 30/10) Miranda, em 28 de fevereiro de 2018, subscreveu nota promissória à vista, no valor R \$35.000,00, contendo cláusula “sem despesas” em favor de Ladário. Antes da apresentação a pagamento, o título foi avalizado em branco por Glória e endossado a Ribas. A apresentação a pagamento do título ao subscritor foi realizada no mesmo dia de sua emissão, não tendo sido adimplida a obrigação.
+Proposta a ação cambial pelo portador em face de Ladário no dia 1º de abril de 2019, este invocou carência do direito de ação do autor pela ausência do protesto por falta de pagamento e a ocorrência da prescrição.
+Considerados os dados informados, assinale a alternativa correta.
+a) O obrigado cambiário é somente o subscritor da nota promissória Miranda, sua avalista Glória, que responde solidariamente pelo pagamento perante o endossatário Ribas.
+b) Não houve a ocorrência da prescrição, mas sim a decadência, já que o argumento do réu é procedente, pois o prazo de 1 ano é contado do dia da apresentação a pagamento que é o do vencimento do título à vista (28/02/2018).
+c) Quanto à falta de protesto por falta de pagamento, o argumento é procedente, pois a inserção da cláusula sem despesas não dispensa o portador de promovê-lo para poder exercer os seus direitos de ação em face de quaisquer dos signatários.
+d) Houve a ocorrência da prescrição, mas o argumento do réu não procede, pois o prazo de 1 ano é contado do dia da proposta de ação cambial pelo portador em face de Ladário , ou seja, no dia 1º de abril de 2019.
+e) Os obrigados cambiários são o subscritor da nota promissória Miranda, sua avalista Glória e o endossante Ladário, que respondem solidariamente pelo pagamento perante o endossatário Ribas.
+DIREITO CIVIL
+---
+SEM COMENTÁRIOS
+---
+44. (ESTRATEGIA - SIMULADO 01 - 30/10) O navio “Matrix” fazia um cruzeiro pelo Pacífico Sul, quando Neo, um de seus passageiros, portador de cardiopatia grave, sentiu-se subitamente mal e precisou de atendimento com urgência. O capitão, ao saber do ocorrido, informou que o navio encontrava-se distante do local em que deveriam atracar e perguntou através dos alto-falantes se existia algum médico a bordo.
+Trinity, uma médica cardiologista que estava de férias, atendeu Neo, mas cobrou um preço exorbitante, alegando que estava de férias.
+Em decorrência do medo de que não se salvasse, Neo aceitou ser atendido pelo preço cobrado.
+Contudo, após a recuperação e orientado por um amigo advogado que achou um absurdo o valor cobrado pela médica, Neo, para evitar a cobrança dos valores avençados, solicitou a anulação do acordo firmado com o outro passageiro, alegando:
+a) estado de perigo
+b) dolo
+c) coação
+d) erro
+e) ignorância
+---
+SEM COMENTÁRIOS
+---
+45. (ESTRATEGIA - SIMULADO 01 - 30/10) Considerando o que dispõe o Código Civil acerca dos atos ilícitos, marque a assertiva incorreta:
+a) Os atos praticados em legítima defesa não constituem atos ilícitos.
+b) Constituem atos ilícitos os atos praticados no exercício regular de um direito reconhecido.
+c) O titular de um direito que, ao exercê-lo, excede manifestamente os limites impostos pelo seu fim econômico ou social, pela boa-fé ou pelos bons costumes comete ato ilícito.
+d) A deterioração ou destruição da coisa alheia, ou a lesão a pessoa, a fim de remover perigo iminente será legítimo quando as circunstâncias o tornarem absolutamente necessário, não excedendo os limites do indispensável para a remoção do perigo.
+e) Aquele que, por ação ou omissão voluntária, negligência ou imprudência, violar direito e causar dano a outrem, ainda que exclusivamente moral, comete ato ilícito.
+---
+SEM COMENTÁRIOS
+---
+46. (ESTRATEGIA - SIMULADO 01 - 30/10) No dia 14 de julho de 2020, Hera, uma empresária no campo da tecnologia, celebrou um contrato de compra e venda com Atena. No contrato, Atena estipulou que entregaria 30 webcams ou 30 mouses sem fio até o dia 14 de julho de 2021. Contudo, o contrato foi tácito acerca de quem deveria realizar a escolha dos objetos a serem entregues.
+Considerando o seguinte caso hipotético abaixo, marque a assertiva abaixo:
+a) Trata-se de obrigação facultativa, uma vez que Atena tem a faculdade de escolher qual das prestações entregará a Hera.
+b) Uma vez que o contrato não atribuiu a escolha ao credor e a obrigação é alternativa, Atena pode entregar 30 webcams ou 30 mouses sem fio, à sua escolha,
+c) Se a escolha da prestação a ser entregue cabe a Atena, ela poderá optar por entregar a Hera às 15 webcams e 15 mouses sem fio.
+d) Se, por culpa de Hera, não se puder cumprir nenhuma das prestações, não competindo a Atena a escolha, ficará aquela obrigada a pagar somente os lucros cessantes.
+e) Na falta de cláusula estipulando qual objeto deverá ser entregue, Atena deverá entregar, necessariamente, as 30 webcams, por serem de maior valor.
+---
+SEM COMENTÁRIOS
+---
+47. (ESTRATEGIA - SIMULADO 01 - 30/10) Considerando o Código Civil, são formas de interrupção da prescrição, exceto:
+a) por protesto cambial b) por qualquer ato judicial que constitua em mora o devedor
+c) por despacho do juiz que ordenar a citação, exceto em caso de incompetência d) pela apresentação do título de crédito em juízo de inventário ou em concurso de credores e) por qualquer ato inequívoco, ainda que extrajudicial, que importe reconhecimento do direito pelo devedor 17
+Rodadas Avançadas de Simulados para SEFAZ-PE (Auditor Fiscal do Tesouro Estadual) - 30/10/2022 DIREITO PENAL
+---
+SEM COMENTÁRIOS
+---
+48. (ESTRATEGIA - SIMULADO 01 - 30/10) Sobre o tema Aplicação da lei penal, julgue as assertivas a seguir.
+I- A Lei posterior que deixa de considerar certa conduta como crime faz cessar os efeitos penais da sentença condenatória.
+II- Caso seja cometido no estrangeiro, não se aplica a lei brasileira ao crime de constrangimento ilegal contra o Presidente da República.
+III- Encerradas as circunstâncias que determinaram a elaboração de lei temporária, deixa a mesma de ter aplicação aos fatos praticados durante a sua vigência.
+Marque a alternativa correta:
+a) Somente a alternativa I está correta.
+b) Somente a alternativa II está correta.
+c) Somente a alternativa III está correta.
+d) Somente as alternativas I e II estão corretas.
+e) Somente as alternativas II e III estão corretas.
+---
+SEM COMENTÁRIOS
+---
+49. (ESTRATEGIA - SIMULADO 01 - 30/10) Sobre o tema Crimes contra a ordem tributária, julgue as assertivas a seguir.
+I- Os crimes contra a ordem tributária previstos na Lei n.º 8.137/1990 são de ação penal pública incondicionada.
+II- Segundo o STJ, o pagamento integral do débito tributário, incluindo todos os acessórios, extingue a punibilidade do agente, mesmo se realizado após o oferecimento da denúncia.
+III- Será aplicada a penalidade de detenção ou multa, conforme a gravidade da conduta, àquele que omitir declaração sobre bens para eximir-se parcialmente de pagamento de tributo.
+Marque a alternativa correta:
+a) Somente a alternativa I está correta.
+b) Somente a alternativa II está correta.
+c) Somente a alternativa III está correta.
+d) Somente as alternativas I e II estão corretas.
+e) Somente as alternativas II e III estão corretas.
+---
+SEM COMENTÁRIOS
+---
+50. (ESTRATEGIA - SIMULADO 01 - 30/10) São espécies de peculato, EXCETO:
+a) Peculato eletrônico.
+b) Peculato-roubo.
+c) Peculato-estelionato.
+d) Peculato-desvio.
+e) Peculato-apropriação.
+---
+SEM COMENTÁRIOS
+---
+51. (ESTRATEGIA - SIMULADO 01 - 30/10) Acerca da Estrutura Conceitual para Relatório Financeiro, considere as seguintes afirmativas:
+I - Ativo é um recurso econômico controlado pela entidade como resultado de eventos presentes.
+II - As variações positivas entre ativos e passivos são os elementos das demonstrações contábeis que se referem ao desempenho financeiro da entidade.
+III - A princípio, cada um dos direitos da entidade é ativo separado. Contudo, para fins contábeis, direitos relacionados geralmente são tratados como uma única unidade de conta que é um único ativo.
+Assinale a alternativa correta.
+a) Somente a I é verdadeira.
+b) Somente a II é verdadeira.
+c) Somente a III é verdadeira.
+d) Somente a I e II são verdadeiras.
+e) Somente a II e III são verdadeiras.
+---
+SEM COMENTÁRIOS
+---
+52. (ESTRATEGIA - SIMULADO 01 - 30/10) A Cia. CORUJA comprou, à vista, mercadorias para revenda no valor de R$ 500.000, com desconto de R$ 45.000 em função do volume.
+Adicionalmente, incorreu nos seguintes gastos:
+• Imposto de importação no valor de R$ 20.000.
+• Gastos com armazenamento para que a mercadoria chegue até a empresa no valor de R$ 15.000.
+• Gasto com transporte das mercadorias até a empresa no valor de R$ 25.000.
+• IPI não recuperável no valor de R$ 15.000.
+• ICMS recuperável no valor de R$ 20.000.
+• Gastos com seguros para transporte das mercadorias até a empresa no valor de R$ 5.000.
+O custo das mercadorias adquiridas foi, em reais, a) R$ 535.000
+b) R$ 520.000
+c) R$ 555.000
+d) R$ 505.000
+e) R\$ 485.000
+---
+SEM COMENTÁRIOS
+---
+53. (ESTRATEGIA - SIMULADO 01 - 30/10) Em 01/01/2022, a Cia. ABC obteve um empréstimo para financiar sua expansão. O valor líquido recebido pelo empréstimo foi R$ 10.000.000.
+A liquidação integral (principal, custos e juros) ocorrerá em 31/12/2023. A taxa de juros compostos negociada foi 12% a.a.
+Os custos incorridos para a obtenção deste empréstimo foram de R$ 100.000.
+Se o empréstimo é mensurado pelo método do custo amortizado, o seu reconhecimento no Balanço Patrimonial da Cia. ABC, em 01/01/2022, provocou um aumento líquido total de a) R$ 10.100.000, no passivo.
+b) R$ 9.900.000, no passivo.
+c) R$ 10.100.000, no ativo.
+d) R$ 10.000.000, no passivo.
+e) R$ 10.100.000, no passivo e uma redução no patrimônio líquido de R$ 100.000,00.
+---
+SEM COMENTÁRIOS
+---
+54. (ESTRATEGIA - SIMULADO 01 - 30/10) A Cia. CORUJA realizou no ano de 2021 as aplicações financeiras cujas características são apresentadas na tabela abaixo.
+Todas as aplicações remuneram juros compostos por dia corrido. Adotando-se que os meses são de 30 dias corridos, o valor total que impactou o resultado do ano de 2021, correspondente às três aplicações realizadas no ano, foi de aproximadamente
+a) R$ 20.120
+b) R$ 24.045
+c) R$ 15.545
+d) R$ 12.120
+e) R\$ 9.045
+---
+SEM COMENTÁRIOS
+---
+55. (ESTRATEGIA - SIMULADO 01 - 30/10) A Cia. CORUJA adquiriu 80% das ações da empresa CORUJINHA S.A., pagando R$ 40.000.000 à vista e passando a deter o seu controle. A aquisição ocorreu em 31/12/2020, o valor contabilizado no Patrimônio Líquido da CORUJINHA S.A. era, nessa data, R$ 24.000.000 e o valor justo líquido dos seus ativos e passivos identificáveis era R$ 60.000.000.
+No período de 01/01/2021 a 31/12/2021, a CORUJINHA S.A. reconheceu as seguintes mutações em seu Patrimônio Líquido:
+• Lucro líquido de 2021 ......................... R$ 4.000.000 • Distribuição e pagamento de dividendos em 2021 ............................................................ R$ 1.000.000 Com base nestas informações, o valor reconhecido na conta Investimentos da Cia. CORUJA, em 31/12/2021, foi
+a) R$ 52.000.000
+b) R$ 51.200.000
+c) R$ 50.400.000
+d) R$ 44.000.000
+e) R$ 42.400.000
+---
+SEM COMENTÁRIOS
+---
+56. (ESTRATEGIA - SIMULADO 01 - 30/10) Em 2021, a Cia. CORUJA apresentou os seguintes dados no Demonstrativo de Resultado do Exercício:
+I - Receita Bruta: R$ 300.000, nela contido o ICMS pela alíquota de 20%.
+II- Custo das mercadorias foi de R$ 60.000.
+Considerando a alíquota do imposto sobre renda e contribuição social da empresa é 30%, o Lucro Líquido do Exercício de 2021 apurado pela entidade foi
+a) R$ 117.000
+b) R$ 126.000
+c) R$ 177.000
+d) R$ 195.000
+e) R\$ 180.000
+---
+SEM COMENTÁRIOS
+---
+57. (ESTRATEGIA - SIMULADO 01 - 30/10) A entidade CORUJINHA efetuou as seguintes operações durante o ano de 2021:
+Baseado nas informações acima, o valor adicionado a distribuir, em 31/12/2021, foi a) R$ 160.000
+b) R$ 170.000
+c) R$ 172.000
+d) R$ 180.000
+e) R\$ 205.000
+---
+SEM COMENTÁRIOS
+---
+58. (ESTRATEGIA - SIMULADO 01 - 30/10) Os seguintes fatos aconteceram na Cia. CORUJA no ano:
+Assinale a opção que indica a variação do fluxo de caixa da atividade operacional, evidenciado na Demonstração dos Fluxos de Caixa da empresa:
+a) R$ 34.000.000
+b) R$ 30.000.000
+c) R$ 26.000.000
+d) R$ 22.000.000
+e) R\$ 11.000.000
+---
+SEM COMENTÁRIOS
+---
+59. (ESTRATEGIA - SIMULADO 01 - 30/10) Em relação à Estrutura Conceitual para Relatório Financeiro, considere as seguintes afirmativas:
+I - Custos indiretos correspondem aos gastos específicos e que podem ser identificados com o produto e serviço.
+II - O custo variável unitário não sofre alteração, enquanto o custo variável total apresenta alteração proporcional ao volume produzido.
+III - Os custos indiretos de produção, mão-de-obra e matéria-prima fazem parte do custo de transformação.
+Assinale a alternativa correta.
+a) somente a I é verdadeira.
+b) Somente a II é verdadeira.
+c) Somente a II e III são verdadeiras.
+d) Somente a I e II são verdadeiras.
+e) Todas são verdadeiras.
+---
+SEM COMENTÁRIOS
+---
+60. (ESTRATEGIA - SIMULADO 01 - 30/10) A Cia CORUJA produz três tipos de produtos: A, B e C. As informações referentes a cada produto são apresentadas abaixo.
+A empresa produz apenas o que é vendido em cada mês e, caso decida paralisar a produção de qualquer um dos produtos, não haverá eliminação de custos fixos e despesas fixas.
+Sabendo que a empresa tem recursos limitados para investir em propaganda e que o objetivo é a maximização do lucro, a ordem de prioridade em que os cremes devem ter sua venda incentivada é a) A, B e C.
+b) A, C e B.
+c) B, A e C.
+d) C, A e B.
+e) C, B e A.
+TI
+---
+SEM COMENTÁRIOS
+---
+61. (ESTRATEGIA - SIMULADO 01 - 30/10) Esse princípio sinaliza a conformidade dos dados armazenados com relação às inserções, alterações e processamentos autorizados efetuados. Sinaliza, ainda, a conformidade dos dados transmitidos pelo emissor com os recebidos pelo destinatário, garantindo a não violação dos dados com intuito de alteração, gravação ou exclusão, seja ela acidental ou proposital. Assinale a alternativa que indica esse princípio:
+a) Confidencialidade b) Disponibilidade
+c) Integridade
+d) Autenticidade
+e) Irretratabilidade
+---
+SEM COMENTÁRIOS
+---
+62. (ESTRATEGIA - SIMULADO 01 - 30/10) A disciplina da proteção de dados pessoais tem diversos fundamentos, entre eles:
+I - a autodeterminação informativa.
+II - o desenvolvimento econômico e tecnológico e a inovação.
+III – os direitos humanos, o livre desenvolvimento da personalidade, a dignidade e o exercício da cidadania pelas pessoas naturais.
+a) Apenas a afirmação I é correta.
+b) As afirmações I e II são incorretas.
+c) Apenas as afirmações II e III são corretas.
+d) Apenas a afirmação III é incorreta.
+e) Todas as afirmações são corretas.
+---
+SEM COMENTÁRIOS
+---
+63. (ESTRATEGIA - SIMULADO 01 - 30/10) A Engenharia de Software tem por objetivo a aplicação de teorias, modelos, formalismos, técnicas e ferramentas da ciência da computação e áreas afins para um desenvolvimento sistemático de software. Logo, associado ao desenvolvimento, é preciso também aplicar, exceto:
+a) Ferramentas
+b) Métodos
+c) Processo
+d) Foco na Qualidade e) Monitoramento
+---
+SEM COMENTÁRIOS
+---
+64. (ESTRATEGIA - SIMULADO 01 - 30/10) Dentro do contexto de metodologias de desenvolvimento, essa etapa dos métodos formais busca conceber o projeto de software, ou seja, nesta fase é pensado na arquitetura do sistema com seus diversos componentes e suas interfaces, dados e relacionamentos entre os mesmos.
+Assinale a alternativa que indica essa etapa:
+a) Refinamento para concepção de projeto.
+b) Síntese para implementação.
+c) Prototipação para validação.
+d) Especificação formal para definição de requisitos.
+e) Prova para a verificação.
+---
+SEM COMENTÁRIOS
+---
+65. (ESTRATEGIA - SIMULADO 01 - 30/10) No que diz respeito a classificação de requisitos quanto à qualidade, quando os recursos desses requisitos vão além da expectativa dos clientes e demonstram ser muito satisfatórios quando presentes, são chamados de:
+a) Requisitos Brilhantes b) Requisitos Potenciais c) Requisitos Fascinantes d) Requisitos Impressionantes e) Requisitos Superiores
+---
+SEM COMENTÁRIOS
+---
+66. (ESTRATEGIA - SIMULADO 01 - 30/10) No contexto da qualidade de software, o esforço necessário para aprender, operar, preparar a entrada de dados e interpretar a saída de um programa é chamado de:
+a) Testabilidade
+b) Facilidade de manutenção c) Eficiência
+d) Flexibilidade
+e) Usabilidade
+---
+SEM COMENTÁRIOS
+---
+67. (ESTRATEGIA - SIMULADO 01 - 30/10) Estão entre as principais definições Web Services os seguintes conceitos:
+I - Web Services são soluções utilizadas na integração de sistemas e na comunicação entre aplicações diferentes, permitindo que elas enviem e recebam dados.
+II - Web Services tratam essencialmente da interoperabilidade entre programas e aplicações – especialmente quando eles usam linguagens, ferramentas ou plataformas diferentes.
+III – Web Services são um sistema de software projetado para permitir interoperabilidade na interação entre máquinas através de uma rede.
+a) Apenas a afirmação I é correta.
+b) As afirmações I e II são incorretas.
+c) Apenas as afirmações II e III são corretas.
+d) Apenas a afirmação III é incorreta.
+e) Todas as afirmações são corretas.
+---
+SEM COMENTÁRIOS
+---
+68. (ESTRATEGIA - SIMULADO 01 - 30/10) No contexto do cálculo do tamanho funcional de um software, a função desse arquivo o é armazenar dados mantidos dentro da fronteira da aplicação, contribuindo para o cálculo de pontos de função com base na quantidade e complexidade funcional relativa. Assinale a alternativa que indica esse arquivo:
+a) AIE
+b) ALI
+c) SE
+d) CE
+e) EE
+---
+SEM COMENTÁRIOS
+---
+69. (ESTRATEGIA - SIMULADO 01 - 30/10) Trata-se da possibilidade de autenticação segura e única dos usuários do portal a partir da perfeita integração com os aplicativos de gerenciamento de usuários da organização. Assinale a alternativa que indica essa funcionalidade básica:
+a) Integração
+b) Personalização
+c) Gestão de Conteúdo d) Single Sign-On
+e) Taxonomia e Categorização
+---
+SEM COMENTÁRIOS
+---
+70. (ESTRATEGIA - SIMULADO 01 - 30/10) Estão entre as principais definições de gestão eletrônica de documentos, as seguintes definições:
+I - A Gestão Eletrônica de Documentos é a tecnologia que provê um meio de facilmente armazenar, localizar e recuperar informações existentes em documentos e dados eletrônicos durante o seu ciclo de vida.
+II - A Gestão Eletrônica de Documentos é um conjunto de procedimentos informatizados com a finalidade de otimizar e racionalizar a gestão documental.
+III – Gestão Eletrônica de Documentos é um conjunto de módulos interligados que permite a uma empresa gerenciar seus documentos em forma física ou digital.
+a) Apenas a afirmação I é correta.
+b) As afirmações I e II são incorretas.
+c) Apenas as afirmações II e III são corretas.
+d) Apenas a afirmação III é incorreta.
+e) Todas as afirmações são corretas.
+ECONOMIA E FINANÇAS
+---
+SEM COMENTÁRIOS
+---
+71. (ESTRATEGIA - SIMULADO 01 - 30/10) Suponha uma sociedade que produza laranjas (eixo horizontal) e bananas (eixo vertical), cuja fronteira de possibilidades de produção é representada pelo gráfico a seguir.
+Note que há três capacidades produtivas:
+A está abaixo da fronteira, B está sob a fronteira e C está acima da fronteira Assinale a alternativa INCORRETA.
+a) A curva de possibilidades de produção é a representação gráfica do trade-off, o próprio desenho da curva ajuda a explicar que para produzir mais de laranja é necessário abrir mão de parte da produção de banana.
+b) O ponto B representa um ponto de máxima utilização das forças produtivas dessa economia, ou seja, os pontos da fronteira representam as combinações dos fatores no pleno uso das forças produtivas e no máximo custo de produção dada a dotação de fatores.
+c) Os pontos ao longo da curva de possibilidades de produção representam pontos de eficiência da economia.
+d) O ponto A representa um ponto de capacidade ociosa, pois é possível alcançar maiores níveis de produção, ao se deslocar para mais próximo ou para a própria curva de possibilidades de produção.
+e) o ponto C representa um ponto não factível no atual momento, ele não também não pode ser alcançado no futuro devido às limitações do próprio mercado.
+---
+SEM COMENTÁRIOS
+---
+72. (ESTRATEGIA - SIMULADO 01 - 30/10) Considere que a figura abaixo ilustre a demanda por taxistas, para um consumidor que é indiferente em relação a motoristas de Uber.
+Com uma queda no preço dos motoristas de Uber, a demanda por taxistas:
+a) mudará de D1 para D2.
+b) mudará de D2 para D1.
+c) mudará de D2 para D3.
+d) mudará de D1 para D3.
+e) não sofrerá alteração.
+---
+SEM COMENTÁRIOS
+---
+73. (ESTRATEGIA - SIMULADO 01 - 30/10) A função abaixo relaciona a quantidade de equilíbrio adquirida de um dado bem para um dado nível de renda monetária.
+A curva acima representa a:
+a) Curva de Phillips b) Curva de Engel
+c) Curva de Possibilidades de Produção d) Curva de Laffer
+e) Curva de lorenz
+---
+SEM COMENTÁRIOS
+---
+74. (ESTRATEGIA - SIMULADO 01 - 30/10) Suponha que determinado mercado de softwares apresente as seguintes características:
+1\. A estrutura do mercado no qual várias empresas vendem um produto diferenciado.
+2\. Há transparência das informações.
+3\. Com poucas barreiras à entrada.
+4\. Há inúmeros consumidores.
+O mercado com as características supracitadas chama-se:
+a) Concorrência Perfeita b) Monopólio
+c) Concorrência Monopolística d) Oligopólio
+e) Oligopsônio
+---
+SEM COMENTÁRIOS
+---
+75. (ESTRATEGIA - SIMULADO 01 - 30/10) Suponha que um país tenha (em bilhões de reais) os seguintes valores de alguns dos principais agregados macroeconômicos:
+Salários = 70
+Juros pagos às famílias = 100 Aluguéis pagos às famílias = 100 Lucros distribuídos = 100 Impostos diretos = 50 Impostos indiretos =30 Subsídios = 5
+Logo, o PIB a preços de mercado é igual a:
+a) 395
+b) 425
+c) 365
+d) 400
+e) 390
+---
+SEM COMENTÁRIOS
+---
+76. (ESTRATEGIA - SIMULADO 01 - 30/10) Um país que utiliza a metodologia do Fundo Monetário Internacional para divulgação do Balanço de Pagamentos, apresentou os seguintes dados:
+Exportações: 900
+Importações: 800
+Serviços: (−) 500
+Conta Capital: (−) 200 Conta Financeira: 750 O saldo de Transações Correntes atingiu a) 500
+b) - 400
+c) 300
+d) - 600
+e) - 200
+---
+SEM COMENTÁRIOS
+---
+77. (ESTRATEGIA - SIMULADO 01 - 30/10) Observe o gráfico a seguir.
+Essa situação, na qual a curva LM é totalmente horizontal, é conhecida como armadilha da liquidez.
+A respeito do tema supracitado, assinale a alternativa INCORRETA:
+a) A situação de armadilha da liquidez é uma situação na qual a política monetária perde a eficácia.
+b) Na situação de armadilha da liquidez a taxa de juros já se encontra em níveis tão baixos que mesmo que a oferta de moeda aumente, toda essa oferta adicional de moeda será retida pelos agentes.
+c) A situação de armadilha da liquidez a política fiscal perderá a eficácia, pois não teremos impacto na economia.
+d) A armadilha de liquidez exige uma LM horizontal.
+e) Na situação de armadilha da liquidez o governo deve praticar uma política fiscal expansionista reduzindo tributos ou aumentando os gastos públicos.
+---
+SEM COMENTÁRIOS
+---
+78. (ESTRATEGIA - SIMULADO 01 - 30/10) A curva acima estabelece um trade-off entre:
+a) taxas observadas de crescimento e de inflação;
+b) taxas observadas de desemprego e de inflação;
+c) taxas naturais de desemprego e de inflação;
+d) salários reais e nominais;
+e) PIB potencial e nível de preços.
+---
+SEM COMENTÁRIOS
+---
+79. (ESTRATEGIA - SIMULADO 01 - 30/10) Observe o gráfico a seguir.
+Sobre taxa de câmbio e balanço de pagamentos assinale a alternativa INCORRETA.
+a) A hipótese da Curva J aponta para um período inicial em que a desvalorização cambial provoca aumento do saldo comercial.
+b) Em função do tempo, uma desvalorização cambial provoca inicialmente um aumento do valor das importações líquidas.
+c) Num primeiro momento, dadas as condições de empresas e consumidores e suas decisões já tomadas, mantém-se a maior parte da quantidade comprada ou vendida apesar da variação cambial.
+d) Com o passar do tempo, os agentes passam a internalizar a variação e ajustar seu comportamento, de forma que passam a procurar produtos nacionais substitutos.
+e) À medida que os agentes econômicos passam a se ajustar à nova taxa de câmbio, as exportações líquidas aumentam.
+---
+SEM COMENTÁRIOS
+---
+80. (ESTRATEGIA - SIMULADO 01 - 30/10) Considere os seguintes saldos extraídos da contabilidade do Município de Recife- PE.
+De acordo com as determinações da Lei de Responsabilidade Fiscal, assinale a alternativa correta.
+a) O resultado primário do município é de R $60 e a meta de resultado primário deve constar no Projeto de Lei Orçamentária Anual.
+b) O resultado primário do município é de R $70 e a meta de resultado primário deve constar no Projeto de Plano Plurianual.
+c) O resultado primário do município é de R $80 e a meta de resultado primário deve constar no Relatório de Gestão Fiscal.
+d) O resultado primário do município é de R $90 e a meta de resultado primário deve constar no Projeto de Lei de Diretrizes Orçamentárias.
+e) O resultado primário do município é de R \$50 e a meta de resultado primário deve constar no Plano Diretor Municipal.
+---
+SEM COMENTÁRIOS
 ---
 GABARITO
-1. A
-2. C
-3. E
-4. A
-5. E
-6. D
-7. C
-8. E
-9. C
-10. D
-11. D
-12. E
-13. A
-14. B
-15. C
-16. D
-17. E
-18. C
-19. E
-20. C
-21. E
-22. E
-23. B
-24. C
-25. A
-26. E
-27. E
-28. D
-29. E
-30. B
-31. C
-32. B
+1. X
+2. X
+3. X
+4. X
+5. X
+6. X
+7. X
+8. X
+9. X
+10. X
+11. X
+12. X
+13. X
+14. X
+15. X
+16. X
+17. X
+18. X
+19. X
+20. X
+21. X
+22. X
+23. X
+24. X
+25. X
+26. X
+27. X
+28. X
+29. X
+30. X
+31. X
+32. X
+33. X
+34. X
+35. X
+36. X
+37. X
+38. X
+39. X
+40. X
+41. X
+42. X
+43. X
+44. X
+45. X
+46. X
+47. X
+48. X
+49. X
+50. X
+51. X
+52. X
+53. X
+54. X
+55. X
+56. X
+57. X
+58. X
+59. X
+60. X
+61. X
+62. X
+63. X
+64. X
+65. X
+66. X
+67. X
+68. X
+69. X
+70. X
+71. X
+72. X
+73. X
+74. X
+75. X
+76. X
+77. X
+78. X
+79. X
+80. X
