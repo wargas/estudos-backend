@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const staticConfig = {
-    enabled: true,
+    enabled: false,
     dotFiles: 'ignore',
     etag: true,
     lastModified: true,

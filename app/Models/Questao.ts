@@ -2,6 +2,7 @@ import { BaseModel, column, computed, HasMany, hasMany, ManyToMany, manyToMany }
 import { QuestionHelper } from 'App/repositories/QuestionHelper'
 import markdownToHtml from 'App/Utils/markdown'
 import { bancas } from 'Config/bancas'
+import { escape } from 'lodash'
 import { DateTime } from 'luxon'
 import Aula from './Aula'
 import Comentario from './Comentario'
@@ -54,7 +55,12 @@ export default class Questao extends BaseModel {
 
   @computed({serializeAs: 'header'})
   public get extractEnunciado() {
-    return this.helper.extractEnunciadoHeader(this.enunciado)
+    let text = this.helper.extractEnunciadoHeader(this.enunciado)
+    try {
+      return decodeURIComponent(escape(text))
+    } catch (error) {
+      return text
+    }
   }
 
   @column({

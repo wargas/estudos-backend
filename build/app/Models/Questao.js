@@ -16,6 +16,7 @@ const Orm_1 = global[Symbol.for('ioc.use')]("Adonis/Lucid/Orm");
 const QuestionHelper_1 = global[Symbol.for('ioc.use')]("App/repositories/QuestionHelper");
 const markdown_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Utils/markdown"));
 const bancas_1 = global[Symbol.for('ioc.use')]("Config/bancas");
+const lodash_1 = require("lodash");
 const luxon_1 = require("luxon");
 const Aula_1 = __importDefault(require("./Aula"));
 const Comentario_1 = __importDefault(require("./Comentario"));
@@ -38,7 +39,13 @@ class Questao extends Orm_1.BaseModel {
         return this.helper.extractEnunciadoContent(this?.enunciado || '');
     }
     get extractEnunciado() {
-        return this.helper.extractEnunciadoHeader(this.enunciado);
+        let text = this.helper.extractEnunciadoHeader(this.enunciado);
+        try {
+            return decodeURIComponent(lodash_1.escape(text));
+        }
+        catch (error) {
+            return text;
+        }
     }
 }
 Questao.table = "questoes";

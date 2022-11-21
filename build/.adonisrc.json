@@ -4,6 +4,10 @@
     {
       "pattern": "public/**",
       "reloadServer": false
+    },
+    {
+      "pattern": "./env",
+      "reloadServer": false
     }
   ],
   "commands": [
@@ -47,5 +51,5 @@
   "aceProviders": [
     "@adonisjs/repl"
   ],
-  "lastCompiledAt": "2022-10-06T13:33:31.170Z"
+  "lastCompiledAt": "2022-11-21T14:10:13.010Z"
 }

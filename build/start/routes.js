@@ -3,11 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const Event_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Event"));
 const Route_1 = __importDefault(global[Symbol.for('ioc.use')]("Adonis/Core/Route"));
-Event_1.default.on("db:query", (query) => {
-    console.log(query.sql);
-});
 Route_1.default.post("api/auth/login", "AuthController.login");
 Route_1.default.group(() => {
     Route_1.default.resource("disciplinas", "DisciplinasController");
@@ -41,4 +37,10 @@ Route_1.default.group(() => {
 })
     .prefix("api")
     .middleware("auth");
+Route_1.default.get('/api', () => {
+    return { api: 'v2' };
+});
+Route_1.default.get('/', () => {
+    return { api: 'v2' };
+});
 //# sourceMappingURL=routes.js.map

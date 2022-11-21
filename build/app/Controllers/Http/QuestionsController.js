@@ -11,6 +11,7 @@ const Respondida_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Models/R
 const QuestionHelper_1 = global[Symbol.for('ioc.use')]("App/repositories/QuestionHelper");
 const luxon_1 = require("luxon");
 const promises_1 = __importDefault(require("fs/promises"));
+const extract_from_text_1 = __importDefault(global[Symbol.for('ioc.use')]("App/Utils/extract-from-text"));
 class QuestionsController {
     async index({ request, params }) {
         const { aula_id, caderno_id } = params;
@@ -81,7 +82,7 @@ class QuestionsController {
                     return this._extractFromMarkdown(dataText, aula_id);
                 }
                 else {
-                    return this._extractFromText(dataText, aula_id);
+                    return extract_from_text_1.default(dataText, aula_id);
                 }
             }
         }
@@ -252,7 +253,6 @@ class QuestionsController {
         const ids = conteudoText.split('\n')
             .find(l => l.startsWith('[UPDATE]'))?.replace('[UPDATE]', '')
             .split(',');
-        console.log(ids);
         const questions = conteudoText.replace(/\d{1,3}\. \(/g, "@@@(")
             .replace(/(\n|\s)\(?[a-eA-E]\) /gi, "\n***\n")
             .split('@@@').slice(1);

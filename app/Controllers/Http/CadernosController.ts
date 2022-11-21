@@ -34,6 +34,7 @@ export default class CadernosController {
           .where('aula_id', aula_id)
       )
 
+
     return Database.transaction(async trx => {
       const caderno = await Caderno.create({
         aula_id: aula_id,
